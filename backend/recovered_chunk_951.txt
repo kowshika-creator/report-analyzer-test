@@ -1,0 +1,99 @@
+Created At: 2026-05-31T10:49:44Z
+Completed At: 2026-05-31T10:49:44Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 360
+Total Bytes: 18204
+Showing lines 1 to 200
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: "use client";
+2: 
+3: import React, { useState, useEffect, useRef } from "react";
+4: import { Mic, MicOff, Volume2, Send, Bot, User, AlertCircle, RefreshCw } from "lucide-react";
+5: import { MetricAnalysis } from "@/lib/api";
+6: 
+7: interface AIChatbotProps {
+8:   metrics: MetricAnalysis[];
+9:   language: string;
+10: }
+11: 
+12: interface Message {
+13:   role: "user" | "model";
+14:   content: string;
+15: }
+16: 
+17: export default function AIChatbot({ metrics, language }: AIChatbotProps) {
+18:   const [messages, setMessages] = useState<Message[]>([]);
+19:   const [inputMessage, setInputMessage] = useState("");
+20:   const [isRecording, setIsRecording] = useState(false);
+21:   const [isLoading, setIsLoading] = useState(false);
+22:   const [speakingMessageIdx, setSpeakingMessageIdx] = useState<number | null>(null);
+23:   const chatEndRef = useRef<HTMLDivElement>(null);
+24:   
+25:   // Speech Recognition Web API reference
+26:   const recognitionRef = useRef<any>(null);
+27: 
+28:   // Initialize Web Speech Recognition
+29:   useEffect(() => {
+30:     if (typeof window !== "undefined") {
+31:       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+32:       if (SpeechRecognition) {
+33:         const rec = new SpeechRecognition();
+34:         rec.continuous = false;
+35:         rec.interimResults = false;
+36:         rec.lang = language.toLowerCase() === "spanish" ? "es-ES" 
+37:                   : language.toLowerCase() === "hindi" ? "hi-IN"
+38:                   : language.toLowerCase() === "arabi
+<truncated 6653 bytes>
+\s\S]*/gi, "").trim(); // strip disclaimer on speech
+150:       const utterance = new SpeechSynthesisUtterance(cleanText);
+151:       
+152:       // Select appropriate speech engine locale
+153:       const lang = language.toLowerCase();
+154:       utterance.lang = lang === "spanish" ? "es-ES" 
+155:                      : lang === "hindi" ? "hi-IN"
+156:                      : lang === "arabic" ? "ar-SA" 
+157:                      : "en-US";
+158:       
+159:       utterance.rate = 0.95; // calm, soothing tempo
+160: 
+161:       utterance.onend = () => {
+162:         setSpeakingMessageIdx(null);
+163:       };
+164: 
+165:       utterance.onerror = () => {
+166:         setSpeakingMessageIdx(null);
+167:       };
+168: 
+169:       setSpeakingMessageIdx(index);
+170:       window.speechSynthesis.speak(utterance);
+171:     } else {
+172:       alert("Text-to-speech is not supported in this browser.");
+173:     }
+174:   };
+175: 
+176:   // Sending message to backend /api/chat
+177:   const handleSendMessage = async (e: React.FormEvent) => {
+178:     e.preventDefault();
+179:     if (!inputMessage.trim() || isLoading) return;
+180: 
+181:     const userMessage = inputMessage.trim();
+182:     setInputMessage("");
+183:     setMessages(prev => [...prev, { role: "user", content: userMessage }]);
+184:     setIsLoading(true);
+185: 
+186:     try {
+187:       const response = await fetch("http://localhost:8000/api/chat", {
+188:         method: "POST",
+189:         headers: { "Content-Type": "application/json" },
+190:         body: json.stringify({
+191:           chat_history: messages.map(m => ({ role: m.role, content: m.content })),
+192:           current_message: userMessage,
+193:           extracted_metrics: metrics
+194:         }),
+195:       });
+196: 
+197:       if (!response.ok) {
+198:         throw new Error("Chat request failed.");
+199:       }
+200: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

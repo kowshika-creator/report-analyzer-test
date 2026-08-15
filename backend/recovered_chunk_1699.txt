@@ -1,0 +1,62 @@
+Created At: 2026-05-31T13:03:48Z
+Completed At: 2026-05-31T13:03:48Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 755
+Total Bytes: 51154
+Showing lines 430 to 556
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+430:       console.warn("Backend chat failed. Simulating clinical companion fallback locally:", err.message);
+431:       
+432:       // Beautiful local dialogue fallback execution
+433:       setTimeout(() => {
+434:         const q = messageText.toLowerCase();
+435:         let reply = "";
+436:         const val_map = metrics.reduce((acc, curr) => ({ ...acc, [curr.biomarker_name.toLowerCase()]: curr }), {} as Record<string, MetricAnalysis>);
+437:         const toneKey = selectedTone.toLowerCase();
+438: 
+439:         if (q.includes("hemoglobin") || q.includes("anemia") || q.includes("fatigue") || q.includes("tired") || q.includes("hb") || q.includes("weak")) {
+440:           if ("hemoglobin" in val_map) {
+441:             const hb = val_map["hemoglobin"];
+442:             if (hb.status.toLowerCase() === "low") {
+443:               if (toneKey === "clinical") {
+444:                 reply = `• Diagnostic Indicator: Hemoglobin low (${hb.value} g/dL). Standard limits: ${hb.min_normal} - ${hb.max_normal} {hb.unit}.\n` +
+445:                         `• Pathophysiology: Reduced red blood cell count limits oxygen transport capacities.\n` +
+446:                         `• Recommendations: Iron-dense dietary modifications (spinach, proteins). Coordinate serum ferritin panels with primary provider.`;
+447:               } else if (toneKey === "educational") {
+448:                 reply = `Your Hemoglobin level is ${hb.value} g/dL, which is below the optimal range of ${hb.min_normal} - ${hb.max_normal} ${hb.unit}. ` +
+449:                         `Bio
+<truncated 8927 bytes>
+d metrics to your doctor!`;
+525:               }
+526:             } else {
+527:               reply = `Your TSH of ${tsh.value} uIU/mL is fully normal, indicating healthy thyroid furnace function.`;
+528:             }
+529:           } else {
+530:             reply = "Thyroid hormones guide metabolic speed. Elevated TSH indicates sluggish thyroid responses. Consult with your physician for thyroid hormone checks.";
+531:           }
+532:         } else {
+533:           if (toneKey === "clinical") {
+534:             reply = `Clinical medical companion active. Parsed blood metrics: Hemoglobin, Glucose, Lipids, TSH mapped. Ask direct clinical questions.`;
+535:           } else if (toneKey === "educational") {
+536:             reply = `Welcome! I'm your biological science assistant. Let's analyze your physiological pathways. Ask about the cells and biochemistry of your report!`;
+537:           } else if (toneKey === "family") {
+538:             reply = `Hello! I am your friendly body helper assistant. Ask me anything about your blood report, and I'll explain it in fun, simple stories!`;
+539:           } else {
+540:             reply = "I've reviewed your clinical metrics. I can explain the optimal ranges and health warnings for your Hemoglobin, Fasting Blood Sugar, Lipids, or TSH. Which value would you like me to discuss further?";
+541:           }
+542:         }
+543: 
+544:         const fallbackMessages = [...messages, nextUserMsg, { role: "model" as const, content: reply }];
+545:         setMessages(fallbackMessages);
+546: 
+547:         // Auto TTS if Voice Assistance is enabled
+548:         if (voiceAssistanceRef.current) {
+549:           const nextIdx = fallbackMessages.length - 1;
+550:           readOutLoud(reply, nextIdx);
+551:         }
+552:       }, 1200);
+553:     } finally {
+554:       setIsLoading(false);
+555:     }
+556:   };
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,85 @@
+Created At: 2026-05-31T12:52:52Z
+Completed At: 2026-05-31T12:52:52Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 755
+Total Bytes: 51154
+Showing lines 1 to 100
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: "use client";
+2: 
+3: import React, { useState, useEffect, useRef } from "react";
+4: import { Mic, MicOff, Volume2, Send, Bot, User, AlertCircle, RefreshCw, Heart, ClipboardList, GraduationCap, Smile, VolumeX } from "lucide-react";
+5: import { MetricAnalysis } from "@/lib/api";
+6: 
+7: interface AIChatbotProps {
+8:   metrics: MetricAnalysis[];
+9:   language: string;
+10: }
+11: 
+12: interface Message {
+13:   role: "user" | "model";
+14:   content: string;
+15: }
+16: 
+17: const TONE_TRANSLATIONS: Record<string, {
+18:   title: string;
+19:   voiceAssistance: string;
+20:   voiceAssistanceDesc: string;
+21:   tones: Record<string, { label: string; desc: string }>;
+22: }> = {
+23:   english: {
+24:     title: "Assistant Tone",
+25:     voiceAssistance: "Voice Assistant",
+26:     voiceAssistanceDesc: "Speak & listen automatically in English",
+27:     tones: {
+28:       Empathetic: { label: "Empathetic", desc: "Warm, reassuring, and anxiety-softening support" },
+29:       Clinical: { label: "Clinical/Precise", desc: "Direct, factual summaries and diagnostic values" },
+30:       Educational: { label: "Educational", desc: "Deep biological pathways and scientific analogies" },
+31:       Family: { label: "Family Mode", desc: "Very simple terms and positive encouragement" },
+32:     }
+33:   },
+34:   tamil: {
+35:     title: "உதவியாளர் குரல் தொனி",
+36:     voiceAssistance: "குரல் உதவி",
+37:     voiceAssistanceDesc: "தமிழில் தானாகப் பேசவும் கேட்கவும்",
+3
+<truncated 2561 bytes>
+ucational: { label: "शैक्षणिक", desc: "गहन जैविक प्रक्रियाएं और व्यावहारिक उदाहरण" },
+64:       Family: { label: "पारिवारिक मोड", desc: "बच्चों और बुजुर्गों के लिए बेहद सरल शब्द" },
+65:     }
+66:   }
+67: };
+68: 
+69: export default function AIChatbot({ metrics, language }: AIChatbotProps) {
+70:   const [messages, setMessages] = useState<Message[]>([]);
+71:   const [inputMessage, setInputMessage] = useState("");
+72:   const [isRecording, setIsRecording] = useState(false);
+73:   const [isLoading, setIsLoading] = useState(false);
+74:   const [speakingMessageIdx, setSpeakingMessageIdx] = useState<number | null>(null);
+75:   
+76:   // Custom states for Tones and Voice assistance
+77:   const [selectedTone, setSelectedTone] = useState<"Empathetic" | "Clinical" | "Educational" | "Family">("Empathetic");
+78:   const [voiceAssistance, setVoiceAssistance] = useState(false);
+79: 
+80:   const chatEndRef = useRef<HTMLDivElement>(null);
+81:   
+82:   // Speech Recognition Web API references
+83:   const recognitionRef = useRef<any>(null);
+84:   const voiceAssistanceRef = useRef(voiceAssistance);
+85:   const selectedToneRef = useRef(selectedTone);
+86:   const finalTranscriptRef = useRef("");
+87: 
+88:   // Sync references to prevent closure leaks in event listeners
+89:   useEffect(() => {
+90:     voiceAssistanceRef.current = voiceAssistance;
+91:   }, [voiceAssistance]);
+92: 
+93:   useEffect(() => {
+94:     selectedToneRef.current = selectedTone;
+95:   }, [selectedTone]);
+96: 
+97:   // Translate UI strings dynamically based on selected language
+98:   const langKey = language.trim().toLowerCase();
+99:   const t = TONE_TRANSLATIONS[langKey] || TONE_TRANSLATIONS.english;
+100: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

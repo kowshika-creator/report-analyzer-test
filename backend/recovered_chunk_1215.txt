@@ -1,0 +1,15 @@
+Created At: 2026-05-31T11:15:51Z
+Completed At: 2026-05-31T11:15:51Z
+File Path: `file:///C:/Users/nigal/.gemini/antigravity/brain/924f6a95-f05c-4bf0-8015-55dfd1b82d83/task.md`
+Total Lines: 26
+Total Bytes: 2038
+Showing lines 20 to 26
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+20: - [x] **Phase 4: Global Styling Polish & Dark Mode Adaptation**
+21:   - [x] Replace hardcoded card background and border classes with dynamic design tokens (`bg-card`, `bg-background`, `border-border`, `text-foreground`) inside `AIChatbot.tsx`
+22: 
+23: - [/] **Phase 5: Verification & Production Builds**
+24:   - [ ] Run a standard production Next.js build check to confirm zero linter, syntax, or compile errors
+25:   - [ ] Verify tone switches, voice input auto-submissions, and text-to-speech pronunciations manually
+26: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,82 @@
+Created At: 2026-05-31T11:12:46Z
+Completed At: 2026-05-31T11:12:47Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 360
+Total Bytes: 19801
+Showing lines 25 to 130
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+25:   // Speech Recognition Web API reference
+26:   const recognitionRef = useRef<any>(null);
+27: 
+28:   // Initialize Web Speech Recognition
+29:   useEffect(() => {
+30:     if (typeof window !== "undefined") {
+31:       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+32:       if (SpeechRecognition) {
+33:         const rec = new SpeechRecognition();
+34:         rec.continuous = false;
+35:         rec.interimResults = false;
+36:         rec.lang = language.toLowerCase() === "tamil" ? "ta-IN" 
+37:                   : language.toLowerCase() === "hindi" ? "hi-IN"
+38:                   : language.toLowerCase() === "telugu" ? "te-IN" 
+39:                   : "en-US";
+40: 
+41:         rec.onstart = () => {
+42:           setIsRecording(true);
+43:         };
+44: 
+45:         rec.onresult = (event: any) => {
+46:           const transcript = event.results[0][0].transcript;
+47:           setInputMessage(prev => prev + (prev ? " " : "") + transcript);
+48:         };
+49: 
+50:         rec.onerror = (e: any) => {
+51:           console.error("Speech recognition error:", e);
+52:           setIsRecording(false);
+53:         };
+54: 
+55:         rec.onend = () => {
+56:           setIsRecording(false);
+57:         };
+58: 
+59:         recognitionRef.current = rec;
+60:       }
+61:     }
+62:   }, [language]);
+63: 
+64:   // Scroll to bottom of chat stream on new messages
+65:   useEffect(() => {
+66:     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+67:   }, [messages, isLoading]);
+68: 
+69:   // Gene
+<truncated 4762 bytes>
+చించాలనుకుంటున్నారు?";
+104:       } else {
+105:         greeting += "అద్భుతమైన వార్త! మీ విశ్లేషించబడిన బయోమార్కర్లన్నీ ఆరోగ్యకరమైన సాధారణ పరిధిలోనే ఉన్నాయి. మీ ఆరోగ్యాన్ని కాపాడుకోవడం గురించి ఏవైనా ప్రశ్నలు ఉన్నాయా?";
+106:       }
+107:     } else {
+108:       // English (Default)
+109:       greeting = "Hello! I have completed a holistic review of your clinical laboratory report. ";
+110:       if (lowMetrics.length > 0 || highMetrics.length > 0) {
+111:         greeting += "I observed that a few of your biomarkers ";
+112:         if (highMetrics.length > 0) greeting += `(such as ${highMetrics.join(", ")}) are elevated `;
+113:         if (lowMetrics.length > 0) greeting += `${highMetrics.length > 0 ? "and " : ""}(such as ${lowMetrics.join(", ")}) are low. `;
+114:         greeting += "I am here to explain what these findings represent in simple, comforting, non-technical terms. What would you like to discuss today?";
+115:       } else {
+116:         greeting += "Excellent news! All of your analyzed biomarkers lie well within healthy clinical optimal ranges. Do you have any questions about maintaining your optimal health?";
+117:       }
+118:     }
+119: 
+120:     setMessages([{ role: "model", content: greeting }]);
+121:   }, [metrics, language]);
+122: 
+123:   // Audio speech recording toggle
+124:   const toggleRecording = () => {
+125:     if (!recognitionRef.current) {
+126:       alert("Speech recognition is not supported in this browser. Please try Chrome, Edge, or Safari.");
+127:       return;
+128:     }
+129:     
+130:     if (isRecording) {
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

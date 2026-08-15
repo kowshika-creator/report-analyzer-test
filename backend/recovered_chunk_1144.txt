@@ -1,0 +1,85 @@
+Created At: 2026-05-31T11:12:42Z
+Completed At: 2026-05-31T11:12:42Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 360
+Total Bytes: 19801
+Showing lines 180 to 280
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+180: 
+181:     const userMessage = inputMessage.trim();
+182:     setInputMessage("");
+183:     setMessages(prev => [...prev, { role: "user", content: userMessage }]);
+184:     setIsLoading(true);
+185: 
+186:     try {
+187:       const response = await fetch("http://localhost:8000/api/chat", {
+188:         method: "POST",
+189:         headers: { "Content-Type": "application/json" },
+190:         body: JSON.stringify({
+191:           chat_history: messages.map(m => ({ role: m.role, content: m.content })),
+192:           current_message: userMessage,
+193:           extracted_metrics: metrics
+194:         }),
+195:       });
+196: 
+197:       if (!response.ok) {
+198:         throw new Error("Chat request failed.");
+199:       }
+200: 
+201:       const data = await response.json();
+202:       setMessages(prev => [...prev, { role: "model", content: data.response }]);
+203:     } catch (err: any) {
+204:       console.warn("Backend chat failed. Simulating clinical companion fallback locally:", err.message);
+205:       
+206:       // Beautiful local dialogue fallback execution
+207:       setTimeout(() => {
+208:         const q = userMessage.toLowerCase();
+209:         let reply = "";
+210:         const val_map = metrics.reduce((acc, curr) => ({ ...acc, [curr.biomarker_name.toLowerCase()]: curr }), {} as Record<string, MetricAnalysis>);
+211: 
+212:         if (q.includes("hemoglobin") || q.includes("anemia") || q.includes("fatigue") || q.includes("tired")) {
+213:           if ("hemoglobin" in val_map) {
+214:             const hb = val_map["hemoglobin"];
+215
+<truncated 2980 bytes>
+ealth warnings for your Hemoglobin, Fasting Blood Sugar, Lipids, or TSH. Which value would you like me to discuss further?";
+242:         }
+243: 
+244:         setMessages(prev => [...prev, { role: "model", content: reply }]);
+245:       }, 1200);
+246:     } finally {
+247:       setIsLoading(false);
+248:     }
+249:   };
+250: 
+251:   return (
+252:     <div className="w-full flex flex-col h-[520px] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm animate-fadeIn">
+253:       {/* Messages Stream Container */}
+254:       <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-4 bg-slate-50/50">
+255:         {messages.map((msg, idx) => (
+256:           <div
+257:             key={idx}
+258:             className={`flex gap-3 max-w-[85%] ${
+259:               msg.role === "user" ? "self-end flex-row-reverse" : "self-start"
+260:             }`}
+261:           >
+262:             {/* Avatar icons */}
+263:             <div
+264:               className={`p-2 rounded-xl flex-shrink-0 flex items-center justify-center h-9 w-9 ${
+265:                 msg.role === "user" ? "bg-indigo-900 text-white" : "bg-teal-50 border border-teal-100 text-teal-800"
+266:               }`}
+267:             >
+268:               {msg.role === "user" ? <User size={16} /> : <Bot size={16} />}
+269:             </div>
+270: 
+271:             {/* Content text bubbles */}
+272:             <div className="flex flex-col gap-1">
+273:               <div
+274:                 className={`p-3.5 rounded-2xl text-xs font-semibold leading-relaxed shadow-sm border ${
+275:                   msg.role === "user"
+276:                     ? "bg-indigo-900 text-white border-indigo-950 rounded-tr-none"
+277:                     : "bg-white text-slate-800 border-slate-200 rounded-tl-none"
+278:                 }`}
+279:               >
+280:                 {msg.content}
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

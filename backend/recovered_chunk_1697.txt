@@ -1,0 +1,44 @@
+Created At: 2026-05-31T13:03:44Z
+Completed At: 2026-05-31T13:03:44Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 755
+Total Bytes: 51154
+Showing lines 400 to 435
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+400:     const nextUserMsg: Message = { role: "user", content: messageText };
+401:     setMessages(prev => [...prev, nextUserMsg]);
+402:     setIsLoading(true);
+403: 
+404:     try {
+405:       const response = await fetch("http://localhost:8000/api/chat", {
+406:         method: "POST",
+407:         headers: { "Content-Type": "application/json" },
+408:         body: JSON.stringify({
+409:           chat_history: messages.map(m => ({ role: m.role, content: m.content })),
+410:           current_message: messageText,
+411:           extracted_metrics: metrics,
+412:           selected_tone: selectedTone
+413:         }),
+414:       });
+415: 
+416:       if (!response.ok) {
+417:         throw new Error("Chat request failed.");
+418:       }
+419: 
+420:       const data = await response.json();
+421:       const updatedMessages = [...messages, nextUserMsg, { role: "model" as const, content: data.response }];
+422:       setMessages(updatedMessages);
+423: 
+424:       // Auto TTS if Voice Assistance is enabled
+425:       if (voiceAssistanceRef.current) {
+426:         const nextIdx = updatedMessages.length - 1;
+427:         readOutLoud(data.response, nextIdx);
+428:       }
+429:     } catch (err: any) {
+430:       console.warn("Backend chat failed. Simulating clinical companion fallback locally:", err.message);
+431:       
+432:       // Beautiful local dialogue fallback execution
+433:       setTimeout(() => {
+434:         const q = messageText.toLowerCase();
+435:         let reply = "";
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

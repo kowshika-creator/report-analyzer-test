@@ -1,0 +1,50 @@
+==================================================
+METROPOLIS CLINICAL DIAGNOSTICS LABS
+==================================================
+Patient Name: John Doe
+Date of Analysis: 2026-05-31
+Session: Standard Morning Fasting
+==================================================
+
+CLINICAL BLOOD ANALYSIS RESULTS:
+
+BIOMARKER            VALUE      UNIT          STATUS
+--------------------------------------------------
+Hemoglobin           10.5       g/dL          ABNORMAL
+White Blood Cells    7.5        10^3/uL       NORMAL
+Platelets            130.0      10^3/uL       LOW
+Neutrophils          78.0       %             HIGH
+
+FASTING LIPID PANEL:
+--------------------------------------------------
+Total Cholesterol    260.0      mg/dL         HIGH
+Triglycerides        185.0      mg/dL         ELEVATED
+HDL Cholesterol      35.0       mg/dL         LOW
+LDL Cholesterol      155.0      mg/dL         HIGH
+
+METABOLIC PROFILE:
+--------------------------------------------------
+Fasting Glucose      145.0      mg/dL         HIGH
+HbA1c                5.8        %             PREDIABETIC
+Creatinine           0.85       mg/dL         NORMAL
+
+THYROID PROFILE:
+--------------------------------------------------
+TSH                  6.2        uIU/mL        HIGH
+Free T4              1.1        ng/dL         NORMAL
+
+LIVER FUNCTION TESTS (LFT):
+--------------------------------------------------
+AST                  48.0       U/L           HIGH
+ALT                  55.0       U/L           HIGH
+Total Bilirubin      0.85       mg/dL         NORMAL
+Direct Bilirubin     0.15       mg/dL         NORMAL
+Alkaline Phosphatase 85.0       mIU/mL        NORMAL
+
+INFLAMMATORY PROFILE:
+--------------------------------------------------
+C-Reactive Protein   45.0       mg/L          HIGH
+
+==================================================
+Lab Comments: Holistic medical range matching recommended.
+==================================================

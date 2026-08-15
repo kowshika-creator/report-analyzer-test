@@ -1,0 +1,68 @@
+Created At: 2026-05-31T11:03:55Z
+Completed At: 2026-05-31T11:03:55Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 359
+Total Bytes: 19731
+Showing lines 1 to 60
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: "use client";
+2: 
+3: import React, { useState, useEffect, useRef } from "react";
+4: import { Mic, MicOff, Volume2, Send, Bot, User, AlertCircle, RefreshCw } from "lucide-react";
+5: import { MetricAnalysis } from "@/lib/api";
+6: 
+7: interface AIChatbotProps {
+8:   metrics: MetricAnalysis[];
+9:   language: string;
+10: }
+11: 
+12: interface Message {
+13:   role: "user" | "model";
+14:   content: string;
+15: }
+16: 
+17: export default function AIChatbot({ metrics, language }: AIChatbotProps) {
+18:   const [messages, setMessages] = useState<Message[]>([]);
+19:   const [inputMessage, setInputMessage] = useState("");
+20:   const [isRecording, setIsRecording] = useState(false);
+21:   const [isLoading, setIsLoading] = useState(false);
+22:   const [speakingMessageIdx, setSpeakingMessageIdx] = useState<number | null>(null);
+23:   const chatEndRef = useRef<HTMLDivElement>(null);
+24:   
+25:   // Speech Recognition Web API reference
+26:   const recognitionRef = useRef<any>(null);
+27: 
+28:   // Initialize Web Speech Recognition
+29:   useEffect(() => {
+30:     if (typeof window !== "undefined") {
+31:       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+32:       if (SpeechRecognition) {
+33:         const rec = new SpeechRecognition();
+34:         rec.continuous = false;
+35:         rec.interimResults = false;
+36:         rec.lang = language.toLowerCase() === "tamil" ? "ta-IN" 
+37:                   : language.toLowerCase() === "hindi" ? "hi-IN"
+38:                   : language.toLowerCase() === "telugu" ? "te-IN" 
+39:                   : "en-US";
+40: 
+41:         rec.onstart = () => {
+42:           setIsRecording(true);
+43:         };
+44: 
+45:         rec.onresult = (event: any) => {
+46:           const transcript = event.results[0][0].transcript;
+47:           setInputMessage(prev => prev + (prev ? " " : "") + transcript);
+48:         };
+49: 
+50:         rec.onerror = (e: any) => {
+51:           console.error("Speech recognition error:", e);
+52:           setIsRecording(false);
+53:         };
+54: 
+55:         rec.onend = () => {
+56:           setIsRecording(false);
+57:         };
+58: 
+59:         recognitionRef.current = rec;
+60:       }
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

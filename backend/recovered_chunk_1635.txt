@@ -1,0 +1,79 @@
+Created At: 2026-05-31T12:55:06Z
+Completed At: 2026-05-31T12:55:06Z
+File Path: `file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx`
+Total Lines: 755
+Total Bytes: 51154
+Showing lines 640 to 755
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+640:             <span className="bg-white w-4 h-4 rounded-full shadow-md transition-all"></span>
+641:           </button>
+642:         </div>
+643: 
+644:       </div>
+645: 
+646:       {/* 2. Messages Stream Container */}
+647:       <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-4 bg-background/50">
+648:         {messages.map((msg, idx) => (
+649:           <div
+650:             key={idx}
+651:             className={`flex gap-3 max-w-[85%] ${
+652:               msg.role === "user" ? "self-end flex-row-reverse" : "self-start"
+653:             }`}
+654:           >
+655:             {/* Avatar icons */}
+656:             <div
+657:               className={`p-2 rounded-xl flex-shrink-0 flex items-center justify-center h-9 w-9 ${
+658:                 msg.role === "user" 
+659:                   ? "bg-indigo-900 text-white dark:bg-indigo-800" 
+660:                   : "bg-teal-50 border border-teal-100 text-teal-800 dark:bg-teal-950/20 dark:border-teal-900/30 dark:text-teal-400"
+661:               }`}
+662:             >
+663:               {msg.role === "user" ? <User size={16} /> : <Bot size={16} />}
+664:             </div>
+665: 
+666:             {/* Content text bubbles */}
+667:             <div className="flex flex-col gap-1">
+668:               <div
+669:                 className={`p-3.5 rounded-2xl text-xs font-semibold leading-relaxed shadow-sm border ${
+670:                   msg.role === "user"
+671:                     ? "bg-indigo-900 text-white border-indigo-950 rounded-tr-none dark:bg-indigo-800 dark:border-indigo-900"
+672:     
+<truncated 2764 bytes>
+  <form onSubmit={handleSendMessage} className="p-4 bg-card border-t border-border flex gap-2.5 items-center">
+720:         {/* Voice recording Mic button */}
+721:         <button
+722:           type="button"
+723:           onClick={toggleRecording}
+724:           disabled={isLoading}
+725:           className={`p-2.5 rounded-xl border flex items-center justify-center transition-all ${
+726:             isRecording
+727:               ? "bg-rose-500/10 border-rose-500/30 text-rose-500 animate-pulse glow-rose"
+728:               : "bg-background border-border text-foreground/60 hover:bg-background/80"
+729:           }`}
+730:           title={isRecording ? "Stop Recording" : "Speak a Question"}
+731:         >
+732:           {isRecording ? <MicOff size={18} /> : <Mic size={18} />}
+733:         </button>
+734: 
+735:         <input
+736:           type="text"
+737:           value={inputMessage}
+738:           onChange={(e) => setInputMessage(e.target.value)}
+739:           placeholder="Ask a question about your clinical results..."
+740:           disabled={isLoading}
+741:           className="flex-1 bg-background border border-border rounded-xl px-4 py-2 text-xs font-semibold text-foreground placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all disabled:opacity-60"
+742:         />
+743: 
+744:         <button
+745:           type="submit"
+746:           disabled={!inputMessage.trim() || isLoading}
+747:           className="p-2.5 rounded-xl bg-indigo-900 text-white flex items-center justify-center hover:bg-indigo-950 dark:bg-indigo-800 dark:hover:bg-indigo-900 transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-indigo-900/10"
+748:         >
+749:           <Send size={16} />
+750:         </button>
+751:       </form>
+752:     </div>
+753:   );
+754: }
+755: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

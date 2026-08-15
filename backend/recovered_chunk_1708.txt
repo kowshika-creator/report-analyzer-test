@@ -1,0 +1,80 @@
+Created At: 2026-05-31T13:16:24Z
+Completed At: 2026-05-31T13:16:24Z
+File Path: `file:///C:/Users/nigal/.gemini/antigravity/brain/924f6a95-f05c-4bf0-8015-55dfd1b82d83/implementation_plan.md`
+Total Lines: 92
+Total Bytes: 4641
+Showing lines 1 to 92
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: # Implementation Plan: Google Sign In & Universal Language Integration
+2: 
+3: We are implementing Google Sign-In verification and universal language integration across the AXON platform. When Tamil, Hindi, Telugu, or English is selected, the application will adapt fully, translating not just UI static texts, but also the AI assistant's greetings, core chatbot diagnostic responses, local fallback processors, Speech Recognition, and Speech Synthesis accents.
+4: 
+5: ---
+6: 
+7: ## User Review Required
+8: 
+9: > [!NOTE]
+10: > 1. We will expand the backend Pydantic `ChatRequest` schema to support a `language` property.
+11: > 2. The Gemini system prompt will be dynamically injected with translation instructions enforcing response translation in the selected language.
+12: > 3. The local fallback simulator will be updated with high-fidelity, translated clinical insights in Tamil, Hindi, and Telugu.
+13: > 4. Text-To-Speech (TTS) will search for native voices (`ta-IN`, `te-IN`, `hi-IN`) to speak in natural regional accents.
+14: 
+15: ---
+16: 
+17: ## Proposed Changes
+18: 
+19: ### 1. Backend Schema Extension
+20: 
+21: #### [MODIFY] [schemas.py](file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/backend/schemas.py)
+22: - Inside the `ChatRequest` Pydantic model, add the `language` field:
+23:   ```python
+24:   class ChatRequest(BaseModel):
+25:       chat_history: List[ChatMessage] = []
+26:       current_message: str
+27:       extracted_metrics: List[MetricAnalysis] = []
+28:       selected_tone: Optional[str] = "Empathetic"
+29:       language:
+<truncated 1475 bytes>
+51:   body: JSON.stringify({
+52:     chat_history: messages.map(m => ({ role: m.role, content: m.content })),
+53:     current_message: messageText,
+54:     extracted_metrics: metrics,
+55:     selected_tone: selectedTone,
+56:     language: language // Dynamically maps English, Tamil, Hindi, Telugu
+57:   })
+58:   ```
+59: 
+60: ---
+61: 
+62: ### 4. Speech Synthesis Native Accent Allocation
+63: 
+64: #### [MODIFY] [AIChatbot.tsx](file:///c:/Users/nigal/Desktop/Medical%20report%20analyzer/frontend/src/components/AIChatbot.tsx)
+65: - In the `readOutLoud` function, leverage `window.speechSynthesis.getVoices()` to dynamically fetch available browsers voices.
+66: - Locate a voice matching the target language:
+67:   - `Tamil` -> Locale `ta-IN`
+68:   - `Hindi` -> Locale `hi-IN`
+69:   - `Telugu` -> Locale `te-IN`
+70:   - `English` -> Locale `en-US`
+71: - Set `utterance.voice = matchedVoice` to avoid the browser reading translated Indian texts with a default English/accent synthesizer.
+72: 
+73: ---
+74: 
+75: ## Verification Plan
+76: 
+77: ### Automated Tests
+78: - Run Next.js production build command to verify 100% compilation and type correctness:
+79:   ```bash
+80:   cmd /c "npm run build"
+81:   ```
+82: - Run backend integration tests.
+83: 
+84: ### Manual Verification
+85: 1. Open the AXON application and test the Google OAuth Login. Verify that redirect and token acquisition function seamlessly.
+86: 2. Select **Tamil**, **Hindi**, or **Telugu** from Settings.
+87: 3. Open the **AI Assistant Chatbot** tab.
+88: 4. Verify the clinical greetings load in the selected language.
+89: 5. Send a question (e.g., *"Why is my Hemoglobin low?"*) and verify the response is generated in the selected language.
+90: 6. Toggle **Voice Assistant** or click **Read Aloud** to verify speech synthesis pronounces the text using a native accent.
+91: 7. Click the **Microphone** to dictate a question in the selected language and verify Speech Recognition maps it correctly.
+92: 
+The above content shows the entire, complete file contents of the requested file.

@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+python-multipart
+pdfplumber
+pypdf
+google-generativeai
+bcrypt
+passlib[bcrypt]
+python-jose[cryptography]
+pytesseract
+authlib
+httpx
+itsdangerous
+python-dotenv

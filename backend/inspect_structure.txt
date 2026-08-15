@@ -1,0 +1,365 @@
+Total lines: 964
+601:           } else {
+602:             if (langKey === "tamil") {
+603:               reply = "à®¤à¯à®°à®¾à®¯à¯à®à¯ à®¹à®¾à®°à¯à®®à¯à®©à¯ à®à®à®²à®¿à®©à¯ à®µà®³à®°à¯à®à®¿à®¤à¯ à®®à®¾à®±à¯à®± à®µà¯à®à®¤à¯à®¤à¯à®à¯ à®à®à¯à®à¯à®ªà¯à®ªà®à¯à®¤à¯à®¤à¯à®à®¿à®±à®¤à¯. à®à®¿.à®à®¸à¯.à®¹à¯à®à¯ (TSH) à®ªà®°à®¿à®à¯à®¤à®©à¯ à®à®¤à®¯ à®¤à¯à®à®¿à®ªà¯à®ªà¯ à®®à®±à¯à®±à¯à®®à¯ à®à®±à¯à®±à®²à¯ à®®à®¤à®¿à®ªà¯à®ªà®¿à® à®à®¤à®µà¯à®®à¯.";
+604:             } else if (langKey === "hindi") {
+605:               reply = "à¤¥à¤¾à¤¯à¤°à¥à¤¯à¤¡ à¤¹à¤¾à¤°à¥à¤®à¥à¤¨ à¤¶à¤¾à¤°à¥à¤°à¤¿à¤ à¤à¤¯à¤¾à¤ªà¤à¤¯ à¤à¥ à¤¨à¤¿à¤¯à¤à¤¤à¥à¤°à¤¿à¤¤ à¤à¤°à¤¤à¥ à¤¹à¥à¤à¥¤ à¤à¤à¤¿à¤¤ à¤à¤¾à¤à¤ à¤à¥ à¤²à¤¿à¤ à¤¡à¥à¤à¥à¤à¤° à¤¸à¥ à¤®à¤¿à¤²à¥à¤à¥¤";
+606:             } else if (langKey === "telugu") {
+607:               reply = "à°¥à±à°°à°¾à°¯à°¿à°¡à± à°¹à°¾à°°à±à°®à±à°¨à±à°²à± à°¶à°¾à°°à±à°°à° à°à±à°µà°à±à°°à°¿à°¯à°¨à± à°¨à°¿à°¯à°à°¤à±à°°à°¿à°¸à±à°¤à°¾à°¯à°¿. à°µà±à°¦à±à°¯ à°¸à°²à°¹à°¾ à°¤à±à°¸à±à°à±à°à°¡à°¿.";
+608:             } else {
+609:               reply = "Thyroid hormones guide metabolic speed. Elevated TSH indicates sluggish thyroid responses. Consult with your physician for thyroid hormone checks.";
+610:             }
+611:           }
+612:         } else {
+613:           if (langKey === "tamil") {
+614:             if (toneKey === "clinical") {
+615:               reply = `à®µà®£à®à¯à®à®®à¯! à®¨à®¾à®©à¯ à®à®à¯à®à®³à¯ à®®à®°à¯à®¤à¯à®¤à¯à®µ à®à®¤à®µà®¿à®¯à®¾à®³à®°à¯. à®à®à¯à®à®³à®¤à¯ à®¹à¯à®®à¯à®à¯à®³à¯à®ªà®¿à®©à¯, à®à®°à¯à®à¯à®à®°à¯, à®à¯à®´à¯à®ªà¯à®ªà¯ à®®à®±à¯à®±à¯à®®à¯ TSH à®à®³à®µà¯à®à®³à¯ à®ªà®à¯à®ªà¯à®ªà®¾à®¯à¯à®µà¯ à®à¯à®¯à¯à®¤à¯à®³à¯à®³à¯à®©à¯. à®à®¨à¯à®¤ à®à®³à®µà¯à®°à¯à®µà¯ à®µà®¿à®µà®¾à®¤à®¿à®à¯à® à®µà®¿à®°à¯à®®à¯à®ªà¯à®à®¿à®±à¯à®°à¯à®à®³à¯?`;
+616:             } else if (toneKey === "educational") {
+617:               reply = `à®µà®£à®à¯à®à®®à¯! à®¨à®¾à®©à¯ à®à®à¯à®à®³à¯ à®à®±à®¿à®µà®¿à®¯à®²à¯ à®®à®°à¯à®¤à¯à®¤à¯à®µ à®à®¤à®µà®¿à®¯à®¾à®³à®°à¯. à®à®à¯à®à®³à¯ à®à®à®²à®¿à®©à¯ à®à®¯à®¿à®°à®¿à®¯à®²à¯ à®à¯à®¯à®²à¯à®ªà®¾à®à¯à®à®³à¯ à®à®°à®¾à®¯ à®¨à®¾à®©à¯ à®¤à®¯à®¾à®°à®¾à® à®à®³à¯à®³à¯à®©à¯. à®à®¤à¯à®ªà¯ à®ªà®±à¯à®±à®¿ à®à®±à®¿à®¯ à®µà®¿à®°à¯à®®à¯à®ªà¯à®à®¿à®±à¯à®°à¯à®à®³à¯?`;
+618:             } else if (toneKey === "family") {
+619:               reply = `à®¹à®²à¯! à®¨à®¾à®©à¯ à®à®à¯à®à®³à¯ à®à®à®²à®®à¯à®ªà¯à®ªà¯ à®¨à®£à¯à®ªà®©à¯. à®à®à¯à®à®³à¯ à®ªà®²à¯à®©à¯à®à®³à¯, à®à®±à¯à®±à®²à¯ à®¨à®¾à®£à®¯à®à¯à®à®³à¯ à®ªà®±à¯à®±à®¿ à®ªà¯à®à®²à®¾à®®à®¾? à®à®³à®¿à®¯ à®à®¤à¯à®à®³à®¿à®²à¯ à®µà®¿à®³à®à¯à® à®¨à®¾à®©à¯ à®à®à¯à®à¯ à®à®°à¯à®à¯à®à®¿à®±à¯à®©à¯!`;
+620:             } else {
+621:               reply = `à®µà®£à®à¯à®à®®à¯! à®¨à®¾à®©à¯ à®à®à¯à®à®³à¯ à®à®©à¯à®ªà¯ à®®à®°à¯à®¤à¯à®¤à¯à®µ à®à®¤à®µà®¿à®¯à®¾à®³à®°à¯. à®à®à¯à®à®³à¯ à®à®°à®¤à¯à®¤ à®à®±à®¿à®à¯à®à¯à®¯à®¿à®©à¯ à®®à¯à®à®¿à®µà¯à®à®³à¯ à®à®³à®¿à®¯ à®à¯à®±à¯à®à®³à®¿à®²à¯ à®µà®¿à®³à®à¯à® à®¨à®¾à®©à¯ à®à®à¯à®à¯ à®à®°à¯à®à¯à®à®¿à®±à¯à®©à¯. à®à®©à¯à®±à¯ à®à®¤à¯à®ªà¯ à®ªà®±à¯à®±à®¿ à®µà®¿à®µà®¾à®¤à®¿à®à¯à® à®µà®¿à®°à¯à®®à¯à®ªà¯à®à®¿à®±à¯à®°à¯à®à®³à¯?`;
+622:             }
+623:           } else if (langKey === "hindi") {
+624:             if (toneKey === "clinical") {
+625:               reply = `à¤¨à¤®à¤¸à¥à¤¤à¥! à¤®à¥à¤ à¤à¤ªà¤à¤¾ à¤¨à¥à¤¦à¤¾à¤¨à¤¿à¤ à¤à¤¿à¤à¤¿à¤¤à¥à¤¸à¤¾ à¤¸à¤¹à¤¾à¤¯à¤ à¤¹à¥à¤à¥¤ à¤®à¥à¤à¤¨à¥ à¤à¤ªà¤à¥ à¤¹à¥à¤®à¥à¤à¥à¤²à¥à¤¬à¤¿à¤¨, à¤¶à¥à¤à¤°, à¤à¥à¤²à¥à¤¸à¥à¤à¥à¤°à¥à¤² à¤à¤° à¤à¥à¤à¤¸à¤à¤ à¤¸à¥à¤¤à¤°à¥à¤ à¤à¥ à¤¸à¤®à¥à¤à¥à¤·à¤¾ à¤à¥ à¤¹à¥à¥¤ à¤à¤ª à¤à¤¿à¤¸ à¤µà¤¿à¤·à¤¯ à¤ªà¤° à¤à¤°à¥à¤à¤¾ à¤à¤°à¤¨à¤¾ à¤à¤¾à¤¹à¤¤à¥ à¤¹à¥à¤?`;
+626:             } else if (toneKey === "educational") {
+627:               reply = `à¤¨à¤®à¤¸à¥à¤¤à¥! à¤®à¥à¤ à¤à¤ªà¤à¤¾ à¤µà¥à¤à¥à¤à¤¾à¤¨à¤¿à¤ à¤à¤¿à¤à¤¿à¤¤à¥à¤¸à¤¾ à¤¸à¤¹à¤¾à¤¯à¤ à¤¹à¥à¤à¥¤ à¤à¤à¤ à¤à¤ªà¤à¥ à¤¬à¤¾à¤¯à¥à¤®à¤¾à¤°à¥à¤à¤° à¤à¥ à¤ªà¥à¤à¥ à¤à¥ à¤à¥à¤µ à¤µà¤¿à¤à¥à¤à¤¾à¤¨ à¤à¥ à¤¸à¤®à¤à¥à¤à¥¤ à¤à¤ª à¤à¥à¤¯à¤¾ à¤à¤¾à¤¨à¤¨à¤¾ à¤à¤¾à¤¹à¤¤à¥ à¤¹à¥à¤?`;
+628:             } else if (toneKey === "family") {
+629:               reply = `à¤¨à¤®à¤¸à¥à¤¤à¥! à¤®à¥à¤ à¤à¤ªà¤à¤¾ à¤®à¤¿à¤¤à¥à¤°à¤µà¤¤ à¤¶à¤°à¥à¤° à¤¸à¤¹à¤¾à¤¯à¤ à¤¹à¥à¤à¥¤ à¤à¤ªà¤à¥ à¤¶à¤°à¥à¤° à¤à¥ à¤®à¤¿à¤¤à¥à¤°à¥à¤ (à¤à¥à¤¸à¥ à¤à¥à¤¬à¥à¤¬à¤¾à¤°à¥ à¤à¤° à¤à¤°à¥à¤à¤¾ à¤à¥ à¤¸à¤¿à¤à¥à¤à¥à¤) à¤à¥ à¤¬à¤¾à¤°à¥ à¤®à¥à¤ à¤à¥à¤ à¤­à¥ à¤ªà¥à¤°à¤¶à¥à¤¨ à¤ªà¥à¤à¥à¤!`;
+630:             } else {
+631:               reply = `à¤¨à¤®à¤¸à¥à¤¤à¥! à¤®à¥à¤ à¤à¤ªà¤à¤¾ à¤¸à¤¹à¤¾à¤¨à¥à¤­à¥à¤¤à¤¿à¤ªà¥à¤°à¥à¤£ à¤à¤¿à¤à¤¿à¤¤à¥à¤¸à¤¾ à¤¸à¤¹à¤¾à¤¯à¤ à¤¹à¥à¤à¥¤ à¤®à¥à¤ à¤à¤ªà¤à¥ à¤°à¤¿à¤ªà¥à¤°à¥à¤ à¤à¥ à¤ªà¤°à¤¿à¤£à¤¾à¤®à¥à¤ à¤à¥ à¤¸à¤°à¤² à¤¶à¤¬à¥à¤¦à¥à¤ à¤®à¥à¤ à¤¸à¤®à¤à¤¾à¤¨à¥ à¤à¥ à¤²à¤¿à¤ à¤¯à¤¹à¤¾à¤ à¤¹à¥à¤à¥¤ à¤à¤ à¤à¤ª à¤à¤¿à¤¸ à¤µà¤¿à¤·à¤¯ à¤®à¥à¤ à¤¬à¤¾à¤¤ à¤à¤°à¤¨à¤¾ à¤à¤¾à¤¹à¥à¤à¤à¥?`;
+632:             }
+633:           } else if (langKey === "telugu") {
+634:             if (toneKey === "clinical") {
+635:               reply = `à°¨à°®à°¸à±à°à°¾à°°à°! à°¨à±à°¨à± à°®à± à°à±à°²à°¿à°¨à°¿à°à°²à± à°®à±à°¡à°¿à°à°²à± à°¸à°¹à°¾à°¯à°à±à°¡à°¿à°¨à°¿. à°®à± à°¹à°¿à°®à±à°à±à°²à±à°¬à°¿à°¨à±, à°à±à°²à±à°à±à°à±, à°à±à°²à±à°¸à±à°à±à°°à°¾à°²à± à°®à°°à°¿à°¯à± TSH à°¸à±à°¥à°¾à°¯à°¿à°²à°¨à± à°¸à°®à±à°à±à°·à°¿à°à°à°¾à°¨à±. à°µà±à°à°¿ à°à±à°°à°¿à°à°à°¿ à°à°°à±à°à°¿à°à°à°¾à°²à°¨à±à°à±à°à°à±à°¨à±à°¨à°¾à°°à±?`;
+636:             } else if (toneKey === "educational") {
+637:               reply = `à°¨à°®à°¸à±à°à°¾à°°à°! à°¨à±à°¨à± à°®à± à°à±à°µà°¶à°¾à°¸à±à°¤à±à°° à°¸à°¹à°¾à°¯à°à±à°¡à°¿à°¨à°¿. à°®à± à°¬à°¯à±à°®à°¾à°°à±à°à°°à±à°² à°µà±à°¨à±à° à°à°¨à±à°¨ à°µà°¿à°à±à°à°¾à°¨à°¾à°¨à±à°¨à°¿ à°µà°¿à°µà°°à°¿à°¸à±à°¤à°¾à°¨à±. à°µà±à°à°¿ à°à±à°°à°¿à°à°à°¿ à°¤à±à°²à±à°¸à±à°à±à°µà°¾à°²à°¨à±à°à±à°à°à±à°¨à±à°¨à°¾à°°à±?`;
+638:             } else if (toneKey === "family") {
+639:               reply = `à°¹à°²à±! à°¨à±à°¨à± à°®à± à°¶à°°à±à°° à°¸à°¹à°¾à°¯à°à±à°¡à°¿à°¨à°¿. à°®à± à°à°¾à°²à°¿ à°¬à±à°¡à°à°²à±, à°¶à°à±à°¤à°¿ à°¨à°¾à°£à±à°² à°à±à°°à°¿à°à°à°¿ à°à°¥à°²à°²à± à°µà°¿à°µà°°à°¿à°¸à±à°¤à°¾à°¨à±! à°¦à±à°¨à°¿ à°à±à°°à°¿à°à°à°¿ à°®à°¾à°à±à°²à°¾à°¡à°¦à°¾à°?`;
+640:             } else {
+641:               reply = `à°¨à°®à°¸à±à°à°¾à°°à°! à°¨à±à°¨à± à°®à± à°¸à°¾à°¨à±à°­à±à°¤à°¿ à°µà±à°¦à±à°¯ à°¸à°¹à°¾à°¯à°à±à°¡à°¿à°¨à°¿. à°®à± à°²à±à°¯à°¾à°¬à± à°¨à°¿à°µà±à°¦à°¿à° à°«à°²à°¿à°¤à°¾à°²à°¨à± à°à°¾à°²à°¾ à°¸à°°à°³à°®à±à°¨ à°ªà°¦à°¾à°²à°²à± à°µà°¿à°µà°°à°¿à°à°à°¡à°¾à°¨à°¿à°à°¿ à°à°à±à°à°¡ à°à°¨à±à°¨à°¾à°¨à±. à°¦à±à°¨à°¿ à°à±à°°à°¿à°à°à°¿ à°à°°à±à°à°¿à°à°à±à°à±à°à°¦à°¾à°?`;
+642:             }
+643:           } else {
+644:             if (toneKey === "clinical") {
+645:               reply = `Clinical medical companion active. Parsed blood metrics: Hemoglobin, Glucose, Lipids, TSH mapped. Ask direct clinical questions.`;
+646:             } else if (toneKey === "educational") {
+647:               reply = `Welcome! I'm your biological science assistant. Let's analyze your physiological pathways. Ask about the cells and biochemistry of your report!`;
+648:             } else if (toneKey === "family") {
+649:               reply = `Hello! I am your friendly body helper assistant. Ask me anything about your blood report, and I'll explain it in fun, simple stories!`;
+650:             } else {
+651:               reply = "I've reviewed your clinical metrics. I can explain the optimal ranges and health warnings for your Hemoglobin, Fasting Blood Sugar, Lipids, or TSH. Which value would you like me to discuss further?";
+652:             }
+653:           }
+654:         }
+655:  
+656:         const fallbackMessages = [...messages, nextUserMsg, { role: "model" as const, content: reply }];
+657:         setMessages(fallbackMessages);
+658:  
+659:         // Auto TTS if Voice Assistance is enabled
+660:         if (voiceAssistanceRef.current) {
+661:           const nextIdx = fallbackMessages.length - 1;
+662:           readOutLoud(reply, nextIdx);
+663:         }
+664:       }, 1200);
+665:     } finally {
+666:       setIsLoading(false);
+667:     }
+668:   };e. Focusing on iron-rich foods like spinach, lentils, and lean proteins is a comforting way to support your body. We recommend speaking with your doctor!`;
+669:               }
+670:             } else {
+671:               reply = `Your Hemoglobin level of ${hb.value} g/dL is completely normal. Continue enjoying a balanced nutrient-dense diet to support your red blood cells.`;
+672:             }
+673:           } else {
+674:             reply = "Hemoglobin distributes oxygen. Lower limits can trigger fatigue. Try iron-rich leafy foods and align with your doctor for clinical advice.";
+675:           }
+676:         } else if (q.includes("sugar") || q.includes("diabetes") || q.includes("glucose") || q.includes("fasting")) {
+677:           if ("fasting" in val_map) {
+678:             const fasting = val_map["fasting"];
+679:             if (fasting.status.toLowerCase() === "high") {
+680:               if (toneKey === "clinical") {
+681:                 reply = `â¢ Diagnostic Indicator: Fasting Blood Sugar high (${fasting.value} mg/dL). Standard limits: ${fasting.min_normal} - ${fasting.max_normal} ${fasting.unit}.\n` +
+682:                         `â¢ Recommendations: Restrict processed carbohydrates and refined sugars. Implement post-prandial aerobic steps (20 brisk walk). Consult primary care provider.`;
+683:               } else if (toneKey === "educational") {
+684:                 reply = `Your Fasting Blood Sugar is currently ${fasting.value} mg/dL, which is elevated compared to the optimal range of ${fasting.min_normal} - ${fasting.max_normal} ${fasting.unit}. ` +
+685:                         `Biological Mechanism: When you eat carbs, they break down into glucose. Your pancreas releases insulin, which acts as a molecular key to cell doors. When glucose is high, it is as if the keyholes on cells are clogged (insulin resistance). Walking activates insulin-independent GLUT4 receptors, opening doors without keys!`;
+686:               } else if (toneKey === "family") {
+687:                 reply = `Your morning sugar levels are a bit high at ${fasting.value} mg/dL (the target is between ${fasting.min_normal} and ${fasting.max_normal}). ` +
+688:                         `Think of sugar as little energy-coins. Right now, there are too many energy-coins floating in your blood. Eating less sweet treats and taking active walks outside helps your body open its pocket-cells and save those energy-coins!`;
+689:               } else {
+690:                 reply = `Your Fasting Blood Sugar is currently ${fasting.value} mg/dL, which is elevated compared to optimal bounds (${fasting.min_normal} - ${fasting.max_normal} ${fasting.unit}). Elevated fasting glucose suggests that cells might be resisting insulin absorption, representing a prediabetic risk. Shifting towards high-fiber foods, reducing processed sugars, and adding a daily brisk walk does wonders.`;
+691:               }
+692:             } else {
+693:               reply = `Your Fasting Blood Sugar level of ${fasting.value} mg/dL is completely normal. Keep up the great health habits!`;
+694:             }
+695:           } else {
+696:             reply = "Normal fasting blood sugar should be below 100 mg/dL. Soluble fiber diets and daily walks help maintain healthy balances.";
+697:           }
+698:         } else if (q.includes("cholesterol") || q.includes("lipid") || q.includes("triglyceride")) {
+699:           if ("total cholesterol" in val_map) {
+700:             const chol = val_map["total cholesterol"];
+701:             if (chol.status.toLowerCase() === "high") {
+702:               if (toneKey === "clinical") {
+703:                 reply = `â¢ Diagnostic Indicator: Total Cholesterol high (${chol.value} mg/dL). Standard limits: ${chol.min_normal} - ${chol.max_normal} ${chol.unit}.\n` +
+704:                         `â¢ Recommendations: Increase dietary soluble fiber (oats, seeds). Replace saturated fats with polyunsaturated omega-3s. Discuss cardiovascular baselines with provider.`;
+705:               } else if (toneKey === "educational") {
+706:                 reply = `Your Total Cholesterol is currently ${chol.value} mg/dL, which is higher than the standard optimal range (${chol.min_normal} - ${chol.max_normal} ${chol.unit}). ` +
+707:                         `Biological Mechanism: Cholesterol is waxy fat carried by lipoproteins. LDL delivery trucks bring bricks to build cellular walls, while HDL recycling trucks clear unused bricks. When cholesterol is high, bricks accumulate on arterial walls. Soluble fiber oats bind cholesterol so it can be cleared.`;
+708:               } else if (toneKey === "family") {
+709:                 reply = `Your body fats are a bit high at ${chol.value} mg/dL (ideal is ${chol.min_normal} to ${chol.max_normal}). ` +
+710:                         `Think of cholesterol as tiny building blocks. Right now, there are a few too many blocks in your blood. Eating oatmeal or apples acts like a friendly little vacuum cleaner, cleaning up the extra blocks!`;
+711:               } else {
+712:                 reply = `Your Total Cholesterol is currently ${chol.value} mg/dL, which is higher than standard optimal limits (${chol.min_normal} - ${chol.max_normal} ${chol.unit}). Elevated cholesterol suggests higher fat concentration in the bloodstream. Focus on heart-healthy fats, oats, seeds, and aerobic activity.`;
+713:               }
+714:             } else {
+715:               reply = `Your Total Cholesterol of ${chol.value} mg/dL is normal and cardiorobust. Excellent!`;
+716:             }
+717:           } else {
+718:             reply = "Lipid panels track fatty metrics. Soluble fiber diets, seeds, and brisk walking are classic ways to normalize lipid levels.";
+719:           }
+720:         } else if (q.includes("tsh") || q.includes("thyroid")) {
+721:           if ("tsh" in val_map) {
+722:             const tsh = val_map["tsh"];
+723:             if (tsh.status.toLowerCase() === "high") {
+724:               if (toneKey === "clinical") {
+725:                 reply = `â¢ Diagnostic Indicator: TSH high (${tsh.value} uIU/mL). Standard limits: ${tsh.min_normal} - ${tsh.max_normal} ${tsh.unit}.\n` +
+726:                         `â¢ Recommendations: Discuss endocrine reviews, FT3/FT4 hormone testing, and therapeutic management with a primary care provider.`;
+727:               } else if (toneKey === "educational") {
+728:                 reply = `Your TSH is currently ${tsh.value} uIU/mL, which is above the optimal range (${tsh.min_normal} - ${tsh.max_normal} ${tsh.unit}). ` +
+729:                         `Biological Mechanism: The thyroid is a butterfly-shaped neck furnace controlling metabolic speed. The pituitary brain gland acts as the home thermostat. When it senses the furnace isn't releasing enough hormone, it yells louder by releasing more TSH. HIGH TSH indicates an underactive thyroid furnace!`;
+730:               } else if (toneKey === "family") {
+731:                 reply = `Your body thermostat helper (TSH) is a bit high at ${tsh.value} uIU/mL (standard is ${tsh.min_normal} to ${tsh.max_normal}). ` +
+732:                         `In your neck, you have a friendly butterfly helper keeping you warm. Right now, your brain thermostat is calling out louder to wake the butterfly up because it is taking a little nap! Sluggish butterfly makes you feel sleepy.`;
+733:               } else {
+734:                 reply = `Your TSH is currently ${tsh.value} uIU/mL, which is above optimal limits (${tsh.min_normal} - ${tsh.max_normal} ${tsh.unit}). This suggests minor hypothyroid activity slowing metabolism. We recommend showing thyroid metrics to your doctor!`;
+735:               }
+736:             } else {
+737:               reply = `Your TSH of ${tsh.value} uIU/mL is fully normal, indicating healthy thyroid furnace function.`;
+738:             }
+739:           } else {
+740:             reply = "Thyroid hormones guide metabolic speed. Elevated TSH indicates sluggish thyroid responses. Consult with your physician for thyroid hormone checks.";
+741:           }
+742:         } else {
+743:           if (toneKey === "clinical") {
+744:             reply = `Clinical medical companion active. Parsed blood metrics: Hemoglobin, Glucose, Lipids, TSH mapped. Ask direct clinical questions.`;
+745:           } else if (toneKey === "educational") {
+746:             reply = `Welcome! I'm your biological science assistant. Let's analyze your physiological pathways. Ask about the cells and biochemistry of your report!`;
+747:           } else if (toneKey === "family") {
+748:             reply = `Hello! I am your friendly body helper assistant. Ask me anything about your blood report, and I'll explain it in fun, simple stories!`;
+749:           } else {
+750:             reply = "I've reviewed your clinical metrics. I can explain the optimal ranges and health warnings for your Hemoglobin, Fasting Blood Sugar, Lipids, or TSH. Which value would you like me to discuss further?";
+751:           }
+752:         }
+753: 
+754:         const fallbackMessages = [...messages, nextUserMsg, { role: "model" as const, content: reply }];
+755:         setMessages(fallbackMessages);
+756: 
+757:         // Auto TTS if Voice Assistance is enabled
+758:         if (voiceAssistanceRef.current) {
+759:           const nextIdx = fallbackMessages.length - 1;
+760:           readOutLoud(reply, nextIdx);
+761:         }
+762:       }, 1200);
+763:     } finally {
+764:       setIsLoading(false);
+765:     }
+766:   };
+767: 
+768:   const handleSendMessage = (e: React.FormEvent) => {
+769:     e.preventDefault();
+770:     sendMessage(inputMessage);
+771:   };
+772: 
+773:   const handleToneChange = (tone: "Empathetic" | "Clinical" | "Educational" | "Family") => {
+774:     // Prevent talking simultaneously when switching tones
+775:     if (typeof window !== "undefined" && window.speechSynthesis) {
+776:       window.speechSynthesis.cancel();
+777:       setSpeakingMessageIdx(null);
+778:     }
+779:     setSelectedTone(tone);
+780:   };
+781: 
+782:   return (
+783:     <div className="w-full flex flex-col h-[580px] bg-card border border-border rounded-2xl overflow-hidden shadow-sm animate-fadeIn">
+784:       
+785:       {/* 1. Header Controls: Tone pill bar & Voice assistance */}
+786:       <div className="p-4 bg-card border-b border-border flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between">
+787:         
+788:         {/* Horizontal Tone Pill Bar Selector */}
+789:         <div className="flex flex-col gap-1.5 flex-1">
+790:           <span className="text-[10px] font-bold text-foreground/50 uppercase tracking-wider">
+791:             {t.title}
+792:           </span>
+793:           <div className="flex flex-wrap gap-2">
+794:             {Object.entries(t.tones).map(([key, data]) => {
+795:               const toneKey = key as "Empathetic" | "Clinical" | "Educational" | "Family";
+796:               const isSelected = selectedTone === toneKey;
+797:               
+798:               // Map key to appropriate Lucide icons
+799:               let Icon = Heart;
+800:               if (key === "Clinical") Icon = ClipboardList;
+801:               if (key === "Educational") Icon = GraduationCap;
+802:               if (key === "Family") Icon = Smile;
+803:               
+804:               return (
+805:                 <button
+806:                   key={key}
+807:                   type="button"
+808:                   onClick={() => handleToneChange(toneKey)}
+809:                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[11px] font-bold transition-all ${
+810:                     isSelected
+811:                       ? "bg-indigo-900 border-indigo-950 text-white shadow-sm shadow-indigo-900/10 dark:bg-indigo-800 dark:border-indigo-900"
+812:                       : "bg-background border-border text-foreground hover:bg-background/80"
+813:                   }`}
+814:                   title={data.desc}
+815:                 >
+816:                   <Icon size={12} className={isSelected ? "animate-pulse" : ""} />
+817:                   <span>{data.label}</span>
+818:                 </button>
+819:               );
+820:             })}
+821:           </div>
+822:         </div>
+823: 
+824:         {/* Voice Assistant Toggle Switch */}
+825:         <div className="flex items-center justify-between sm:justify-end gap-3 border-t border-border pt-3 sm:border-t-0 sm:pt-0">
+826:           <div className="flex flex-col text-left sm:text-right">
+827:             <span className="text-[10px] font-bold text-foreground/80 leading-none">
+828:               {t.voiceAssistance}
+829:             </span>
+830:             <span className="text-[9px] text-foreground/50 font-bold uppercase tracking-wider mt-0.5">
+831:               {language} Audio
+832:             </span>
+833:           </div>
+834:           
+835:           <button
+836:             type="button"
+837:             onClick={() => {
+838:               const newVal = !voiceAssistance;
+839:               setVoiceAssistance(newVal);
+840:               if (!newVal && typeof window !== "undefined" && window.speechSynthesis) {
+841:                 window.speechSynthesis.cancel();
+842:                 setSpeakingMessageIdx(null);
+843:               }
+844:             }}
+845:             className={`w-10 h-6 flex items-center rounded-full p-1 cursor-pointer transition-all ${
+846:               voiceAssistance ? "bg-teal-600 justify-end" : "bg-slate-300 dark:bg-slate-700 justify-start"
+847:             }`}
+848:             title={t.voiceAssistanceDesc}
+849:           >
+850:             <span className="bg-white w-4 h-4 rounded-full shadow-md transition-all"></span>
+851:           </button>
+852:         </div>
+853: 
+854:       </div>
+855: 
+856:       {/* 2. Messages Stream Container */}
+857:       <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-4 bg-background/50">
+858:         {messages.map((msg, idx) => (
+859:           <div
+860:             key={idx}
+861:             className={`flex gap-3 max-w-[85%] ${
+862:               msg.role === "user" ? "self-end flex-row-reverse" : "self-start"
+863:             }`}
+864:           >
+865:             {/* Avatar icons */}
+866:             <div
+867:               className={`p-2 rounded-xl flex-shrink-0 flex items-center justify-center h-9 w-9 ${
+868:                 msg.role === "user" 
+869:                   ? "bg-indigo-900 text-white dark:bg-indigo-800" 
+870:                   : "bg-teal-50 border border-teal-100 text-teal-800 dark:bg-teal-950/20 dark:border-teal-900/30 dark:text-teal-400"
+871:               }`}
+872:             >
+873:               {msg.role === "user" ? <User size={16} /> : <Bot size={16} />}
+874:             </div>
+875: 
+876:             {/* Content text bubbles */}
+877:             <div className="flex flex-col gap-1">
+878:               <div
+879:                 className={`p-3.5 rounded-2xl text-xs font-semibold leading-relaxed shadow-sm border ${
+880:                   msg.role === "user"
+881:                     ? "bg-indigo-900 text-white border-indigo-950 rounded-tr-none dark:bg-indigo-800 dark:border-indigo-900"
+882:                     : "bg-card text-foreground border-border rounded-tl-none"
+883:                 }`}
+884:               >
+885:                 {msg.content}
+886:               </div>
+887: 
+888:               {/* Text-to-Speech audio reader button */}
+889:               {msg.role === "model" && (
+890:                 <button
+891:                   onClick={() => readOutLoud(msg.content, idx)}
+892:                   className={`self-start flex items-center gap-1 mt-1 text-[10px] font-bold transition-colors ${
+893:                     speakingMessageIdx === idx 
+894:                       ? "text-teal-600 font-extrabold animate-pulse dark:text-teal-400" 
+895:                       : "text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
+896:                   }`}
+897:                 >
+898:                   {speakingMessageIdx === idx ? <VolumeX size={12} /> : <Volume2 size={12} />}
+899:                   <span>{speakingMessageIdx === idx ? "Stop Reading" : "Read Aloud"}</span>
+900:                 </button>
+901:               )}
+902:             </div>
+903:           </div>
+904:         ))}
+905: 
+906:         {/* Loading typing state */}
+907:         {isLoading && (
+908:           <div className="flex gap-3 self-start max-w-[85%]">
+909:             <div className="p-2 rounded-xl bg-teal-50 border border-teal-100 text-teal-800 dark:bg-teal-950/20 dark:border-teal-900/30 dark:text-teal-400 flex items-center justify-center h-9 w-9">
+910:               <Bot size={16} />
+911:             </div>
+912:             <div className="p-3.5 rounded-2xl bg-card border border-border rounded-tl-none flex items-center gap-1 h-9 shadow-sm">
+913:               <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600 animate-bounce" style={{ animationDelay: "0ms" }}></span>
+914:               <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600 animate-bounce" style={{ animationDelay: "150ms" }}></span>
+915:               <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600 animate-bounce" style={{ animationDelay: "300ms" }}></span>
+916:             </div>
+917:           </div>
+918:         )}
+919:         <div ref={chatEndRef}></div>
+920:       </div>
+921: 
+922:       {/* 3. Bottom Component: Permanent Soft Medical Disclaimer Banner */}
+923:       <div className="px-4 py-2.5 bg-amber-500/10 border-t border-b border-amber-500/20 text-[10px] text-amber-600 dark:text-amber-500 font-bold flex items-center gap-2">
+924:         <AlertCircle size={14} className="flex-shrink-0 text-amber-500" />
+925:         <p>AI insights are educational and do not replace professional medical advice.</p>
+926:       </div>
+927: 
+928:       {/* Input controls form */}
+929:       <form onSubmit={handleSendMessage} className="p-4 bg-card border-t border-border flex gap-2.5 items-center">
+930:         {/* Voice recording Mic button */}
+931:         <button
+932:           type="button"
+933:           onClick={toggleRecording}
+934:           disabled={isLoading}
+935:           className={`p-2.5 rounded-xl border flex items-center justify-center transition-all ${
+936:             isRecording
+937:               ? "bg-rose-500/10 border-rose-500/30 text-rose-500 animate-pulse glow-rose"
+938:               : "bg-background border-border text-foreground/60 hover:bg-background/80"
+939:           }`}
+940:           title={isRecording ? "Stop Recording" : "Speak a Question"}
+941:         >
+942:           {isRecording ? <MicOff size={18} /> : <Mic size={18} />}
+943:         </button>
+944: 
+945:         <input
+946:           type="text"
+947:           value={inputMessage}
+948:           onChange={(e) => setInputMessage(e.target.value)}
+949:           placeholder="Ask a question about your clinical results..."
+950:           disabled={isLoading}
+951:           className="flex-1 bg-background border border-border rounded-xl px-4 py-2 text-xs font-semibold text-foreground placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all disabled:opacity-60"
+952:         />
+953: 
+954:         <button
+955:           type="submit"
+956:           disabled={!inputMessage.trim() || isLoading}
+957:           className="p-2.5 rounded-xl bg-indigo-900 text-white flex items-center justify-center hover:bg-indigo-950 dark:bg-indigo-800 dark:hover:bg-indigo-900 transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-indigo-900/10"
+958:         >
+959:           <Send size={16} />
+960:         </button>
+961:       </form>
+962:     </div>
+963:   );
+964: }

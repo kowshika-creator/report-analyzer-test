@@ -1,0 +1,63 @@
+Created At: 2026-05-31T10:51:50Z
+Completed At: 2026-05-31T10:51:50Z
+The following changes were made by the multi_replace_file_content tool to: c:\Users\nigal\Desktop\Medical report analyzer\frontend\src\components\AIChatbot.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -33,9 +33,9 @@
+         const rec = new SpeechRecognition();
+         rec.continuous = false;
+         rec.interimResults = false;
+-        rec.lang = language.toLowerCase() === "spanish" ? "es-ES" 
++        rec.lang = language.toLowerCase() === "tamil" ? "ta-IN" 
+                   : language.toLowerCase() === "hindi" ? "hi-IN"
+-                  : language.toLowerCase() === "arabic" ? "ar-SA" 
++                  : language.toLowerCase() === "telugu" ? "te-IN" 
+                   : "en-US";
+ 
+         rec.onstart = () => {
+@@ -73,15 +73,15 @@
+     let greeting = "";
+     const lang = language.trim().toLowerCase();
+ 
+-    if (lang === "spanish") {
+-      greeting = "¡Hola! He revisado los resultados de su informe de laboratorio de forma integral. ";
+-      if (lowMetrics.length > 0 || highMetrics.length > 0) {
+-        greeting += "Noté que algunos de sus niveles ";
+-        if (highMetrics.length > 0) greeting += `(como ${highMetrics.join(", ")}) están altos `;
+-        if (lowMetrics.length > 0) greeting += `${highMetrics.length > 0 ? "y " : ""}(como ${lowMetrics.join(", ")}) están bajos. `;
+-        greeting += "Estoy aquí para explicarle detalladamente qué significan en términos sencillos y reconfortantes. ¿Qué le gustaría discutir hoy?";
+-      } else {
+-        greeting += "Todos sus parámetros clínicos medidos se encuentran en rangos óptimos excelentes. ¿Tiene alguna pregunta sobre sus valores de control o hábitos de bienestar?";
++    if (lang === "tamil") {
++      greeting = "வணக்கம்! உங்கள் ஆய்வக அறிக்கையின் முடிவுகளை நான் முழுமையாக ப
+<truncated 4025 bytes>
+మి సూచిస్తున్నాయో చాలా సరళమైన, స్పష్టమైన పదాలలో వివరించడానికి నేను ఇక్కడ ఉన్నాను. ఈ రోజు మీరు దేని గురించి చర్చించాలనుకుంటున్నారు?";
++      } else {
++        greeting += "అద్భుతమైన వార్త! మీ విశ్లేషించబడిన బయోమార్కర్లన్నీ ఆరోగ్యకరమైన సాధారణ పరిధిలోనే ఉన్నాయి. మీ ఆరోగ్యాన్ని కాపాడుకోవడం గురించి ఏవైనా ప్రశ్నలు ఉన్నాయా?";
+       }
+     } else {
+       // English (Default)
+@@ -147,10 +147,9 @@
+       const utterance = new SpeechSynthesisUtterance(cleanText);
+       
+       // Select appropriate speech engine locale
+-      const lang = language.toLowerCase();
+-      utterance.lang = lang === "spanish" ? "es-ES" 
++      utterance.lang = lang === "tamil" ? "ta-IN" 
+                      : lang === "hindi" ? "hi-IN"
+-                     : lang === "arabic" ? "ar-SA" 
++                     : lang === "telugu" ? "te-IN" 
+                      : "en-US";
+       
+       utterance.rate = 0.95; // calm, soothing tempo
+@@ -183,7 +183,7 @@
+       const response = await fetch("http://localhost:8000/api/chat", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+-        body: json.stringify({
++        body: JSON.stringify({
+           chat_history: messages.map(m => ({ role: m.role, content: m.content })),
+           current_message: userMessage,
+           extracted_metrics: metrics
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

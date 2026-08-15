@@ -1,0 +1,28 @@
+Created At: 2026-05-31T13:16:21Z
+Completed At: 2026-05-31T13:16:21Z
+File Path: `file:///C:/Users/nigal/.gemini/antigravity/brain/924f6a95-f05c-4bf0-8015-55dfd1b82d83/task.md`
+Total Lines: 20
+Total Bytes: 1118
+Showing lines 1 to 20
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: # Tasks: Google OAuth & Universal Language Integration
+2: 
+3: - [x] **Phase 1: Backend Pydantic Schema Update**
+4:   - [x] Add `language` field inside `ChatRequest` in `backend/schemas.py`
+5: 
+6: - [x] **Phase 2: Backend Gemini System Prompt & Local Fallback Localization**
+7:   - [x] Inject dynamic translation rules inside Gemini system prompt in `backend/chat_router.py`
+8:   - [x] Upgrade `run_local_chatbot_fallback` with native, high-fidelity Tamil, Hindi, and Telugu clinical translations
+9: 
+10: - [ ] **Phase 3: Frontend Chat request Payload Synchronization**
+11:   - [ ] Pass `language` context in fetch request payload inside `frontend/src/components/AIChatbot.tsx`
+12: 
+13: - [ ] **Phase 4: Speech Recognition and Synthesis Localization**
+14:   - [ ] Bind locale specific Web Speech Recognition lang property (`ta-IN`, `te-IN`, `hi-IN`, `en-US`)
+15:   - [ ] Implement browser voice matching in `readOutLoud` TTS to voice outputs in native accents
+16: 
+17: - [ ] **Phase 5: Verification & Compilation**
+18:   - [ ] Build Next.js project to verify zero typescript/compilation warnings
+19:   - [ ] Update `walkthrough.md` with final screenshots, details, and confirmations
+20: 
+The above content shows the entire, complete file contents of the requested file.
