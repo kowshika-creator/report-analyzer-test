@@ -49,7 +49,7 @@ def run_explainable_rule_engine(metrics: List[Dict[str, Any]]) -> List[Dict[str,
             discussion_points = [
                 f"Ask doctor: Please inspect the physical report for the measured {name} value."
             ]
-        elif status == "Unreviewed (Incompatible Unit)" or m.get("requires_review"):
+        elif status.startswith("Unreviewed") or m.get("requires_review"):
             explanation = (
                 f"Rule '{rule_id}' review required: Measured {name} ({val} {unit}) was reported in an unverified or incompatible unit. "
                 f"Automatic classification was suppressed to prevent false clinical conclusions."

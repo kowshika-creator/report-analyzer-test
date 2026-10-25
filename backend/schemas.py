@@ -37,6 +37,7 @@ class MetricAnalysis(BaseModel):
     # Priority 2: Structured Unit Traceability
     source_value: Optional[float] = None
     source_unit: Optional[str] = None
+    assumed_unit: Optional[str] = None
     normalized_value: Optional[float] = None
     normalized_unit: Optional[str] = None
     conversion_method: Optional[str] = None

@@ -24,7 +24,7 @@ def evaluate_disease_risk_patterns(metrics: List[Dict[str, Any]]) -> List[str]:
             m for m in metrics 
             if m.get("value") is not None 
             and not m.get("requires_review") 
-            and m.get("status") in ["Low", "High", "Normal"]
+            and (m.get("status") in ["Low", "High", "Normal"] or m.get("status") is None)
         ]
         if not valid_metrics:
             return ["No clinically evaluated biomarkers available for pattern recognition."]

@@ -100,7 +100,7 @@ def generate_patient_summary_local(metrics: List[Dict[str, Any]], language: str 
     ]
     unreviewed_metrics = [
         m for m in metrics 
-        if m.get("requires_review") or m.get("status") in ["Unreviewed (Incompatible Unit)", "Unparseable / Missing"]
+        if m.get("requires_review") or m.get("status", "").startswith("Unreviewed") or m.get("status") in ["Unparseable / Missing"]
     ]
     
     summary_lines = [f"### {lang_dict['header']}\n"]

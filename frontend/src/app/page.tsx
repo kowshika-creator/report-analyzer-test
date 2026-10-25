@@ -31,6 +31,7 @@ interface Metric {
   panel_category?: string;
   source_value?: number | null;
   source_unit?: string | null;
+  assumed_unit?: string | null;
   normalized_value?: number | null;
   normalized_unit?: string | null;
   conversion_method?: string | null;
@@ -144,6 +145,7 @@ export default function AXONDashboard() {
   const [expandedScanFindings, setExpandedScanFindings] = useState<Record<string, boolean>>({});
   const [scanDragOver, setScanDragOver] = useState<boolean>(false);
   const [scanMismatchNotice, setScanMismatchNotice] = useState<{ message: string; file: File } | null>(null);
+  const scanRequestIdRef = useRef<number>(0);
 
   // ==========================================
   // CHATBOT & HISTORY FILTER STATES
@@ -726,6 +728,8 @@ export default function AXONDashboard() {
   };
 
   const handleUploadScanFile = async (file: File) => {
+    const currentReqId = ++scanRequestIdRef.current;
+    setActiveScanResult(null);
     setScanUploading(true);
     setScanErrorMessage(null);
     setScanMismatchNotice(null);
@@ -753,7 +757,10 @@ export default function AXONDashboard() {
       });
 
       const data = await res.json();
+      if (currentReqId !== scanRequestIdRef.current) return;
+
       if (!res.ok) {
+        setActiveScanResult(null);
         const detail = data.detail || "";
         if (detail.includes("MISMATCH_LAB_REPORT")) {
           setScanMismatchNotice({
@@ -774,9 +781,13 @@ export default function AXONDashboard() {
         fetchReportHistory(token);
       }
     } catch (err: any) {
+      if (currentReqId !== scanRequestIdRef.current) return;
+      setActiveScanResult(null);
       setScanErrorMessage(err.message || "Failed to parse radiology imaging scan document.");
     } finally {
-      setScanUploading(false);
+      if (currentReqId === scanRequestIdRef.current) {
+        setScanUploading(false);
+      }
     }
   };
 
@@ -787,6 +798,8 @@ export default function AXONDashboard() {
       return;
     }
 
+    const currentReqId = ++scanRequestIdRef.current;
+    setActiveScanResult(null);
     setScanUploading(true);
     setScanErrorMessage(null);
     setScanMismatchNotice(null);
@@ -808,7 +821,10 @@ export default function AXONDashboard() {
       });
 
       const data = await res.json();
+      if (currentReqId !== scanRequestIdRef.current) return;
+
       if (!res.ok) {
+        setActiveScanResult(null);
         const detail = data.detail || "";
         if (detail.includes("MISMATCH_LAB_REPORT")) {
           setScanErrorMessage(detail);
@@ -825,9 +841,13 @@ export default function AXONDashboard() {
         fetchReportHistory(token);
       }
     } catch (err: any) {
+      if (currentReqId !== scanRequestIdRef.current) return;
+      setActiveScanResult(null);
       setScanErrorMessage(err.message || "Failed to parse radiology imaging report.");
     } finally {
-      setScanUploading(false);
+      if (currentReqId === scanRequestIdRef.current) {
+        setScanUploading(false);
+      }
     }
   };
 
@@ -1437,6 +1457,9 @@ IMPRESSION:
                           } else if (statusLower === "high") {
                             badgeClass = "high";
                             labelText = "High";
+                          } else if (statusLower.includes("unreviewed") || statusLower.includes("unparseable") || metric.requires_review) {
+                            badgeClass = "unreviewed";
+                            labelText = metric.status;
                           }
                           if (isCrit) {
                             badgeClass = "critical";
@@ -1452,6 +1475,11 @@ IMPRESSION:
                                   <span className="table-biomarker-title">{metric.biomarker_name}</span>
                                   {metric.reference_source && (
                                     <span className="table-biomarker-subtitle">Ref: {metric.reference_source}</span>
+                                  )}
+                                  {metric.assumed_unit && !metric.source_unit && (
+                                    <span style={{ fontSize: "0.7rem", color: "var(--accent-teal)", fontWeight: 500 }}>
+                                      Source unit unprinted (Assumed: {metric.assumed_unit})
+                                    </span>
                                   )}
                                   {hasConversion && (
                                     <span style={{ fontSize: "0.7rem", color: "var(--accent-teal)", fontWeight: 500 }}>

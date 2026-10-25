@@ -35,7 +35,7 @@ def check_emergency_thresholds(metrics: List[Dict[str, Any]]) -> Tuple[List[Dict
         requires_review = m.get("requires_review", False)
 
         # Priority 3: Missing, invalid, or unreviewed values NEVER trigger panic thresholds!
-        if val is None or requires_review or status in ["Unparseable / Missing", "Unreviewed (Incompatible Unit)"]:
+        if val is None or requires_review or status.startswith("Unreviewed") or status in ["Unparseable / Missing", "Unreviewed (Incompatible Unit)"]:
             m["is_critical"] = False
             m["critical_reason"] = None
             continue

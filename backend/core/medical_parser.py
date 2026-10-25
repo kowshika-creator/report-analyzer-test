@@ -206,13 +206,13 @@ def normalize_unambiguous_decimal_commas(text: str) -> str:
 def parse_reference_interval_string(line: str) -> Optional[str]:
     """
     Scans a report line for printed biological reference range intervals.
-    e.g., "(12.0 - 16.0)", "13.5-17.5", "< 6.0", "0.4 to 4.5", "Up to 200"
+    e.g., "(12.0 - 16.0 g/dL)", "(3.9 - 5.6 mmol/L)", "13.5-17.5", "< 6.0 %", "0.4 to 4.5", "Up to 200"
     """
     line_norm = normalize_unambiguous_decimal_commas(line)
     ref_patterns = [
-        r'\(\s*([0-9]+\.?[0-9]*\s*(?:-|to)\s*[0-9]+\.?[0-9]*)\s*\)',
-        r'([0-9]+\.?[0-9]*\s*(?:-|to)\s*[0-9]+\.?[0-9]*)',
-        r'((?:<|>|<=|>=|less than|greater than|up to)\s*[0-9]+\.?[0-9]*)'
+        r'\(\s*([0-9]+\.?[0-9]*\s*(?:-|to)\s*[0-9]+\.?[0-9]*(?:\s*[a-zA-Z%^0-9/\-]+)?)\s*\)',
+        r'([0-9]+\.?[0-9]*\s*(?:-|to)\s*[0-9]+\.?[0-9]*(?:\s*' + UNIT_REGEX + r')?)',
+        r'((?:<|>|<=|>=|less than|greater than|up to)\s*[0-9]+\.?[0-9]*(?:\s*' + UNIT_REGEX + r')?)'
     ]
     for p in ref_patterns:
         match = re.search(p, line_norm, re.IGNORECASE)
@@ -226,6 +226,7 @@ def parse_medical_report_text(raw_text: str) -> Dict[str, Dict[str, Any]]:
     Scans raw text using pattern matching to extract biomarkers, numeric values,
     units, printed reference intervals, and confidence scores.
     Preserves exact printed units alongside the source values and avoids leading line numbers.
+    Never replaces a missing printed source unit with a predefined default.
     """
     extracted: Dict[str, Dict[str, Any]] = {}
     lines = raw_text.splitlines()
@@ -279,8 +280,9 @@ def parse_medical_report_text(raw_text: str) -> Dict[str, Dict[str, Any]]:
                     extracted[std_name] = {
                         "value": val,
                         "source_value": val,
-                        "unit": printed_unit if printed_unit else meta["unit"],
+                        "unit": printed_unit,
                         "source_unit": printed_unit,
+                        "assumed_unit": None,
                         "reference_interval": ref_interval,
                         "confidence": 0.95 if val is not None else 0.50,
                         "panel_category": meta["panel"]
@@ -315,6 +317,7 @@ def parse_medical_report_text(raw_text: str) -> Dict[str, Dict[str, Any]]:
                     "source_value": c_val,
                     "unit": c_unit,
                     "source_unit": c_unit if c_unit != "units" else None,
+                    "assumed_unit": None,
                     "reference_interval": c_ref,
                     "confidence": 0.90 if c_val is not None else 0.50,
                     "panel_category": "Custom Laboratory Test"
