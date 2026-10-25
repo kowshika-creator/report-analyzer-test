@@ -21,11 +21,11 @@ class ReferenceRangeResponse(ReferenceRangeBase):
 
 class MetricAnalysis(BaseModel):
     biomarker_name: str
-    value: float
+    value: Optional[float] = None
     unit: str
-    min_normal: float
-    max_normal: float
-    status: str  # "Low", "High", "Normal"
+    min_normal: Optional[float] = None
+    max_normal: Optional[float] = None
+    status: str  # "Low", "High", "Normal", "Unreviewed", "Unparseable"
     confidence: float = 0.95  # e.g., 0.95 = 95% confidence
     is_low_confidence: bool = False  # True if confidence < 0.80
     is_critical: bool = False  # True if value hits panic threshold
@@ -34,11 +34,19 @@ class MetricAnalysis(BaseModel):
     reference_source: Optional[str] = "AXON Local Database"  # "Lab Report", "AXON Local Database", "Standard Clinical Guidelines"
     panel_category: Optional[str] = "General Clinical Metric"
 
+    # Priority 2: Structured Unit Traceability
+    source_value: Optional[float] = None
+    source_unit: Optional[str] = None
+    normalized_value: Optional[float] = None
+    normalized_unit: Optional[str] = None
+    conversion_method: Optional[str] = None
+    requires_review: bool = False
+
 class ExplainableRuleResult(BaseModel):
     rule_id: str
     title: str
     input_param: str
-    input_value: float
+    input_value: Optional[float] = None
     unit: str
     reference_range: str
     result_status: str

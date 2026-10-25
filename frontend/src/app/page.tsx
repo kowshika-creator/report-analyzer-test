@@ -17,11 +17,11 @@ interface UserProfile {
 
 interface Metric {
   biomarker_name: string;
-  value: number;
+  value: number | null;
   unit: string;
-  min_normal: number;
-  max_normal: number;
-  status: string; // "Normal", "Low", "High", "Critical"
+  min_normal: number | null;
+  max_normal: number | null;
+  status: string; // "Normal", "Low", "High", "Critical", "Unreviewed", "Unparseable"
   confidence?: number;
   is_low_confidence?: boolean;
   is_critical?: boolean;
@@ -29,13 +29,19 @@ interface Metric {
   description: string | null;
   reference_source?: string;
   panel_category?: string;
+  source_value?: number | null;
+  source_unit?: string | null;
+  normalized_value?: number | null;
+  normalized_unit?: string | null;
+  conversion_method?: string | null;
+  requires_review?: boolean;
 }
 
 interface ExplainableRule {
   rule_id: string;
   title: string;
   input_param: string;
-  input_value: number;
+  input_value: number | null;
   unit: string;
   reference_range: string;
   result_status: string;
@@ -122,6 +128,7 @@ export default function AXONDashboard() {
   const [showDescription, setShowDescription] = useState<Record<string, boolean>>({});
   const [labDragOver, setLabDragOver] = useState<boolean>(false);
   const [labMismatchNotice, setLabMismatchNotice] = useState<{ message: string; file: File } | null>(null);
+  const labRequestIdRef = useRef<number>(0);
 
   // ==========================================
   // SCAN REPORTS STATE (PERSISTENT & SEPARATE)
@@ -465,6 +472,9 @@ export default function AXONDashboard() {
   };
 
   const uploadLabFile = async (file: File) => {
+    const currentReqId = ++labRequestIdRef.current;
+    // Priority 5: Clear previous report immediately so stale results cannot be mistaken for current upload
+    setActiveLabReport(null);
     setLabUploading(true);
     setLabErrorMessage(null);
     setLabMismatchNotice(null);
@@ -487,7 +497,12 @@ export default function AXONDashboard() {
       });
 
       const data = await res.json();
+
+      // Guard against race conditions if user uploaded a newer file in quick succession
+      if (currentReqId !== labRequestIdRef.current) return;
+
       if (!res.ok) {
+        setActiveLabReport(null);
         const detail = data.detail || "";
         if (detail.includes("MISMATCH_SCAN_REPORT")) {
           setLabMismatchNotice({
@@ -524,16 +539,23 @@ export default function AXONDashboard() {
         fetchReportHistory(token);
       }
     } catch (err: any) {
+      if (currentReqId !== labRequestIdRef.current) return;
+      setActiveLabReport(null);
       setLabErrorMessage(err.message || "An error occurred while uploading the laboratory report.");
     } finally {
-      setLabUploading(false);
+      if (currentReqId === labRequestIdRef.current) {
+        setLabUploading(false);
+      }
     }
   };
 
   const loadSampleLabReport = () => {
+    labRequestIdRef.current++; // Invalidate any in-flight file uploads
+    setLabErrorMessage(null);
+    setLabMismatchNotice(null);
     const samplePayload: HistoricalReport = {
       id: `report-sample-cbc`,
-      filename: "Standard_CBC_Metabolic_Report.pdf",
+      filename: "Standard_CBC_Metabolic_Report.pdf (Demonstration Sample)",
       date: new Date().toISOString().split("T")[0],
       report_type: "lab",
       normal_count: 5,
@@ -1421,6 +1443,8 @@ IMPRESSION:
                             labelText = "Critical";
                           }
 
+                          const hasConversion = !!metric.conversion_method && !!metric.source_unit && metric.source_unit !== metric.unit;
+
                           return (
                             <tr key={idx}>
                               <td>
@@ -1429,14 +1453,27 @@ IMPRESSION:
                                   {metric.reference_source && (
                                     <span className="table-biomarker-subtitle">Ref: {metric.reference_source}</span>
                                   )}
+                                  {hasConversion && (
+                                    <span style={{ fontSize: "0.7rem", color: "var(--accent-teal)", fontWeight: 500 }}>
+                                      Converted from {metric.source_value} {metric.source_unit}
+                                    </span>
+                                  )}
                                 </div>
                               </td>
                               <td>
-                                <span className="table-val-pill">{metric.value}</span>
+                                <span className="table-val-pill">
+                                  {metric.value !== null && metric.value !== undefined ? metric.value : "—"}
+                                </span>
                               </td>
-                              <td style={{ color: "var(--text-secondary)", fontWeight: 500 }}>{metric.unit}</td>
+                              <td style={{ color: "var(--text-secondary)", fontWeight: 500 }}>
+                                {metric.unit}
+                              </td>
                               <td style={{ color: "var(--text-secondary)", fontSize: "0.82rem" }}>
-                                {metric.min_normal} – {metric.max_normal} {metric.unit}
+                                {metric.min_normal !== null && metric.max_normal !== null && metric.max_normal < 90000
+                                  ? `${metric.min_normal} – ${metric.max_normal} ${metric.unit}`
+                                  : metric.requires_review
+                                  ? "Clinical Review Required"
+                                  : "Standard Bounds"}
                               </td>
                               <td>
                                 <span className={`status-badge-pill ${badgeClass}`}>
@@ -1469,7 +1506,7 @@ IMPRESSION:
                       const statusClass = metric.status.toLowerCase();
                       const isOpen = !!showDescription[metric.biomarker_name];
                       let fillPct = 50;
-                      if (metric.min_normal < metric.max_normal) {
+                      if (metric.value !== null && metric.min_normal !== null && metric.max_normal !== null && metric.min_normal < metric.max_normal) {
                         if (metric.value <= metric.min_normal) fillPct = 15;
                         else if (metric.value >= metric.max_normal) fillPct = 85;
                         else fillPct = 15 + ((metric.value - metric.min_normal) / (metric.max_normal - metric.min_normal)) * 70;
@@ -1484,9 +1521,17 @@ IMPRESSION:
                             </div>
 
                             <div className="biomarker-value-container">
-                              <span className="biomarker-value">{metric.value}</span>
+                              <span className="biomarker-value">
+                                {metric.value !== null && metric.value !== undefined ? metric.value : "—"}
+                              </span>
                               <span className="biomarker-unit">{metric.unit}</span>
                             </div>
+
+                            {metric.conversion_method && metric.source_unit && metric.source_unit !== metric.unit && (
+                              <div style={{ fontSize: "0.72rem", color: "var(--accent-teal)", marginTop: "2px" }}>
+                                Converted from {metric.source_value} {metric.source_unit}
+                              </div>
+                            )}
 
                             <div className="biomarker-range-gauge">
                               <div className={`biomarker-range-fill ${statusClass}`} style={{ width: `${fillPct}%` }} />
@@ -1495,7 +1540,7 @@ IMPRESSION:
 
                           <div>
                             <div className="biomarker-range">
-                              Target: {metric.min_normal} – {metric.max_normal} {metric.unit}
+                              Target: {metric.min_normal !== null && metric.max_normal !== null && metric.max_normal < 90000 ? `${metric.min_normal} – ${metric.max_normal} ${metric.unit}` : "Standard Bounds"}
                             </div>
                             {metric.description && (
                               <>

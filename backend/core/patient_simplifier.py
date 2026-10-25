@@ -92,13 +92,22 @@ def generate_patient_summary_local(metrics: List[Dict[str, Any]], language: str 
     """
     lang_dict = MULTILINGUAL_SUMMARY_HEADERS.get(language, MULTILINGUAL_SUMMARY_HEADERS["English"])
     
-    abnormal_metrics = [m for m in metrics if m["status"] in ["Low", "High"]]
+    abnormal_metrics = [
+        m for m in metrics 
+        if m.get("status") in ["Low", "High"] 
+        and m.get("value") is not None 
+        and not m.get("requires_review")
+    ]
+    unreviewed_metrics = [
+        m for m in metrics 
+        if m.get("requires_review") or m.get("status") in ["Unreviewed (Incompatible Unit)", "Unparseable / Missing"]
+    ]
     
     summary_lines = [f"### {lang_dict['header']}\n"]
 
-    if not abnormal_metrics:
+    if not abnormal_metrics and not unreviewed_metrics:
         summary_lines.append(f"{lang_dict['all_normal']}\n")
-    else:
+    elif abnormal_metrics:
         summary_lines.append(f"{lang_dict['abnormal_intro']}\n")
         for m in abnormal_metrics:
             name = m["biomarker_name"]
@@ -111,6 +120,10 @@ def generate_patient_summary_local(metrics: List[Dict[str, Any]], language: str 
             
             line = f"- **{name}** ({val} {unit}): {status_text}. {expl}"
             summary_lines.append(line)
+
+    if unreviewed_metrics:
+        unrev_names = ", ".join([m["biomarker_name"] for m in unreviewed_metrics])
+        summary_lines.append(f"\n*Clinical Notice: The following metrics require physician review due to unverified units or unclear values: {unrev_names}.*")
 
     summary_lines.append(f"\n*{lang_dict['disclaimer']}*")
     return "\n".join(summary_lines)

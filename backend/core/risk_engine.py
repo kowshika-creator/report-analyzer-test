@@ -20,7 +20,16 @@ def evaluate_disease_risk_patterns(metrics: List[Dict[str, Any]]) -> List[str]:
 
     # 2. Rule-based clinical verification fallback if ML predictions are empty
     if not patterns:
-        m_map = {m["biomarker_name"].lower(): m for m in metrics}
+        valid_metrics = [
+            m for m in metrics 
+            if m.get("value") is not None 
+            and not m.get("requires_review") 
+            and m.get("status") in ["Low", "High", "Normal"]
+        ]
+        if not valid_metrics:
+            return ["No clinically evaluated biomarkers available for pattern recognition."]
+
+        m_map = {m["biomarker_name"].lower(): m for m in valid_metrics}
 
         fbs = m_map.get("fasting") or m_map.get("fasting glucose") or m_map.get("glucose")
         hba1c = m_map.get("hba1c")

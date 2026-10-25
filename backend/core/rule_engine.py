@@ -41,7 +41,23 @@ def run_explainable_rule_engine(metrics: List[Dict[str, Any]]) -> List[Dict[str,
         ref_str = f"{min_n} - {max_n} {unit}" if max_n < 99990.0 else f"{min_n}+ {unit}"
 
         # Build explainable rationale based on status
-        if status == "Low":
+        if val is None or status == "Unparseable / Missing":
+            explanation = (
+                f"Rule '{rule_id}' unverified: Measured {name} could not be safely parsed or is missing in the report. "
+                f"Direct physical inspection of the laboratory document is recommended."
+            )
+            discussion_points = [
+                f"Ask doctor: Please inspect the physical report for the measured {name} value."
+            ]
+        elif status == "Unreviewed (Incompatible Unit)" or m.get("requires_review"):
+            explanation = (
+                f"Rule '{rule_id}' review required: Measured {name} ({val} {unit}) was reported in an unverified or incompatible unit. "
+                f"Automatic classification was suppressed to prevent false clinical conclusions."
+            )
+            discussion_points = [
+                f"Ask doctor: Please verify {name} ({val} {unit}) against your clinic's laboratory reference standard."
+            ]
+        elif status == "Low":
             explanation = (
                 f"Rule '{rule_id}' triggered: Measured {name} ({val} {unit}) is below the configured clinical minimum threshold ({min_n} {unit}). "
                 f"Physiologically, sub-optimal levels of {name} may indicate reduced biosynthesis, increased consumption, or deficiency."

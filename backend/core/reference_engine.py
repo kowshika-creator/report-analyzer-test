@@ -60,6 +60,82 @@ def parse_printed_interval(interval_str: str) -> Tuple[Optional[float], Optional
         return float(m.group(1)), float(m.group(2))
     return None, None
 
+def normalize_biomarker_unit(
+    biomarker_name: str, 
+    source_val: Optional[float], 
+    source_unit: Optional[str], 
+    target_unit: str
+) -> Tuple[Optional[float], Optional[str], Optional[str], bool]:
+    """
+    Validated Analyte-Specific Unit Normalization:
+    - Glucose: mmol/L <-> mg/dL using IUPAC standard molar mass factor 18.0182.
+    - Hemoglobin: g/L <-> g/dL using standard metric ratio (10 g/L = 1 g/dL).
+    - Platelets: lakhs/cumm -> 10^3/uL (subcontinent lab convention: 1 lakh = 100 x 10^3/uL).
+    
+    Unsupported or unknown units are flagged with `requires_review = True` and
+    NEVER silently substituted or compared against incompatible reference bounds.
+
+    Returns:
+        Tuple[normalized_value, normalized_unit, conversion_method, requires_review]
+    """
+    if source_val is None:
+        return None, source_unit or target_unit, None, True
+
+    n_lower = biomarker_name.lower()
+    s_unit_clean = (source_unit or "").strip()
+    s_unit_lower = s_unit_clean.lower()
+    t_unit_lower = target_unit.strip().lower()
+
+    # If no unit was printed in the report, assume guideline target unit with disclaimer
+    if not s_unit_clean:
+        return source_val, target_unit, "Default clinical guideline unit applied (unprinted in source)", False
+
+    # 1. Glucose / Glycemia Panel (Target: mg/dL)
+    if any(k in n_lower for k in ["fasting", "glucose", "fbs", "ppbs", "sugar"]):
+        if s_unit_lower in ["mmol/l", "mmol/l"]:
+            norm_v = round(source_val * 18.0182, 1)
+            return norm_v, "mg/dL", "Molar mass conversion: mmol/L * 18.0182 -> mg/dL", False
+        elif s_unit_lower in ["mg/dl", "mg/dl"]:
+            return source_val, "mg/dL", None, False
+        else:
+            # Incompatible / unsupported unit for glucose
+            return source_val, s_unit_clean, f"Unsupported glucose unit: {s_unit_clean}", True
+
+    # 2. Hemoglobin (Target: g/dL)
+    if any(k in n_lower for k in ["hemoglobin", "haemoglobin", "hb", "hgb"]):
+        if s_unit_lower in ["g/l", "g/l"]:
+            norm_v = round(source_val / 10.0, 1)
+            return norm_v, "g/dL", "Metric conversion: g/L / 10.0 -> g/dL", False
+        elif s_unit_lower in ["g/dl", "g/dl"]:
+            return source_val, "g/dL", None, False
+        elif s_unit_lower in ["mmol/l", "mmol/l"]:
+            # Ambiguous without monomer vs tetramer specification
+            return source_val, s_unit_clean, "Ambiguous unit: Hemoglobin in mmol/L requires lab convention verification", True
+        else:
+            return source_val, s_unit_clean, f"Unsupported hemoglobin unit: {s_unit_clean}", True
+
+    # 3. Platelets (Target: 10^3/uL)
+    if any(k in n_lower for k in ["platelet", "plt", "thrombocyte"]):
+        if s_unit_lower in ["lakhs/cumm", "lakh/cumm", "lakhs", "lakh"]:
+            norm_v = round(source_val * 100.0, 1)
+            return norm_v, "10^3/uL", "Subcontinent lab conversion: lakhs/cumm * 100.0 -> 10^3/uL", False
+        elif s_unit_lower in ["10^3/ul", "10^3/ul", "x10^3/ul", "x10^3/ul", "k/ul", "k/ul"]:
+            return source_val, "10^3/uL", None, False
+        elif s_unit_lower in ["/ul", "cells/ul", "cumm", "/cumm"] and source_val >= 1000:
+            norm_v = round(source_val / 1000.0, 1)
+            return norm_v, "10^3/uL", "Metric conversion: cells/uL / 1000.0 -> 10^3/uL", False
+        elif s_unit_lower in ["/ul", "cells/ul", "cumm", "/cumm"] and source_val < 1000:
+            return source_val, "10^3/uL", None, False
+        else:
+            return source_val, s_unit_clean, f"Unsupported platelet unit: {s_unit_clean}", True
+
+    # 4. Strict compatibility check for all other analytes
+    if s_unit_lower == t_unit_lower or s_unit_lower.replace(" ", "") == t_unit_lower.replace(" ", ""):
+        return source_val, target_unit, None, False
+    else:
+        # Unknown/incompatible unit: flag for review, do NOT guess
+        return source_val, s_unit_clean, f"Unverified unit mismatch: source '{s_unit_clean}' vs expected '{target_unit}'", True
+
 def evaluate_reference_ranges(
     biomarkers: Dict[str, Dict[str, Any]], 
     db_session: Optional[Session] = None
@@ -70,7 +146,8 @@ def evaluate_reference_ranges(
     2. SQLite Reference Database
     3. Built-in Standard Clinical Guidelines
 
-    Returns structured dicts matching MetricAnalysis schema with annotated reference_source.
+    Strictly preserves missing values, enforces validated analyte-specific unit conversions,
+    and flags unreviewed or incompatible measurements without guessing.
     """
     db_map = {}
     if db_session:
@@ -89,9 +166,9 @@ def evaluate_reference_ranges(
     evaluated_metrics = []
 
     for name, data in biomarkers.items():
-        val = data.get("value", 0.0)
+        source_val = data.get("value")
         ref_printed = data.get("reference_interval")
-        unit_given = data.get("unit")
+        source_unit = data.get("source_unit") or data.get("unit")
         confidence = data.get("confidence", 0.95)
         panel_cat = data.get("panel_category", "General Clinical Metric")
 
@@ -99,46 +176,66 @@ def evaluate_reference_ranges(
         matched_db_range = db_map.get(name.lower())
         fallback = FALLBACK_CLINICAL_RANGES.get(name)
 
-        # Determine reference bounds & source tag
+        # Determine reference bounds & target unit
         if dyn_min is not None or dyn_max is not None:
             min_bound = dyn_min if dyn_min is not None else 0.0
             max_bound = dyn_max if dyn_max is not None else 99999.0
             source_tag = "Lab Report"
             desc = f"[Printed Ref Range: {ref_printed}] Evaluated using printed report bounds."
-            unit = unit_given if unit_given else (matched_db_range.unit if matched_db_range else "units")
+            target_unit = (matched_db_range.unit if matched_db_range else (fallback["unit"] if fallback else (source_unit or "units")))
         elif matched_db_range:
             min_bound = matched_db_range.min_normal
             max_bound = matched_db_range.max_normal
             source_tag = "AXON Local Database"
             desc = matched_db_range.description or f"Standard clinical bounds for {name}."
-            unit = unit_given if unit_given else matched_db_range.unit
+            target_unit = matched_db_range.unit
         elif fallback:
             min_bound = fallback["min"]
             max_bound = fallback["max"]
             source_tag = "Standard Clinical Guidelines"
             desc = fallback["desc"]
-            unit = unit_given if unit_given else fallback["unit"]
+            target_unit = fallback["unit"]
         else:
             min_bound = 0.0
             max_bound = 99999.0
             source_tag = "Clinical Guidelines"
             desc = f"Custom or non-standard metric evaluated locally."
-            unit = unit_given if unit_given else "units"
+            target_unit = source_unit or "units"
 
-        # Determine evaluation status
-        if val < min_bound:
-            status = "Low"
-        elif val > max_bound:
-            status = "High"
+        # Apply Validated Analyte-Specific Unit Normalization
+        norm_val, norm_unit, conv_method, requires_review = normalize_biomarker_unit(
+            biomarker_name=name,
+            source_val=source_val,
+            source_unit=source_unit,
+            target_unit=target_unit
+        )
+
+        effective_val = norm_val if norm_val is not None else source_val
+        effective_unit = norm_unit if norm_unit else (source_unit or target_unit)
+
+        # Determine evaluation status safely
+        if effective_val is None:
+            status = "Unparseable / Missing"
+            requires_review = True
+            desc = f"{name}: Value missing or unparseable in source report."
+        elif requires_review:
+            status = "Unreviewed (Incompatible Unit)"
+            desc = f"{name}: Unit '{source_unit}' is incompatible with expected '{target_unit}' and requires clinical review."
         else:
-            status = "Normal"
+            # Safe numeric classification
+            if effective_val < min_bound:
+                status = "Low"
+            elif effective_val > max_bound:
+                status = "High"
+            else:
+                status = "Normal"
 
-        is_low_conf = confidence < 0.80
+        is_low_conf = (confidence < 0.80) or requires_review or (effective_val is None)
 
         evaluated_metrics.append({
             "biomarker_name": name,
-            "value": val,
-            "unit": unit,
+            "value": effective_val,
+            "unit": effective_unit,
             "min_normal": min_bound if min_bound != float('inf') else 99999.0,
             "max_normal": max_bound if max_bound != float('inf') else 99999.0,
             "status": status,
@@ -146,7 +243,15 @@ def evaluate_reference_ranges(
             "is_low_confidence": is_low_conf,
             "reference_source": source_tag,
             "description": desc,
-            "panel_category": panel_cat
+            "panel_category": panel_cat,
+            
+            # Unit traceability & safety metadata
+            "source_value": source_val,
+            "source_unit": source_unit,
+            "normalized_value": norm_val,
+            "normalized_unit": norm_unit,
+            "conversion_method": conv_method,
+            "requires_review": requires_review
         })
 
     return evaluated_metrics

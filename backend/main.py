@@ -314,11 +314,7 @@ def extract_text_from_image(image_bytes: bytes, api_key: Optional[str] = None) -
             validation_errors.append(f"Gemini Vision execution error: {str(gemini_err)}")
 
     # Check validation failures
-    if candidates:
-        raise ValueError(validation_errors[-1])
-
-    print("Using local mock clinical text fallback...")
-    return get_mock_image_text(), True
+    raise ValueError("No readable clinical text could be extracted from this image. Please upload a clear medical report.")
 
 def compare_biomarkers_with_db(biomarkers: Dict[str, Dict], db: Session) -> List[schemas.MetricAnalysis]:
     """
@@ -506,6 +502,12 @@ async def analyze_report_v2(
         is_image=is_image
     )
 
+    if not raw_text or not raw_text.strip():
+        raise HTTPException(
+            status_code=422,
+            detail="No readable text could be extracted from the uploaded document. Please ensure the document is clear, well-lit, and contains printed laboratory test results."
+        )
+
     # 2. PII De-identification
     from anonymizer import anonymize_text
     raw_text = anonymize_text(raw_text)
@@ -546,19 +548,12 @@ async def analyze_report_v2(
         except Exception as e:
             print(f"Optional Cloud AI enhancement skipped: {e}")
 
-    # Fallback to mock dictionary if no metrics found in demo mode
+    # Priority 1: Reject unparseable reports - NEVER inject mock laboratory results!
     if not extracted_biomarkers:
-        extracted_biomarkers = {
-            "Hemoglobin": {"value": 11.2, "unit": "g/dL", "reference_interval": "12.0 - 16.0", "confidence": 0.95},
-            "WBC": {"value": 7.5, "unit": "10^3/uL", "reference_interval": "4.0 - 11.0", "confidence": 0.95},
-            "Platelets": {"value": 130.0, "unit": "10^3/uL", "reference_interval": "150 - 450", "confidence": 0.95},
-            "Fasting": {"value": 145.0, "unit": "mg/dL", "reference_interval": "70 - 100", "confidence": 0.95},
-            "HbA1c": {"value": 6.2, "unit": "%", "reference_interval": "4.0 - 5.6", "confidence": 0.95},
-            "Total Cholesterol": {"value": 245.0, "unit": "mg/dL", "reference_interval": "125 - 200", "confidence": 0.95},
-            "Serum Creatinine": {"value": 1.4, "unit": "mg/dL", "reference_interval": "0.6 - 1.2", "confidence": 0.95},
-            "TSH": {"value": 6.2, "unit": "uIU/mL", "reference_interval": "0.4 - 4.5", "confidence": 0.95}
-        }
-        is_mock_fallback = True
+        raise HTTPException(
+            status_code=422,
+            detail="No clinical laboratory biomarkers could be safely identified or extracted from this document. Please ensure the uploaded file contains recognizable laboratory test names and numeric values."
+        )
 
     # 4. Local Reference Range Engine
     metrics_dicts = evaluate_reference_ranges(extracted_biomarkers, db)

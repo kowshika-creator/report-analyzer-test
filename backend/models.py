@@ -57,10 +57,10 @@ class ReportMetric(Base):
     id = Column(Integer, primary_key=True, index=True)
     report_id = Column(Integer, ForeignKey("uploaded_reports.id"), nullable=False)
     biomarker_name = Column(String, nullable=False)
-    value = Column(Float, nullable=False)
+    value = Column(Float, nullable=True)
     unit = Column(String, nullable=False)
-    min_normal = Column(Float, nullable=False)
-    max_normal = Column(Float, nullable=False)
+    min_normal = Column(Float, nullable=True)
+    max_normal = Column(Float, nullable=True)
     status = Column(String, nullable=False)  # "Low", "Normal", "High"
     confidence = Column(Float, default=0.95, nullable=True)
     is_low_confidence = Column(Boolean, default=False, nullable=True)

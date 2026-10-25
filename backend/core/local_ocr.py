@@ -127,6 +127,5 @@ def extract_text_locally(
     except Exception:
         pass
 
-    # Step 5: Safe local sample report fallback
-    print("Using local sample clinical report text fallback...")
-    return get_fallback_lab_text(), "AXON Local Sample Fallback", True
+    # If all extraction steps yield no readable text, return empty string so caller can reject safely
+    return "", "None", False

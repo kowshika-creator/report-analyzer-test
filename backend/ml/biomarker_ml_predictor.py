@@ -51,7 +51,24 @@ def predict_disease_risks_ml(metrics: List[Dict[str, Any]]) -> Tuple[List[str], 
         Tuple[List of formatted risk pattern strings, List of ML prediction details]
     """
     clf = get_ml_classifier()
-    metrics_map = {m["biomarker_name"].lower(): m["value"] for m in metrics}
+    valid_metrics = [
+        m for m in metrics 
+        if m.get("value") is not None 
+        and not m.get("requires_review") 
+        and m.get("status") in ["Low", "High", "Normal"]
+    ]
+    metrics_map = {m["biomarker_name"].lower(): m["value"] for m in valid_metrics}
+
+    # Count how many features were actually measured by the laboratory
+    measured_count = 0
+    for f_name in FEATURE_NAMES:
+        f_lower = f_name.lower()
+        if f_lower in metrics_map or (f_lower == "fasting" and "fasting glucose" in metrics_map) or (f_lower == "hemoglobin" and "hb" in metrics_map):
+            measured_count += 1
+
+    # Suppress prediction if fewer than 3 clinical features were actually measured
+    if measured_count < 3:
+        return [], []
 
     # Construct input feature vector X (1 x 18)
     x_vec = np.zeros((1, len(FEATURE_NAMES)))
