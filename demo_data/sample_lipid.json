@@ -1,0 +1,30 @@
+{
+  "report_title": "Lipid Profile Panel Report",
+  "patient_info": "Sample Patient (De-identified)",
+  "biomarkers": [
+    {
+      "biomarker_name": "Total Cholesterol",
+      "value": 245.0,
+      "unit": "mg/dL",
+      "reference_interval": "125 - 200"
+    },
+    {
+      "biomarker_name": "HDL",
+      "value": 35.0,
+      "unit": "mg/dL",
+      "reference_interval": "40 - 60"
+    },
+    {
+      "biomarker_name": "LDL",
+      "value": 155.0,
+      "unit": "mg/dL",
+      "reference_interval": "0 - 100"
+    },
+    {
+      "biomarker_name": "Triglycerides",
+      "value": 185.0,
+      "unit": "mg/dL",
+      "reference_interval": "35 - 150"
+    }
+  ]
+}

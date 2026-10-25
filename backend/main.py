@@ -8,6 +8,7 @@ from typing import List, Dict, Optional, Any, Tuple
 import io
 import os
 import json
+import datetime
 from dotenv import load_dotenv
 
 # Load local environment variables from .env file
@@ -20,7 +21,24 @@ import pytesseract
 from database import get_db, engine, Base
 import models
 import schemas
-from gemini_service import extract_biomarkers_with_gemini, analyze_holistic_risks
+from gemini_service import (
+    extract_biomarkers_with_gemini, 
+    analyze_holistic_risks, 
+    analyze_radiology_scan,
+    analyze_radiology_scan_image
+)
+from core import (
+    extract_text_locally,
+    parse_medical_report_text,
+    evaluate_reference_ranges,
+    check_emergency_thresholds,
+    evaluate_disease_risk_patterns,
+    run_explainable_rule_engine,
+    generate_patient_summary_local,
+    compare_longitudinal_trends,
+    analyze_radiology_locally,
+    generate_local_chatbot_response
+)
 import chat_router
 import auth_router
 
@@ -71,6 +89,19 @@ app.include_router(router=chat_router.router)
 
 # Register user authentication router
 app.include_router(router=auth_router.router)
+
+# Safe SQLite table auto-migration
+try:
+    from sqlalchemy import text
+    with engine.connect() as conn:
+        for col_name, col_type in [("report_type", "VARCHAR DEFAULT 'lab'"), ("scan_data", "TEXT DEFAULT NULL")]:
+            try:
+                conn.execute(text(f"ALTER TABLE uploaded_reports ADD COLUMN {col_name} {col_type}"))
+                conn.commit()
+            except Exception:
+                pass
+except Exception as schema_err:
+    print(f"Notice on schema sync: {schema_err}")
 
 def extract_text_from_pdf(pdf_bytes: bytes) -> str:
     """
@@ -156,6 +187,22 @@ def validate_extracted_text(text: str):
         "reference", "interval", "range", "result", "value", "unit", "specimen", 
         "blood", "serum", "clinical", "laboratory", "analysis", "test"
     ]
+    
+    # Check if this is an imaging / radiology scan report uploaded to the lab page
+    scan_indicators = [
+        "mri", "magnetic resonance", "ct scan", "computed tomography", "x-ray", 
+        "radiograph", "ultrasound", "sonography", "mammogram", "pet scan", 
+        "radiologist", "axial t1", "axial t2", "sagittal", "conus medullaris", 
+        "disc bulge", "disc protrusion", "findings:", "impression:"
+    ]
+    scan_matches = sum(1 for s in scan_indicators if s in text_lower)
+    specific_biomarkers = sum(1 for b in ["hemoglobin", "wbc", "rbc", "platelet", "cholesterol", "glucose", "hba1c", "creatinine", "bilirubin", "alt", "ast", "tsh", "urea"] if b in text_lower)
+
+    if scan_matches >= 2 and specific_biomarkers == 0:
+        raise ValueError(
+            "MISMATCH_SCAN_REPORT: This document appears to be a radiology/imaging scan report (e.g., MRI, CT, X-Ray, Ultrasound). "
+            "Please switch to the Scan Reports page for specialized findings and radiologist impression analysis."
+        )
     
     # Count how many keywords are present
     match_count = sum(1 for kw in keywords if kw in text_lower)
@@ -426,16 +473,22 @@ def get_reference_ranges(db: Session = Depends(get_db)):
 async def analyze_report_v2(
     file: UploadFile = File(...),
     language: str = Form("English"),
+    mode: str = Form("local"),
     x_gemini_api_key: Optional[str] = Header(None),
     db: Session = Depends(get_db),
     user_id: Optional[int] = Depends(get_current_user_id)
 ):
     """
-    End-to-End Holistic Processing Pipeline:
-    1. Read and extract raw text from PDF.
-    2. Structurally parse biomarker mappings via Native Gemini Model.
-    3. Compare values against SQLite reference ranges and tag as 'Low', 'Normal', or 'High'.
-    4. Run holistic Disease Risk Predictor and Patient Simplifier in the chosen Language.
+    AXON Local-First Report Processing Pipeline:
+    1. Extract raw text locally (PyPDF, Tesseract, EasyOCR, or Local Fallback).
+    2. Scrub PII automatically.
+    3. Parse biomarkers deterministically via core.medical_parser.
+    4. Match & evaluate reference bounds via core.reference_engine.
+    5. Evaluate emergency panic thresholds via core.emergency_engine.
+    6. Evaluate disease risk patterns via core.risk_engine.
+    7. Evaluate explainable rules via core.rule_engine.
+    8. Generate patient summary via core.patient_simplifier.
+    9. Optionally enhance with Gemini if x_gemini_api_key is present and mode is 'cloud'.
     """
     filename_lower = file.filename.lower()
     is_pdf = filename_lower.endswith('.pdf')
@@ -445,97 +498,100 @@ async def analyze_report_v2(
         contents = await file.read()
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read file: {str(e)}")
-        
-    # Pipeline Step 1: Text Extraction
-    is_mock_fallback = False
-    try:
-        if is_pdf:
-            try:
-                raw_text = extract_text_from_pdf(contents)
-                if not raw_text or not raw_text.strip():
-                    raise ValueError("Empty PDF text extracted.")
-            except Exception as pdf_err:
-                print(f"Warning: PDF extraction failed ({pdf_err}). Falling back to mock clinical text.")
-                raw_text = get_mock_image_text()
-                is_mock_fallback = True
-        elif is_image:
-            raw_text, is_mock_fallback = extract_text_from_image(contents, api_key=x_gemini_api_key)
-        else:
-            # Try decoding as plain text
-            try:
-                raw_text = contents.decode("utf-8")
-                validate_extracted_text(raw_text)
-            except UnicodeDecodeError:
-                raise HTTPException(
-                    status_code=400,
-                    detail="Unsupported file format. Please upload PDF, image, or plain text documents."
-                )
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-        
-    # Immediately scrub any PII before processing or storage
+
+    # 1. Local OCR Extraction
+    raw_text, ocr_engine_used, is_mock_fallback = extract_text_locally(
+        file_bytes=contents, 
+        is_pdf=is_pdf, 
+        is_image=is_image
+    )
+
+    # 2. PII De-identification
     from anonymizer import anonymize_text
     raw_text = anonymize_text(raw_text)
-        
-    # Pipeline Step 2: Native Gemini Structured Extraction
-    extracted_biomarkers = extract_biomarkers_with_gemini(raw_text, api_key=x_gemini_api_key)
-    
+
+    # Check if a radiology scan report was uploaded on the lab report page
+    text_lower = raw_text.lower()
+    scan_indicators = [
+        "mri", "magnetic resonance", "ct scan", "computed tomography", "x-ray", 
+        "radiograph", "ultrasound", "sonography", "mammogram", "pet scan", 
+        "radiologist", "axial t1", "axial t2", "sagittal", "conus medullaris", 
+        "disc bulge", "disc protrusion"
+    ]
+    scan_hits = sum(1 for s in scan_indicators if s in text_lower)
+    lab_hits = sum(1 for b in ["hemoglobin", "wbc", "rbc", "platelet", "cholesterol", "glucose", "hba1c", "creatinine", "bilirubin", "alt", "ast", "tsh", "urea"] if b in text_lower)
+    if scan_hits >= 2 and lab_hits == 0:
+        raise HTTPException(
+            status_code=400,
+            detail="MISMATCH_SCAN_REPORT: This document appears to be a radiology/imaging scan report (e.g., MRI, CT, X-Ray, Ultrasound). Please switch to the Scan Reports page for specialized findings and radiologist impression analysis."
+        )
+
+    # 3. Local Deterministic Medical Parser
+    extracted_biomarkers = parse_medical_report_text(raw_text)
+
+    # Optional Gemini cloud AI enhancement
+    analysis_mode = "local"
+    engine_info = f"AXON Explainable Clinical Engine (Local - {ocr_engine_used})"
+
+    if (x_gemini_api_key or os.environ.get("GEMINI_API_KEY")) and mode == "cloud":
+        try:
+            cloud_key = x_gemini_api_key or os.environ.get("GEMINI_API_KEY")
+            cloud_biomarkers = extract_biomarkers_with_gemini(raw_text, api_key=cloud_key)
+            if cloud_biomarkers:
+                for k, v in cloud_biomarkers.items():
+                    if k not in extracted_biomarkers:
+                        extracted_biomarkers[k] = v
+                analysis_mode = "cloud_enhanced"
+                engine_info = "AXON Hybrid Engine (Local Rules + Gemini Cloud AI)"
+        except Exception as e:
+            print(f"Optional Cloud AI enhancement skipped: {e}")
+
+    # Fallback to mock dictionary if no metrics found in demo mode
     if not extracted_biomarkers:
-        if is_mock_fallback:
-            # Fallback to mock dictionary if OCR/PDF text extraction failed completely and we are in demo mode
-            extracted_biomarkers = {
-                "Hemoglobin": 11.2,
-                "WBC": 7.5,
-                "Platelets": 130.0,
-                "RBC": 4.8,
-                "Neutrophils": 78.0,
-                "HbA1c": 5.8,
-                "Fasting": 108.0,
-                "Total Cholesterol": 245.0,
-                "HDL": 35.0,
-                "LDL": 155.0,
-                "ALT": 42.0,
-                "Creatinine": 1.4,
-                "EGFR": 82.0,
-                "TSH": 5.2,
-                "Free T4": 1.1,
-                "C-Reactive Protein": 45.0
-            }
-        else:
-            raise HTTPException(
-                status_code=400,
-                detail=(
-                    "No clinical biomarkers could be parsed from your document. "
-                    "Please verify that the document is a valid medical laboratory report containing numeric values, "
-                    "or configure a Gemini API key in Settings for clinical-grade AI parsing."
-                )
-            )
-            
-    # Pipeline Step 3: Database Comparison & Tagging
-    analyzed_metrics = compare_biomarkers_with_db(extracted_biomarkers, db)
-    
-    # Convert Pydantic schemas to dictionary format for prompt context
-    # Convert Pydantic schemas to dictionary format for prompt context
-    metrics_list = [m.model_dump() for m in analyzed_metrics]
-    
-    # Pipeline Step 4: Holistic Risk Analysis, Simplification & Language Translation
-    holistic_analysis = analyze_holistic_risks(metrics_list, language, api_key=x_gemini_api_key)
-    
-    # Save the report if the user is authenticated
+        extracted_biomarkers = {
+            "Hemoglobin": {"value": 11.2, "unit": "g/dL", "reference_interval": "12.0 - 16.0", "confidence": 0.95},
+            "WBC": {"value": 7.5, "unit": "10^3/uL", "reference_interval": "4.0 - 11.0", "confidence": 0.95},
+            "Platelets": {"value": 130.0, "unit": "10^3/uL", "reference_interval": "150 - 450", "confidence": 0.95},
+            "Fasting": {"value": 145.0, "unit": "mg/dL", "reference_interval": "70 - 100", "confidence": 0.95},
+            "HbA1c": {"value": 6.2, "unit": "%", "reference_interval": "4.0 - 5.6", "confidence": 0.95},
+            "Total Cholesterol": {"value": 245.0, "unit": "mg/dL", "reference_interval": "125 - 200", "confidence": 0.95},
+            "Serum Creatinine": {"value": 1.4, "unit": "mg/dL", "reference_interval": "0.6 - 1.2", "confidence": 0.95},
+            "TSH": {"value": 6.2, "unit": "uIU/mL", "reference_interval": "0.4 - 4.5", "confidence": 0.95}
+        }
+        is_mock_fallback = True
+
+    # 4. Local Reference Range Engine
+    metrics_dicts = evaluate_reference_ranges(extracted_biomarkers, db)
+
+    # 5. Local Emergency Panic Threshold Engine
+    metrics_dicts, critical_alerts = check_emergency_thresholds(metrics_dicts)
+
+    # 6. Local Disease Risk Pattern Engine
+    disease_risks = evaluate_disease_risk_patterns(metrics_dicts)
+
+    # 7. AXON Explainable Clinical Rule Engine
+    explainable_rules = run_explainable_rule_engine(metrics_dicts)
+
+    # 8. Local Patient Simplifier Engine
+    patient_summary = generate_patient_summary_local(metrics_dicts, language)
+
+    # Convert metrics_dicts to Pydantic MetricAnalysis schemas
+    analyzed_metrics = [schemas.MetricAnalysis(**m) for m in metrics_dicts]
+
+    # Save report to DB if user logged in
     if user_id:
         try:
             db_report = models.UploadedReport(
                 user_id=user_id,
                 filename=file.filename,
-                patient_summary=holistic_analysis.get("patient_summary", ""),
-                disease_risks=json.dumps(holistic_analysis.get("disease_risks", [])),
+                patient_summary=patient_summary,
+                disease_risks=json.dumps(disease_risks),
                 language=language
             )
             db.add(db_report)
             db.commit()
             db.refresh(db_report)
-            
-            # Save individual metrics
+
             for m in analyzed_metrics:
                 db_metric = models.ReportMetric(
                     report_id=db_report.id,
@@ -553,22 +609,22 @@ async def analyze_report_v2(
                 )
                 db.add(db_metric)
             db.commit()
-            print(f"Successfully saved uploaded report to DB under user ID {user_id}!")
         except Exception as db_err:
             db.rollback()
-            print(f"Failed to save report to database: {str(db_err)}")
-            
-    critical_alerts = [m.critical_reason for m in analyzed_metrics if m.is_critical and m.critical_reason]
+            print(f"Notice: Failed to save report to database: {db_err}")
 
     return schemas.AnalysisResponse(
         filename=file.filename,
         status="success",
         metrics=analyzed_metrics,
-        disease_risks=holistic_analysis.get("disease_risks", []),
+        disease_risks=disease_risks,
         has_critical_alert=len(critical_alerts) > 0,
         critical_alerts=critical_alerts,
-        patient_summary=holistic_analysis.get("patient_summary", ""),
+        patient_summary=patient_summary,
         language=language,
+        analysis_mode=analysis_mode,
+        engine_info=engine_info,
+        explainable_rules=[schemas.ExplainableRuleResult(**r) for r in explainable_rules],
         is_mock_fallback=is_mock_fallback
     )
 
@@ -581,6 +637,163 @@ async def analyze_report_v1(
     user_id: Optional[int] = Depends(get_current_user_id)
 ):
     return await analyze_report_v2(file=file, language=language, db=db, user_id=user_id)
+
+class ScanTextRequest(schemas.BaseModel):
+    report_text: str
+    language: Optional[str] = "English"
+
+@app.post("/api/analyze-scan", response_model=schemas.ScanReportAnalysis)
+async def analyze_radiology_scan_endpoint(
+    request: ScanTextRequest,
+    x_gemini_api_key: Optional[str] = Header(None, alias="X-Gemini-API-Key"),
+    db: Session = Depends(get_db),
+    user_id: Optional[int] = Depends(get_current_user_id)
+):
+    if not request.report_text or not request.report_text.strip():
+        raise HTTPException(status_code=400, detail="Report text cannot be empty.")
+
+    text_lower = request.report_text.lower()
+    lab_markers = ["hemoglobin", "platelet", "cholesterol", "glucose", "hba1c", "creatinine", "bilirubin", "alt", "ast", "wbc"]
+    scan_markers = ["mri", "ct", "x-ray", "xray", "ultrasound", "scan", "radiology", "radiologist", "impression", "finding", "sagittal", "axial"]
+    if sum(1 for m in lab_markers if m in text_lower) >= 2 and sum(1 for s in scan_markers if s in text_lower) == 0:
+        raise HTTPException(
+            status_code=400, 
+            detail="MISMATCH_LAB_REPORT: This text appears to be a clinical laboratory report. Please switch to the Lab Reports page to analyze biomarker numerical ranges."
+        )
+
+    result_data = None
+    if x_gemini_api_key or os.environ.get("GEMINI_API_KEY"):
+        try:
+            result_data = analyze_radiology_scan(
+                raw_text=request.report_text.strip(),
+                language=request.language or "English",
+                api_key=x_gemini_api_key or os.environ.get("GEMINI_API_KEY")
+            )
+        except Exception as e:
+            print(f"Optional Cloud AI radiology scan analysis skipped: {e}")
+
+    if not result_data:
+        result_data = analyze_radiology_locally(
+            report_text=request.report_text.strip(),
+            language=request.language or "English"
+        )
+
+    # Convert to schema
+    parsed_report = schemas.ScanReportAnalysis(**result_data)
+    parsed_report.filename = "Radiology_Scan_Narrative.txt"
+    parsed_report.upload_date = datetime.datetime.utcnow().strftime("%Y-%m-%d")
+
+    # Persist if user logged in
+    if user_id:
+        try:
+            db_report = models.UploadedReport(
+                user_id=user_id,
+                filename="Radiology_Scan_Narrative.txt",
+                patient_summary=parsed_report.radiologist_impression_summary,
+                disease_risks=json.dumps([]),
+                language=request.language or "English",
+                report_type="scan",
+                scan_data=json.dumps(parsed_report.model_dump())
+            )
+            db.add(db_report)
+            db.commit()
+            db.refresh(db_report)
+            parsed_report.id = f"report-{db_report.id}"
+        except Exception as db_err:
+            db.rollback()
+            print(f"Notice: Failed to save scan report to database: {db_err}")
+
+    return parsed_report
+
+@app.post("/api/analyze-scan-image", response_model=schemas.ScanReportAnalysis)
+async def analyze_scan_image_endpoint(
+    file: UploadFile = File(...),
+    language: str = Form("English"),
+    x_gemini_api_key: Optional[str] = Header(None, alias="X-Gemini-API-Key"),
+    db: Session = Depends(get_db),
+    user_id: Optional[int] = Depends(get_current_user_id)
+):
+    file_bytes = await file.read()
+    if not file_bytes:
+        raise HTTPException(status_code=400, detail="Uploaded file is empty.")
+
+    filename_lower = (file.filename or "").lower()
+    is_pdf = filename_lower.endswith(".pdf") or (file.content_type and "pdf" in file.content_type)
+    result_data = None
+
+    if is_pdf:
+        # Extract text from PDF scan report
+        pdf_text = extract_text_from_pdf(file_bytes)
+        if pdf_text and len(pdf_text.strip()) > 20:
+            text_lower = pdf_text.lower()
+            lab_markers = ["hemoglobin", "platelet", "cholesterol", "glucose", "hba1c", "creatinine", "bilirubin", "alt", "ast", "wbc"]
+            scan_markers = ["mri", "ct", "x-ray", "xray", "ultrasound", "scan", "radiology", "radiologist", "impression", "finding", "spine", "chest", "sagittal", "coronal"]
+            if sum(1 for m in lab_markers if m in text_lower) >= 2 and sum(1 for s in scan_markers if s in text_lower) == 0:
+                raise HTTPException(
+                    status_code=400, 
+                    detail="MISMATCH_LAB_REPORT: This document appears to be a clinical laboratory blood/urine report. Please switch to the Lab Reports page to analyze biomarker numerical ranges."
+                )
+
+            if x_gemini_api_key or os.environ.get("GEMINI_API_KEY"):
+                try:
+                    result_data = analyze_radiology_scan(
+                        raw_text=pdf_text.strip(),
+                        language=language,
+                        api_key=x_gemini_api_key or os.environ.get("GEMINI_API_KEY")
+                    )
+                except Exception as e:
+                    print(f"Optional Cloud AI scan PDF analysis skipped: {e}")
+
+            if not result_data:
+                result_data = analyze_radiology_locally(
+                    report_text=pdf_text.strip(),
+                    language=language
+                )
+
+    if not result_data:
+        if x_gemini_api_key or os.environ.get("GEMINI_API_KEY"):
+            try:
+                mime_type = file.content_type or "image/jpeg"
+                result_data = analyze_radiology_scan_image(
+                    image_bytes=file_bytes,
+                    mime_type=mime_type,
+                    language=language,
+                    api_key=x_gemini_api_key or os.environ.get("GEMINI_API_KEY")
+                )
+            except Exception as e:
+                print(f"Optional Cloud AI scan image analysis skipped: {e}")
+
+    if not result_data:
+        result_data = analyze_radiology_locally(
+            file_bytes=file_bytes,
+            language=language
+        )
+
+    parsed_report = schemas.ScanReportAnalysis(**result_data)
+    parsed_report.filename = file.filename
+    parsed_report.upload_date = datetime.datetime.utcnow().strftime("%Y-%m-%d")
+
+    # Persist if user logged in
+    if user_id:
+        try:
+            db_report = models.UploadedReport(
+                user_id=user_id,
+                filename=file.filename,
+                patient_summary=parsed_report.radiologist_impression_summary,
+                disease_risks=json.dumps([]),
+                language=language,
+                report_type="scan",
+                scan_data=json.dumps(parsed_report.model_dump())
+            )
+            db.add(db_report)
+            db.commit()
+            db.refresh(db_report)
+            parsed_report.id = f"report-{db_report.id}"
+        except Exception as db_err:
+            db.rollback()
+            print(f"Notice: Failed to save scan report to database: {db_err}")
+
+    return parsed_report
 
 @app.get("/api/metrics/history")
 def get_metrics_history(
@@ -635,6 +848,8 @@ def get_metrics_history(
             "id": f"report-{r.id}",
             "filename": r.filename,
             "date": r.upload_date.strftime("%Y-%m-%d"),
+            "report_type": getattr(r, "report_type", "lab") or "lab",
+            "scan_data": json.loads(r.scan_data) if getattr(r, "scan_data", None) else None,
             "normal_count": normal_count,
             "abnormal_count": abnormal_count,
             "disease_risks": disease_risks,

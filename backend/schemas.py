@@ -1,5 +1,5 @@
-from pydantic import BaseModel
-from typing import List, Optional
+from pydantic import BaseModel, Field
+from typing import List, Optional, Literal
 
 class ReferenceRangeBase(BaseModel):
     biomarker_name: str
@@ -31,6 +31,19 @@ class MetricAnalysis(BaseModel):
     is_critical: bool = False  # True if value hits panic threshold
     critical_reason: Optional[str] = None
     description: Optional[str] = None
+    reference_source: Optional[str] = "AXON Local Database"  # "Lab Report", "AXON Local Database", "Standard Clinical Guidelines"
+    panel_category: Optional[str] = "General Clinical Metric"
+
+class ExplainableRuleResult(BaseModel):
+    rule_id: str
+    title: str
+    input_param: str
+    input_value: float
+    unit: str
+    reference_range: str
+    result_status: str
+    explanation: str
+    doctor_discussion_points: List[str] = []
 
 class AnalysisResponse(BaseModel):
     filename: str
@@ -41,7 +54,11 @@ class AnalysisResponse(BaseModel):
     critical_alerts: List[str] = []
     patient_summary: str = ""
     language: str = "English"
+    analysis_mode: Optional[str] = "local"  # "local" or "cloud_enhanced"
+    engine_info: Optional[str] = "AXON Explainable Clinical Engine (Local)"
+    explainable_rules: List[ExplainableRuleResult] = []
     is_mock_fallback: Optional[bool] = False
+    suggested_page: Optional[str] = None
 
 # Longitudinal Trend Analysis Schemas
 class BiomarkerDelta(BaseModel):
@@ -64,6 +81,42 @@ class TrendComparisonResponse(BaseModel):
     deltas: List[BiomarkerDelta]
     longitudinal_summary: str
 
+# Clinical Imaging & Radiology Scan Report Data Contract
+class FindingItem(BaseModel):
+    finding_text: str = Field(description="Exact excerpt from the report.")
+    category: Literal["normal", "incidental", "abnormal", "urgent"] = Field(
+        description="Classification of the finding."
+    )
+    plain_english_explanation: str = Field(
+        description="Clear, reassuring explanation for a patient."
+    )
+    clinical_significance: str = Field(
+        description="What this typically implies for treatment or follow-up."
+    )
+
+class ScanMetadata(BaseModel):
+    modality: str = Field(description="e.g., MRI, CT, Ultrasound, X-Ray")
+    body_region: str = Field(description="e.g., Lumbar Spine, Chest, Abdomen")
+    indication: Optional[str] = Field(None, description="Reason for scan")
+    technique_notes: Optional[str] = Field(None, description="Contrast/sequences used")
+
+class TriageInfo(BaseModel):
+    is_emergency: bool = Field(description="True ONLY if acute life threat is detected")
+    emergency_message: Optional[str] = Field(None, description="Immediate care instructions if urgent")
+    summary_headline: str = Field(description="1-2 sentence overall summary for the patient")
+
+class ScanReportAnalysis(BaseModel):
+    id: Optional[str] = None
+    filename: Optional[str] = "Radiology_Scan_Report"
+    upload_date: Optional[str] = None
+    report_type: Optional[str] = "scan"
+    scan_metadata: ScanMetadata
+    triage: TriageInfo
+    findings_breakdown: List[FindingItem]
+    radiologist_impression_summary: str
+    questions_for_doctor: List[str]
+    suggested_page: Optional[str] = None
+
 # Chat schemas for follow-up medical queries
 class ChatMessage(BaseModel):
     role: str  # "user" or "model"
@@ -75,6 +128,8 @@ class ChatRequest(BaseModel):
     extracted_metrics: List[MetricAnalysis] = []
     selected_tone: Optional[str] = "Empathetic"
     language: Optional[str] = "English"
+    report_type: Optional[str] = "lab"  # "lab" or "scan"
+    scan_context: Optional[ScanReportAnalysis] = None
 
 class ChatResponse(BaseModel):
     response: str
@@ -88,3 +143,4 @@ class ProfileUpdateSchema(BaseModel):
     height_cm: float
     chronic_conditions: List[str] = []
     primary_health_goal: str
+

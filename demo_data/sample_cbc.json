@@ -1,0 +1,42 @@
+{
+  "report_title": "Complete Blood Count (CBC) Laboratory Report",
+  "patient_info": "Sample Patient (De-identified)",
+  "biomarkers": [
+    {
+      "biomarker_name": "Hemoglobin",
+      "value": 10.5,
+      "unit": "g/dL",
+      "reference_interval": "12.0 - 16.0"
+    },
+    {
+      "biomarker_name": "WBC",
+      "value": 7.5,
+      "unit": "10^3/uL",
+      "reference_interval": "4.0 - 11.0"
+    },
+    {
+      "biomarker_name": "RBC",
+      "value": 4.1,
+      "unit": "10^6/uL",
+      "reference_interval": "4.0 - 5.8"
+    },
+    {
+      "biomarker_name": "Platelets",
+      "value": 130.0,
+      "unit": "10^3/uL",
+      "reference_interval": "150 - 450"
+    },
+    {
+      "biomarker_name": "Hematocrit",
+      "value": 32.5,
+      "unit": "%",
+      "reference_interval": "37.0 - 48.0"
+    },
+    {
+      "biomarker_name": "MCV",
+      "value": 78.0,
+      "unit": "fL",
+      "reference_interval": "80.0 - 100.0"
+    }
+  ]
+}

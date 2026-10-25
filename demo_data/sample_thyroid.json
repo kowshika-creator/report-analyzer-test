@@ -1,0 +1,24 @@
+{
+  "report_title": "Thyroid Hormone Profile Report",
+  "patient_info": "Sample Patient (De-identified)",
+  "biomarkers": [
+    {
+      "biomarker_name": "TSH",
+      "value": 6.2,
+      "unit": "uIU/mL",
+      "reference_interval": "0.4 - 4.5"
+    },
+    {
+      "biomarker_name": "Free T4",
+      "value": 1.1,
+      "unit": "ng/dL",
+      "reference_interval": "0.8 - 1.8"
+    },
+    {
+      "biomarker_name": "Free T3",
+      "value": 2.8,
+      "unit": "pg/mL",
+      "reference_interval": "2.3 - 4.2"
+    }
+  ]
+}

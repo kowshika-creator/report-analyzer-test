@@ -23,7 +23,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Oxygen-carrying protein in red blood cells. Low values may point to anemia; high values can indicate dehydration."
+      "description": "Oxygen-carrying protein in red blood cells. Low values may point to anemia; high values can indicate dehydration.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "WBC",
@@ -36,7 +38,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "White Blood Cells. Crucial for immune response. High counts indicate infections; low counts point to immune vulnerabilities."
+      "description": "White Blood Cells. Crucial for immune response. High counts indicate infections; low counts point to immune vulnerabilities.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Platelets",
@@ -49,7 +53,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Cells essential for blood clotting. Extremely low counts pose severe bleeding risks."
+      "description": "Cells essential for blood clotting. Extremely low counts pose severe bleeding risks.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Neutrophils",
@@ -62,7 +68,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Primary white blood cell subtype defending against acute bacterial infections. Elevated counts occur in acute inflammatory/infectious patterns."
+      "description": "Primary white blood cell subtype defending against acute bacterial infections. Elevated counts occur in acute inflammatory/infectious patterns.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "HbA1c",
@@ -75,7 +83,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Measures average blood sugar levels over the past 3 months. Values >= 6.5% indicate diabetes."
+      "description": "Measures average blood sugar levels over the past 3 months. Values >= 6.5% indicate diabetes.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Fasting",
@@ -88,7 +98,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Blood sugar level after an overnight fast. High fasting levels indicate insulin resistance or prediabetes."
+      "description": "Blood sugar level after an overnight fast. High fasting levels indicate insulin resistance or prediabetes.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Total Cholesterol",
@@ -101,7 +113,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Total fat concentration in blood. Elevated levels raise atherosclerotic cardiovascular risks."
+      "description": "Total fat concentration in blood. Elevated levels raise atherosclerotic cardiovascular risks.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "HDL",
@@ -114,7 +128,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "High-Density Lipoprotein ('good' cholesterol). Helps clear fat deposits from arteries. Higher is generally optimal."
+      "description": "High-Density Lipoprotein ('good' cholesterol). Helps clear fat deposits from arteries. Higher is generally optimal.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "LDL",
@@ -127,7 +143,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Low-Density Lipoprotein ('bad' cholesterol). Leads to arterial plaque accumulation. Lower values are healthier."
+      "description": "Low-Density Lipoprotein ('bad' cholesterol). Leads to arterial plaque accumulation. Lower values are healthier.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Triglycerides",
@@ -140,7 +158,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Storage fats circulating in the bloodstream. Elevated levels are linked to pancreas inflammation and heart conditions."
+      "description": "Storage fats circulating in the bloodstream. Elevated levels are linked to pancreas inflammation and heart conditions.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "ALT",
@@ -153,7 +173,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Enzyme concentrated in liver cells. Higher levels point to liver injury or hepatic inflammation."
+      "description": "Enzyme concentrated in liver cells. Higher levels point to liver injury or hepatic inflammation.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "AST",
@@ -166,7 +188,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Enzyme present in liver and muscle cells. Elevated numbers indicate liver tissue stress or cellular damage."
+      "description": "Enzyme present in liver and muscle cells. Elevated numbers indicate liver tissue stress or cellular damage.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Total Bilirubin",
@@ -179,7 +203,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Waste product from broken-down red blood cells. High levels induce jaundice and signal bile duct or liver blockage."
+      "description": "Waste product from broken-down red blood cells. High levels induce jaundice and signal bile duct or liver blockage.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Direct Bilirubin",
@@ -192,7 +218,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Conjugated bilirubin processed by liver. High levels suggest gallstones, bile duct obstruction or active liver dysfunction."
+      "description": "Conjugated bilirubin processed by liver. High levels suggest gallstones, bile duct obstruction or active liver dysfunction.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Alkaline Phosphatase",
@@ -205,7 +233,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Enzyme in liver and bone. Elevated levels show blocked bile ducts or bone conditions."
+      "description": "Enzyme in liver and bone. Elevated levels show blocked bile ducts or bone conditions.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Creatinine",
@@ -218,7 +248,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Byproduct of muscle breakdown cleared by kidneys. Raised values point to reduced kidney filter functionality."
+      "description": "Byproduct of muscle breakdown cleared by kidneys. Raised values point to reduced kidney filter functionality.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "TSH",
@@ -231,7 +263,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Pituitary messenger monitoring thyroid production. High values show underactive thyroid (hypothyroidism)."
+      "description": "Pituitary messenger monitoring thyroid production. High values show underactive thyroid (hypothyroidism).",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "Free T4",
@@ -244,7 +278,9 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Main storage hormone released by thyroid. Helps isolate metabolic and auto-immune thyroid diseases."
+      "description": "Main storage hormone released by thyroid. Helps isolate metabolic and auto-immune thyroid diseases.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     },
     {
       "biomarker_name": "C-Reactive Protein",
@@ -257,12 +293,14 @@
       "is_low_confidence": false,
       "is_critical": false,
       "critical_reason": null,
-      "description": "Liver-synthesised acute phase protein marking active internal systemic inflammation or acute infectious episodes."
+      "description": "Liver-synthesised acute phase protein marking active internal systemic inflammation or acute infectious episodes.",
+      "reference_source": "AXON Local Database",
+      "panel_category": "General Clinical Metric"
     }
   ],
   "mock_chat_test": {
     "query": "Why am I feeling so tired and weak?",
-    "response": "Your Hemoglobin level is currently 10.5 g/dL, which is below the optimal reference boundary (12.0 - 17.5 g/dL). Hemoglobin is responsible for distributing oxygen to your body's cells. Being in a lower range can definitely cause feelings of tiredness and fatigue. Focusing on iron-rich foods like spinach, lentils, and lean proteins is a comforting way to support your body. We recommend speaking with your doctor!"
+    "response": "Regarding your query about 'Why am I feeling so tired and weak?':\n\nFeeling tired or fatigued can be associated with low hemoglobin (anemia), low thyroid hormone (TSH elevation), low Vitamin D, or insufficient sleep. Review your CBC and Thyroid panels."
   },
   "mock_image_ocr_test": {
     "status": "success",
@@ -278,7 +316,7 @@
   },
   "longitudinal_trend_test": {
     "status": "success",
-    "summary": "Longitudinal comparison (July 2026 → July 2026): 2 parameters improved, 0 require ongoing monitoring.",
+    "summary": "Longitudinal comparison (October 2026 → October 2026): 2 parameters improved, 0 require ongoing monitoring.",
     "deltas_count": 2
   }
 }

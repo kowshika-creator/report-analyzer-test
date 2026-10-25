@@ -2,9 +2,10 @@
 import os
 import re
 import json
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from pydantic import BaseModel, Field
 import google.generativeai as genai
+from schemas import ScanReportAnalysis
 
 class ExtractedBiomarker(BaseModel):
     value: float = Field(description="The numerical floating-point value of the biomarker.")
@@ -71,12 +72,9 @@ def generate_gemini_content(api_key: str, prompt_parts: Any, generation_config: 
     """
     genai.configure(api_key=api_key)
     candidate_models = [
-        "gemini-3.6-flash",
-        "gemini-3.5-flash",
-        "gemini-2.5-flash",
         "gemini-2.0-flash",
-        "gemini-flash-latest",
-        "gemini-1.5-flash"
+        "gemini-1.5-flash",
+        "gemini-1.5-pro",
     ]
     last_err = None
     for m_name in candidate_models:
@@ -493,3 +491,172 @@ def run_regex_fallback_parser(text: str) -> Dict[str, float]:
         extracted_biomarkers["Platelets"] *= 100.0
         
     return extracted_biomarkers
+
+def analyze_radiology_scan(raw_text: str, language: str = "English", api_key: Optional[str] = None) -> Dict[str, Any]:
+    """
+    Parses unstructured radiology & imaging scan reports (MRI, CT, X-Ray, Ultrasound, Mammogram, PET),
+    classifies findings, translates into reassuring plain language, identifies emergency flags,
+    and returns a structured payload conforming to ScanReportAnalysis.
+    """
+    api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+    if not api_key:
+        # Local fallback heuristic parser if no API key is available
+        return {
+            "scan_metadata": {
+                "modality": "Imaging Scan",
+                "body_region": "Anatomical Region",
+                "indication": None,
+                "technique_notes": None
+            },
+            "triage": {
+                "is_emergency": False,
+                "emergency_message": None,
+                "summary_headline": "Report parsed in demonstration mode. Configure Gemini API key for clinical-grade multi-modality translation."
+            },
+            "findings_breakdown": [
+                {
+                    "finding_text": "Sample scan findings parsed",
+                    "category": "normal",
+                    "plain_english_explanation": "Please provide a Gemini API key in Settings to activate real-time radiological term extraction and classification.",
+                    "clinical_significance": "Awaiting live AI key configuration."
+                }
+            ],
+            "radiologist_impression_summary": "Demonstration mode. Add your Gemini API key to generate comprehensive radiologist impression syntheses.",
+            "questions_for_doctor": [
+                "What do the findings in this imaging scan mean for my care plan?",
+                "Are any follow-up scans or clinical tests recommended?",
+                "Are there specific activities or movements I should avoid?"
+            ]
+        }
+
+    prompt = (
+        "You are a specialized Clinical Imaging and Radiology Report Analyzer. Your task is to parse unstructured "
+        f"medical scan reports (MRI, CT, X-Ray, Ultrasound, Mammogram, PET), translate complex radiological terminology "
+        f"into patient-friendly language ({language}), detect incidental vs. actionable findings, and identify potential acute emergencies.\n\n"
+        "### CORE CLINICAL RULES:\n"
+        "1. NEGATION HANDLING (CRITICAL): Strictly differentiate between confirmed findings and ruled-out conditions. "
+        "If a report states 'No acute fracture', 'No pneumothorax', 'Negative for acute hemorrhage', or 'No mass effect', "
+        "classify the status as 'normal'. NEVER categorize a negated finding as 'abnormal' or 'urgent'.\n"
+        "2. FINDING CATEGORIZATION: Strictly categorize each finding into:\n"
+        "   - 'normal': Expected baseline anatomy or explicitly ruled-out conditions.\n"
+        "   - 'incidental': Harmless, common anomalies (e.g., simple cysts, mild disc desiccation, minor osteophytes) not representing the primary disease process.\n"
+        "   - 'abnormal': Meaningful findings requiring planned clinical follow-up or treatment.\n"
+        "   - 'urgent': Acute, life-threatening conditions (e.g., acute hemorrhage, tension pneumothorax, appendicitis, active extravasation, cord compression).\n"
+        "3. PATIENT COMMUNICATION: Translate medical jargon into plain English using reassuring, non-alarmist language. "
+        "Explain what it is and what it typically implies.\n"
+        "4. DOCTOR QUESTIONS: Generate 3-4 targeted, high-yield questions for the patient to ask their ordering physician.\n"
+        "5. SAFETY & GUARDRAILS: NEVER state a definitive diagnosis (avoid 'You have cancer'). Use non-definitive phrasing "
+        "('The scan notes findings consistent with...', 'Described as...'). Set 'is_emergency' to true ONLY when immediate same-day "
+        "emergency medical evaluation is warranted.\n\n"
+        f"Raw Radiology Report Text:\n{raw_text}\n"
+    )
+
+    try:
+        json_prompt = (
+            prompt + "\n\nFormat your response as valid JSON matching this structure:\n"
+            "{\n"
+            '  "scan_metadata": {"modality": "string", "body_region": "string", "indication": "string or null", "technique_notes": "string or null"},\n'
+            '  "triage": {"is_emergency": false, "emergency_message": "string or null", "summary_headline": "string"},\n'
+            '  "findings_breakdown": [{"finding_text": "string", "category": "normal|incidental|abnormal|urgent", "plain_english_explanation": "string", "clinical_significance": "string"}],\n'
+            '  "radiologist_impression_summary": "string",\n'
+            '  "questions_for_doctor": ["string"]\n'
+            "}"
+        )
+        response = generate_gemini_content(
+            api_key,
+            json_prompt,
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json"
+            )
+        )
+        parsed_json = json.loads(response.text)
+        return parsed_json
+    except Exception as e:
+        print(f"Error in analyze_radiology_scan: {e}")
+        raise RuntimeError(f"Failed to analyze radiology scan: {str(e)}")
+
+def analyze_radiology_scan_image(image_bytes: bytes, mime_type: str = "image/jpeg", language: str = "English", api_key: Optional[str] = None) -> Dict[str, Any]:
+    """
+    Parses an uploaded physical medical scan image (Chest X-Ray, CT slice, MRI scan, Ultrasound, Mammogram),
+    identifies visible radiological structures and anomalies using Gemini Multimodal Vision,
+    classifies findings (normal, incidental, abnormal, urgent), and returns a structured ScanReportAnalysis.
+    """
+    api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+    if not api_key:
+        return {
+            "scan_metadata": {
+                "modality": "Plain Radiograph / Scan Image",
+                "body_region": "Chest / Body Region",
+                "indication": "Direct scan image review",
+                "technique_notes": "Multimodal visual inspection"
+            },
+            "triage": {
+                "is_emergency": False,
+                "emergency_message": None,
+                "summary_headline": "Scan image loaded in demo mode. Configure your Gemini API key in Settings to activate real-time multimodal visual radiological inspection."
+            },
+            "findings_breakdown": [
+                {
+                    "finding_text": "Medical scan image uploaded",
+                    "category": "normal",
+                    "plain_english_explanation": "Please provide a Gemini API key in Settings to run clinical-grade visual feature recognition across bones, soft tissues, and organ margins.",
+                    "clinical_significance": "Awaiting active multimodal API key."
+                }
+            ],
+            "radiologist_impression_summary": "Demonstration mode. Add Gemini API key for automated multimodal image findings translation.",
+            "questions_for_doctor": [
+                "What clinical findings are observed on this scan image?",
+                "Are any supplementary views or follow-up imaging studies needed?"
+            ]
+        }
+
+    prompt = (
+        "You are an expert Clinical Imaging and Radiology Vision AI. Your task is to perform an in-depth radiological "
+        f"visual analysis of the attached medical scan image (e.g., X-Ray, CT, MRI, Ultrasound, Mammogram) and translate your observations into patient-friendly language ({language}).\n\n"
+        "### CLINICAL VISUAL ANALYSIS INSTRUCTIONS:\n"
+        "1. Identify the Modality (e.g., Plain Radiograph Chest X-Ray PA/AP, Lumbar Spine MRI, Head CT) and Anatomical Region.\n"
+        "2. Systematically inspect all visible structures:\n"
+        "   - Bony structures / skeletal framework (ribs, clavicles, spine, joints) for fractures, lytic lesions, or alignment.\n"
+        "   - Soft tissues and organ silhouettes (lungs, heart size, mediastinum, diaphragm, gastric bubble, pleural spaces).\n"
+        "   - Look for opacities, consolidations, blunting of costophrenic angles, effusions, masses, pneumothorax, or foreign objects.\n"
+        "3. FINDING CATEGORIZATION (Strictly 4 tags):\n"
+        "   - 'normal': Expected healthy anatomy (e.g., 'Cardiac silhouette within normal limits', 'Trachea midline', 'No pneumothorax').\n"
+        "   - 'incidental': Benign, common variants (e.g., prominent normal gastric bubble, minor degenerative spurs, calcified granuloma).\n"
+        "   - 'abnormal': Meaningful pathology requiring non-urgent clinical follow-up (e.g., basal haziness/infiltrate, cardiomegaly, mild pleural thickening).\n"
+        "   - 'urgent': Acute life threats (e.g., large tension pneumothorax, massive pleural effusion with shift, acute displaced fracture, free intra-abdominal air under diaphragm).\n"
+        "4. PATIENT COMMUNICATION: Translate medical terms into reassuring, plain English. Explain what the visual pattern represents.\n"
+        "5. QUESTIONS FOR DOCTOR: Formulate 3-4 targeted, high-yield questions for the ordering physician.\n"
+        "6. SAFETY GUARDRAILS: Do NOT issue a definitive diagnosis (avoid 'You have pneumonia'). Use descriptive phrasing ('Findings consistent with...', 'Visual pattern suggests...'). Set 'is_emergency' to true ONLY for acute emergency flags.\n"
+    )
+
+    image_part = {
+        "mime_type": mime_type,
+        "data": image_bytes
+    }
+
+    try:
+        json_prompt = (
+            prompt + "\n\nFormat your response as valid JSON matching this structure:\n"
+            "{\n"
+            '  "scan_metadata": {"modality": "string", "body_region": "string", "indication": "string or null", "technique_notes": "string or null"},\n'
+            '  "triage": {"is_emergency": false, "emergency_message": "string or null", "summary_headline": "string"},\n'
+            '  "findings_breakdown": [{"finding_text": "string", "category": "normal|incidental|abnormal|urgent", "plain_english_explanation": "string", "clinical_significance": "string"}],\n'
+            '  "radiologist_impression_summary": "string",\n'
+            '  "questions_for_doctor": ["string"]\n'
+            "}"
+        )
+        response = generate_gemini_content(
+            api_key,
+            [json_prompt, image_part],
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json"
+            )
+        )
+        return json.loads(response.text)
+    except Exception as e:
+        print(f"Error in analyze_radiology_scan_image: {e}")
+        raise RuntimeError(f"Failed to analyze scan image: {str(e)}")
+
+

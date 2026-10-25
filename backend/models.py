@@ -45,6 +45,8 @@ class UploadedReport(Base):
     patient_summary = Column(String, nullable=True)
     disease_risks = Column(String, nullable=True)  # JSON-serialized list of risks
     language = Column(String, default="English", nullable=False)
+    report_type = Column(String, default="lab", nullable=True)  # "lab" or "scan"
+    scan_data = Column(String, nullable=True)  # JSON-serialized ScanReportAnalysis if scan
 
     user = relationship("User", back_populates="reports")
     metrics = relationship("ReportMetric", back_populates="report", cascade="all, delete-orphan")
