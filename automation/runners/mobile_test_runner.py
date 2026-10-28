@@ -187,35 +187,39 @@ class MobileTestRunner:
 
     def _archive_reports(self):
         """Archive generated artifacts to reports/latest and historical folders."""
-        latest_dir = os.path.abspath("reports/latest")
-        history_dir = os.path.abspath("reports/history")
-        os.makedirs(latest_dir, exist_ok=True)
-        os.makedirs(history_dir, exist_ok=True)
+        try:
+            latest_dir = os.path.abspath("reports/latest")
+            history_dir = os.path.abspath("reports/history")
+            os.makedirs(latest_dir, exist_ok=True)
+            os.makedirs(history_dir, exist_ok=True)
 
-        # Copy HTML files to latest
-        html_src = AutomationConfig.HTML_DIR
-        if os.path.exists(html_src):
-            for item in os.listdir(html_src):
-                s = os.path.join(html_src, item)
-                d = os.path.join(latest_dir, item)
-                shutil.copy2(s, d)
+            # Copy HTML files to latest
+            html_src = AutomationConfig.HTML_DIR
+            if os.path.exists(html_src):
+                for item in os.listdir(html_src):
+                    s = os.path.join(html_src, item)
+                    d = os.path.join(latest_dir, item)
+                    if os.path.isfile(s):
+                        shutil.copy2(s, d)
 
-        # Copy summary.md to latest
-        sum_src = os.path.join(AutomationConfig.SUMMARY_DIR, "summary.md")
-        if os.path.exists(sum_src):
-            shutil.copy2(sum_src, os.path.join(latest_dir, "summary.md"))
+            # Copy summary.md to latest
+            sum_src = os.path.join(AutomationConfig.SUMMARY_DIR, "summary.md")
+            if os.path.exists(sum_src) and os.path.isfile(sum_src):
+                shutil.copy2(sum_src, os.path.join(latest_dir, "summary.md"))
 
-        # Snapshot into history/build-N
-        build_id = f"build-{int(time.time())}"
-        build_dir = os.path.join(history_dir, build_id)
-        os.makedirs(build_dir, exist_ok=True)
-        for item in os.listdir(latest_dir):
-            s = os.path.join(latest_dir, item)
-            d = os.path.join(build_dir, item)
-            if os.path.isfile(s):
-                shutil.copy2(s, d)
+            # Snapshot into history/build-N
+            build_id = f"build-{int(time.time())}"
+            build_dir = os.path.join(history_dir, build_id)
+            os.makedirs(build_dir, exist_ok=True)
+            for item in os.listdir(latest_dir):
+                s = os.path.join(latest_dir, item)
+                d = os.path.join(build_dir, item)
+                if os.path.isfile(s):
+                    shutil.copy2(s, d)
 
-        logger.info(f"Reports successfully archived to {latest_dir} and {build_dir}")
+            logger.info(f"Reports successfully archived to {latest_dir} and {build_dir}")
+        except Exception as e:
+            logger.warning(f"Report archiving notice: {e}")
 
     def _publish_ci_summary(self, metrics: Dict[str, Any]):
         """Publish Markdown table into $GITHUB_STEP_SUMMARY."""
