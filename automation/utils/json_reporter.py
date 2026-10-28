@@ -21,3 +21,7 @@ class JSONReporter:
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(payload, f, indent=2)
         return filepath
+
+    @classmethod
+    def generate_report(cls, test_results: List[Dict[str, Any]], metrics: Dict[str, Any]) -> str:
+        return cls.generate_json_report(test_results, metrics)

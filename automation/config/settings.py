@@ -33,6 +33,18 @@ class AutomationConfig:
     JSON_DIR: str = os.path.join(REPORTS_DIR, "JSON")
     SUMMARY_DIR: str = os.path.join(REPORTS_DIR, "Summary")
     
+    # Mobile Appium Settings
+    APPIUM_HOST: str = os.environ.get("APPIUM_HOST", "127.0.0.1")
+    APPIUM_PORT: int = int(os.environ.get("APPIUM_PORT", "4723"))
+    APPIUM_SERVER_URL: str = f"http://{APPIUM_HOST}:{APPIUM_PORT}/"
+    PLATFORM_NAME: str = os.environ.get("PLATFORM_NAME", "Android")
+    DEVICE_NAME: str = os.environ.get("DEVICE_NAME", "Android Emulator")
+    PLATFORM_VERSION: str = os.environ.get("PLATFORM_VERSION", "13.0")
+    APP_PACKAGE: str = os.environ.get("APP_PACKAGE", "com.axon.medicalanalyzer")
+    APP_ACTIVITY: str = os.environ.get("APP_ACTIVITY", ".MainActivity")
+    APK_PATH: str = os.path.abspath(os.environ.get("APK_PATH", "automation/resources/app-debug.apk"))
+    MOCK_DEVICE: bool = os.environ.get("MOCK_DEVICE", "false").lower() in ("true", "1", "yes")
+
     # Quality Gates
     PASS_PERCENTAGE_THRESHOLD: float = 95.0
     MAX_CRITICAL_FAIL_PERCENT: float = 5.0

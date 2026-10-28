@@ -53,10 +53,14 @@ class ExcelReporter:
         cls._create_filtered_workbook(failed_path, [t for t in test_results if t["status"] == "Failed"], "Failed Tests", include_errors=True)
         generated_files.append(failed_path)
 
-        # 4. Summary_Report.xlsx
-        summary_path = os.path.join(excel_dir, "Summary_Report.xlsx")
+        # 4. Execution_Summary.xlsx (and Summary_Report.xlsx)
+        summary_path = os.path.join(excel_dir, "Execution_Summary.xlsx")
         cls._create_summary_workbook(summary_path, metrics)
         generated_files.append(summary_path)
+        
+        legacy_summary_path = os.path.join(excel_dir, "Summary_Report.xlsx")
+        cls._create_summary_workbook(legacy_summary_path, metrics)
+        generated_files.append(legacy_summary_path)
 
         return generated_files
 
@@ -120,6 +124,28 @@ class ExcelReporter:
         for idx, f in enumerate(failed, 1):
             defects.append([f"DEF-{idx:03d}", f["test_id"], f["module"], f.get("priority", "High"), f.get("error", "Error")[:100]])
         cls._write_table(ws6, defect_headers, defects, auto_style_status=False)
+
+        # Sheet 7: Pass Rate Summary
+        ws7 = wb.create_sheet(title="Pass Rate Summary")
+        rate_headers = ["Module", "Total Tests", "Passed", "Failed", "Skipped", "Pass Rate (%)"]
+        module_stats = {}
+        for r in results:
+            mod = r.get("module", "General")
+            if mod not in module_stats:
+                module_stats[mod] = {"total": 0, "passed": 0, "failed": 0, "skipped": 0}
+            module_stats[mod]["total"] += 1
+            if r["status"] == "Passed":
+                module_stats[mod]["passed"] += 1
+            elif r["status"] == "Failed":
+                module_stats[mod]["failed"] += 1
+            else:
+                module_stats[mod]["skipped"] += 1
+
+        rate_rows = []
+        for mod, counts in module_stats.items():
+            rate = (counts["passed"] / counts["total"] * 100) if counts["total"] > 0 else 0
+            rate_rows.append([mod, counts["total"], counts["passed"], counts["failed"], counts["skipped"], f"{rate:.1f}%"])
+        cls._write_table(ws7, rate_headers, rate_rows, auto_style_status=False)
 
         wb.save(filepath)
 

@@ -177,7 +177,12 @@ def execute_test_case(driver, test_meta: Dict[str, Any], pages: Dict[str, Any]) 
             t_diff = time.perf_counter() - t0
             assert t_diff < 2.0
 
-        elif module == "Regression":
+        elif "Regression" in module:
+            if auth_page.is_auth_gate_displayed():
+                auth_page.continue_as_guest()
+            assert len(driver.find_elements("tag name", "body")) > 0
+
+        else:
             if auth_page.is_auth_gate_displayed():
                 auth_page.continue_as_guest()
             assert len(driver.find_elements("tag name", "body")) > 0

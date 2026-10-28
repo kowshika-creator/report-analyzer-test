@@ -1,0 +1,70 @@
+name: Deploy Mobile Automation Reports to GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_redeploy:
+        description: 'Force re-deploy of existing reports'
+        required: false
+        default: 'true'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-reports:
+    name: Publish Reports & Archive Execution History
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate & Regenerate Reports
+        run: |
+          pip install openpyxl requests
+          python automation/runners/mobile_test_runner.py
+
+      - name: Structure Pages Directory
+        run: |
+          mkdir -p public_reports/reports/latest
+          mkdir -p public_reports/reports/history
+
+          cp -r reports/latest/* public_reports/reports/latest/
+          cp -r reports/history/* public_reports/reports/history/
+
+          cat << 'EOF' > public_reports/index.html
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <meta http-equiv="refresh" content="0; url=reports/latest/execution-report.html" />
+              <title>AXON Automation Reports</title>
+          </head>
+          <body>
+              <p>Redirecting to <a href="reports/latest/execution-report.html">Latest Execution Report</a>...</p>
+          </body>
+          </html>
+          EOF
+
+      - name: Deploy to GitHub Pages Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public_reports
+          publish_branch: gh-pages
+          keep_files: true
+
+      - name: Output Live Report URL
+        run: |
+          REPO_NAME="${{ github.repository }}"
+          echo "### 🌐 Live GitHub Pages Report URL" >> $GITHUB_STEP_SUMMARY
+          echo "https://${{ github.repository_owner }}.github.io/${REPO_NAME#*/}/reports/latest/execution-report.html" >> $GITHUB_STEP_SUMMARY

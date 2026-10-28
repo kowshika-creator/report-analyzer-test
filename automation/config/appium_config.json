@@ -1,0 +1,42 @@
+{
+  "appiumServer": {
+    "host": "127.0.0.1",
+    "port": 4723,
+    "basePath": "/",
+    "sessionTimeout": 300,
+    "logLevel": "info"
+  },
+  "capabilities": {
+    "platformName": "Android",
+    "appium:automationName": "UiAutomator2",
+    "appium:deviceName": "Android_Emulator_API_33",
+    "appium:platformVersion": "13.0",
+    "appium:appPackage": "com.axon.medicalanalyzer",
+    "appium:appActivity": ".MainActivity",
+    "appium:appWaitActivity": "*",
+    "appium:autoGrantPermissions": true,
+    "appium:noReset": false,
+    "appium:fullReset": false,
+    "appium:newCommandTimeout": 300,
+    "appium:adbExecTimeout": 60000,
+    "appium:uiautomator2ServerLaunchTimeout": 60000,
+    "appium:uiautomator2ServerInstallTimeout": 60000,
+    "appium:gpsEnabled": false,
+    "appium:ensureWebviewsHavePages": true
+  },
+  "execution": {
+    "implicitWait": 5,
+    "explicitWait": 15,
+    "pollingInterval": 0.5,
+    "maxRetries": 2,
+    "parallelThreads": 1,
+    "captureScreenshotsOnFailure": true,
+    "captureLogcatOnFailure": true
+  },
+  "apk": {
+    "defaultPath": "automation/resources/app-debug.apk",
+    "packageName": "com.axon.medicalanalyzer",
+    "minSdkVersion": 26,
+    "targetSdkVersion": 34
+  }
+}
