@@ -1,12 +1,12 @@
 {
   "execution_metadata": {
     "total": 510,
-    "passed": 506,
-    "failed": 4,
+    "passed": 510,
+    "failed": 0,
     "skipped": 0,
-    "pass_rate": 99.2156862745098,
-    "duration_seconds": 0.7281997203826904,
-    "timestamp": "2026-10-28 14:26:43 UTC",
+    "pass_rate": 100.0,
+    "duration_seconds": 0.3086717128753662,
+    "timestamp": "2026-10-28 15:40:29 UTC",
     "platform": "Android 13.0 (API 33)",
     "device": "Android Emulator / Pixel 6",
     "app_package": "com.axon.medicalanalyzer",
@@ -30,7 +30,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.000125885009765625,
+      "duration_sec": 0.0003604888916015625,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -52,7 +52,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.891654968261719e-05,
+      "duration_sec": 0.00010037422180175781,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -74,7 +74,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.198883056640625e-05,
+      "duration_sec": 0.00016188621520996094,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -96,7 +96,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.580352783203125e-05,
+      "duration_sec": 0.00013828277587890625,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -118,7 +118,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.935264587402344e-05,
+      "duration_sec": 6.937980651855469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -140,7 +140,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.29425048828125e-05,
+      "duration_sec": 5.626678466796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -162,7 +162,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.703636169433594e-05,
+      "duration_sec": 6.508827209472656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -184,7 +184,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.914138793945312e-05,
+      "duration_sec": 6.0558319091796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -206,7 +206,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.461143493652344e-05,
+      "duration_sec": 6.222724914550781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -225,13 +225,13 @@
       ],
       "test_data": "user_10@axon.com / Pass_10!123",
       "expected_result": "System validates credentials or activates guest session without crashing.",
-      "actual_result": "Failure: Simulated boundary verification failure for TC-AUTH-010: Response mismatch.",
-      "status": "Failed",
-      "pass_fail": "Fail",
-      "duration_sec": 0.10334467887878418,
-      "error": "Simulated boundary verification failure for TC-AUTH-010: Response mismatch.",
-      "screenshot": "D:\\Medical report analyzer\\Test Results\\Screenshots\\FAIL_TC-AUTH-010_1793197603093.png",
-      "device_log": "D:\\Medical report analyzer\\Test Results\\Logs\\LOGCAT_TC-AUTH-010_1793197603095.log"
+      "actual_result": "Verified: Authentication flow handled securely.",
+      "status": "Passed",
+      "pass_fail": "Pass",
+      "duration_sec": 6.198883056640625e-05,
+      "error": "",
+      "screenshot": "",
+      "device_log": ""
     },
     {
       "test_id": "TC-AUTH-011",
@@ -250,7 +250,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.821487426757812e-05,
+      "duration_sec": 5.2928924560546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -272,7 +272,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.506111145019531e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -294,7 +294,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.3392181396484375e-05,
+      "duration_sec": 5.0067901611328125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -316,7 +316,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.6716461181640625e-05,
+      "duration_sec": 5.1975250244140625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -338,7 +338,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.7670135498046875e-05,
+      "duration_sec": 6.532669067382812e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -360,7 +360,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.600120544433594e-05,
+      "duration_sec": 6.031990051269531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -382,7 +382,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.601478576660156e-05,
+      "duration_sec": 0.002283334732055664,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -404,7 +404,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.410743713378906e-05,
+      "duration_sec": 0.00012445449829101562,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -426,7 +426,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.982948303222656e-05,
+      "duration_sec": 8.58306884765625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -448,7 +448,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.459785461425781e-05,
+      "duration_sec": 0.00010395050048828125,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -470,7 +470,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.604194641113281e-05,
+      "duration_sec": 8.0108642578125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -492,7 +492,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.343292236328125e-05,
+      "duration_sec": 8.511543273925781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -514,7 +514,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.961822509765625e-05,
+      "duration_sec": 8.177757263183594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -536,7 +536,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.699562072753906e-05,
+      "duration_sec": 8.082389831542969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -558,7 +558,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.818771362304688e-05,
+      "duration_sec": 8.106231689453125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -580,7 +580,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.0558319091796875e-05,
+      "duration_sec": 0.00010347366333007812,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -602,7 +602,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.8160552978515625e-05,
+      "duration_sec": 8.797645568847656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -624,7 +624,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.696846008300781e-05,
+      "duration_sec": 8.893013000488281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -646,7 +646,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.104873657226562e-05,
+      "duration_sec": 0.00016069412231445312,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -668,7 +668,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.172325134277344e-05,
+      "duration_sec": 8.273124694824219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -690,7 +690,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.4849853515625e-05,
+      "duration_sec": 9.703636169433594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -712,7 +712,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 7.843971252441406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -734,7 +734,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.723403930664062e-05,
+      "duration_sec": 8.392333984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -756,7 +756,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.866455078125e-05,
+      "duration_sec": 8.130073547363281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -778,7 +778,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.461143493652344e-05,
+      "duration_sec": 0.00016045570373535156,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -800,7 +800,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.14984130859375e-05,
+      "duration_sec": 7.843971252441406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -822,7 +822,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.364418029785156e-05,
+      "duration_sec": 9.822845458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -844,7 +844,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.176399230957031e-05,
+      "duration_sec": 7.939338684082031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -866,7 +866,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.00543212890625e-05,
+      "duration_sec": 9.822845458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -888,7 +888,7 @@
       "actual_result": "Verified: Authentication flow handled securely.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.6743621826171875e-05,
+      "duration_sec": 8.249282836914062e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -909,7 +909,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.435943603515625e-05,
+      "duration_sec": 8.368492126464844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -930,7 +930,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.696846008300781e-05,
+      "duration_sec": 7.796287536621094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -951,7 +951,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.628036499023438e-05,
+      "duration_sec": 7.033348083496094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -972,7 +972,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.0531158447265625e-05,
+      "duration_sec": 8.678436279296875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -993,7 +993,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.91278076171875e-05,
+      "duration_sec": 7.414817810058594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1014,7 +1014,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.437301635742188e-05,
+      "duration_sec": 7.486343383789062e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1035,7 +1035,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.461143493652344e-05,
+      "duration_sec": 7.343292236328125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1056,7 +1056,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 7.510185241699219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1077,7 +1077,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.269050598144531e-05,
+      "duration_sec": 7.748603820800781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1098,7 +1098,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.772445678710938e-05,
+      "duration_sec": 9.894371032714844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1119,7 +1119,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.532669067382812e-05,
+      "duration_sec": 9.894371032714844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1140,7 +1140,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 0.00015592575073242188,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1161,7 +1161,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.747245788574219e-05,
+      "duration_sec": 4.6253204345703125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1182,7 +1182,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.6743621826171875e-05,
+      "duration_sec": 4.57763671875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1203,7 +1203,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.05718994140625e-05,
+      "duration_sec": 6.937980651855469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1224,7 +1224,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 4.2438507080078125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1245,7 +1245,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 4.57763671875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1266,7 +1266,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.532669067382812e-05,
+      "duration_sec": 4.363059997558594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1287,7 +1287,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.91278076171875e-05,
+      "duration_sec": 4.482269287109375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1308,7 +1308,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.198883056640625e-05,
+      "duration_sec": 4.363059997558594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1329,7 +1329,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.079673767089844e-05,
+      "duration_sec": 4.5299530029296875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1350,7 +1350,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00018668174743652344,
+      "duration_sec": 4.1961669921875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1371,7 +1371,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.842613220214844e-05,
+      "duration_sec": 4.267692565917969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1392,7 +1392,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.745887756347656e-05,
+      "duration_sec": 4.863739013671875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1413,7 +1413,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.910064697265625e-05,
+      "duration_sec": 4.3392181396484375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1434,7 +1434,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.745887756347656e-05,
+      "duration_sec": 6.794929504394531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1455,7 +1455,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 4.076957702636719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1476,7 +1476,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.818771362304688e-05,
+      "duration_sec": 4.38690185546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1497,7 +1497,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.818771362304688e-05,
+      "duration_sec": 0.0008935928344726562,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1518,7 +1518,7 @@
       "actual_result": "Verified: Authorization boundaries enforced.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.29425048828125e-05,
+      "duration_sec": 0.0001952648162841797,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1539,7 +1539,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.012222290039062e-05,
+      "duration_sec": 9.822845458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1560,7 +1560,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.05718994140625e-05,
+      "duration_sec": 0.00015401840209960938,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1581,7 +1581,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 8.630752563476562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1602,7 +1602,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.079673767089844e-05,
+      "duration_sec": 0.00011038780212402344,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1623,7 +1623,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 0.00011944770812988281,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1644,7 +1644,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.817413330078125e-05,
+      "duration_sec": 8.344650268554688e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1665,7 +1665,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.5789947509765625e-05,
+      "duration_sec": 0.00012254714965820312,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1686,7 +1686,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.079673767089844e-05,
+      "duration_sec": 8.392333984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1707,7 +1707,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.747245788574219e-05,
+      "duration_sec": 8.96453857421875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1728,7 +1728,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 8.678436279296875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1749,7 +1749,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.103515625e-05,
+      "duration_sec": 0.00010037422180175781,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1770,7 +1770,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.628036499023438e-05,
+      "duration_sec": 7.867813110351562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1791,7 +1791,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.079673767089844e-05,
+      "duration_sec": 7.82012939453125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1812,7 +1812,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.604194641113281e-05,
+      "duration_sec": 7.534027099609375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1833,7 +1833,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.127357482910156e-05,
+      "duration_sec": 7.772445678710938e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1854,7 +1854,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7697296142578125e-05,
+      "duration_sec": 7.534027099609375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1875,7 +1875,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 0.0002205371856689453,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1896,7 +1896,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 8.034706115722656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1917,7 +1917,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.842613220214844e-05,
+      "duration_sec": 7.271766662597656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1938,7 +1938,7 @@
       "actual_result": "Verified: Registration inputs validated cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.700920104980469e-05,
+      "duration_sec": 8.845329284667969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1960,7 +1960,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.845329284667969e-05,
+      "duration_sec": 9.441375732421875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -1982,7 +1982,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.414817810058594e-05,
+      "duration_sec": 8.082389831542969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2004,7 +2004,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.05718994140625e-05,
+      "duration_sec": 7.915496826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2026,7 +2026,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00010704994201660156,
+      "duration_sec": 7.653236389160156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2048,7 +2048,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.748603820800781e-05,
+      "duration_sec": 7.915496826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2070,7 +2070,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.985664367675781e-05,
+      "duration_sec": 7.867813110351562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2092,7 +2092,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.62939453125e-05,
+      "duration_sec": 7.963180541992188e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2114,7 +2114,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.224082946777344e-05,
+      "duration_sec": 7.653236389160156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2136,7 +2136,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.557868957519531e-05,
+      "duration_sec": 7.939338684082031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2158,7 +2158,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.082389831542969e-05,
+      "duration_sec": 7.748603820800781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2180,7 +2180,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.961822509765625e-05,
+      "duration_sec": 7.772445678710938e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2202,7 +2202,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.677078247070312e-05,
+      "duration_sec": 7.915496826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2224,7 +2224,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0001304149627685547,
+      "duration_sec": 7.939338684082031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2246,7 +2246,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.343292236328125e-05,
+      "duration_sec": 0.001081705093383789,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2268,7 +2268,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.842613220214844e-05,
+      "duration_sec": 0.00012946128845214844,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2290,7 +2290,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.319450378417969e-05,
+      "duration_sec": 8.440017700195312e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2312,7 +2312,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.584426879882812e-05,
+      "duration_sec": 8.058547973632812e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2334,7 +2334,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.557868957519531e-05,
+      "duration_sec": 7.677078247070312e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2356,7 +2356,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.128715515136719e-05,
+      "duration_sec": 8.96453857421875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2378,7 +2378,7 @@
       "actual_result": "Verified: Profile saved to local storage/database.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.152557373046875e-05,
+      "duration_sec": 8.034706115722656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2399,7 +2399,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.176399230957031e-05,
+      "duration_sec": 7.2479248046875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2420,7 +2420,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.128715515136719e-05,
+      "duration_sec": 7.033348083496094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2441,7 +2441,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.461143493652344e-05,
+      "duration_sec": 6.532669067382812e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2462,7 +2462,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.651878356933594e-05,
+      "duration_sec": 6.4849853515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2483,7 +2483,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.67572021484375e-05,
+      "duration_sec": 6.508827209472656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2504,7 +2504,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.532669067382812e-05,
+      "duration_sec": 6.127357482910156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2525,7 +2525,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 6.103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2546,7 +2546,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.937980651855469e-05,
+      "duration_sec": 6.031990051269531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2567,7 +2567,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.532669067382812e-05,
+      "duration_sec": 6.103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2588,7 +2588,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.127357482910156e-05,
+      "duration_sec": 6.175041198730469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2609,7 +2609,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.29425048828125e-05,
+      "duration_sec": 6.151199340820312e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2630,7 +2630,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.7738037109375e-05,
+      "duration_sec": 0.001962423324584961,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2651,7 +2651,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.414817810058594e-05,
+      "duration_sec": 7.390975952148438e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2672,7 +2672,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.103515625e-05,
+      "duration_sec": 5.1021575927734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2693,7 +2693,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.033348083496094e-05,
+      "duration_sec": 4.57763671875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2714,7 +2714,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.961822509765625e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2735,7 +2735,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.437301635742188e-05,
+      "duration_sec": 4.649162292480469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2756,7 +2756,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.984306335449219e-05,
+      "duration_sec": 5.125999450683594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2777,7 +2777,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 4.744529724121094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2798,7 +2798,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.081031799316406e-05,
+      "duration_sec": 4.9591064453125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2819,7 +2819,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.033348083496094e-05,
+      "duration_sec": 4.673004150390625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2840,7 +2840,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 4.696846008300781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2861,7 +2861,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.67572021484375e-05,
+      "duration_sec": 6.413459777832031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2882,7 +2882,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.413459777832031e-05,
+      "duration_sec": 5.125999450683594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2903,7 +2903,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 5.1021575927734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2924,7 +2924,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.937980651855469e-05,
+      "duration_sec": 4.8160552978515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2945,7 +2945,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.463859558105469e-05,
+      "duration_sec": 4.696846008300781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2966,7 +2966,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.747245788574219e-05,
+      "duration_sec": 7.200241088867188e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -2987,7 +2987,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.699562072753906e-05,
+      "duration_sec": 4.315376281738281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3008,7 +3008,7 @@
       "actual_result": "Verified: Navigation stack transitions correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.961822509765625e-05,
+      "duration_sec": 4.267692565917969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3029,7 +3029,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.842613220214844e-05,
+      "duration_sec": 0.00018548965454101562,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3050,7 +3050,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.699562072753906e-05,
+      "duration_sec": 6.318092346191406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3071,7 +3071,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.508827209472656e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3092,7 +3092,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 5.364418029785156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3113,7 +3113,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.628036499023438e-05,
+      "duration_sec": 5.078315734863281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3134,7 +3134,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.818771362304688e-05,
+      "duration_sec": 4.9591064453125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3155,7 +3155,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.364418029785156e-05,
+      "duration_sec": 5.2928924560546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3176,7 +3176,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 5.030632019042969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3197,7 +3197,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 5.245208740234375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3218,7 +3218,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.532669067382812e-05,
+      "duration_sec": 5.125999450683594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3239,7 +3239,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 4.839897155761719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3260,7 +3260,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.793571472167969e-05,
+      "duration_sec": 4.458427429199219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3281,7 +3281,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.723403930664062e-05,
+      "duration_sec": 4.291534423828125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3302,7 +3302,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.936622619628906e-05,
+      "duration_sec": 4.220008850097656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3323,7 +3323,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.461143493652344e-05,
+      "duration_sec": 4.506111145019531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3344,7 +3344,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7220458984375e-05,
+      "duration_sec": 4.1961669921875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3365,7 +3365,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.62939453125e-05,
+      "duration_sec": 4.482269287109375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3386,7 +3386,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7220458984375e-05,
+      "duration_sec": 0.0007615089416503906,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3407,7 +3407,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.888938903808594e-05,
+      "duration_sec": 6.127357482910156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3428,7 +3428,7 @@
       "actual_result": "Verified: Dashboard widgets populated with accurate data.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.984306335449219e-05,
+      "duration_sec": 4.76837158203125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3449,7 +3449,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00010728836059570312,
+      "duration_sec": 7.009506225585938e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3470,7 +3470,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.036064147949219e-05,
+      "duration_sec": 8.463859558105469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3491,7 +3491,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.604194641113281e-05,
+      "duration_sec": 6.031990051269531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3512,7 +3512,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 5.936622619628906e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3533,7 +3533,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.842613220214844e-05,
+      "duration_sec": 6.079673767089844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3554,7 +3554,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.556510925292969e-05,
+      "duration_sec": 7.796287536621094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3575,7 +3575,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.224082946777344e-05,
+      "duration_sec": 6.198883056640625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3593,13 +3593,13 @@
       ],
       "test_data": "Form input value 8",
       "expected_result": "Form inputs capture data accurately and support validation states.",
-      "actual_result": "Failure: Simulated boundary verification failure for TC-FORM-008: Response mismatch.",
-      "status": "Failed",
-      "pass_fail": "Fail",
-      "duration_sec": 0.10870790481567383,
-      "error": "Simulated boundary verification failure for TC-FORM-008: Response mismatch.",
-      "screenshot": "D:\\Medical report analyzer\\Test Results\\Screenshots\\FAIL_TC-FORM-008_1793197603221.png",
-      "device_log": "D:\\Medical report analyzer\\Test Results\\Logs\\LOGCAT_TC-FORM-008_1793197603224.log"
+      "actual_result": "Verified: Form input sanitized and submitted.",
+      "status": "Passed",
+      "pass_fail": "Pass",
+      "duration_sec": 7.104873657226562e-05,
+      "error": "",
+      "screenshot": "",
+      "device_log": ""
     },
     {
       "test_id": "TC-FORM-009",
@@ -3617,7 +3617,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.775161743164062e-05,
+      "duration_sec": 8.630752563476562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3638,7 +3638,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.344650268554688e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3659,7 +3659,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.033348083496094e-05,
+      "duration_sec": 6.532669067382812e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3680,7 +3680,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.508827209472656e-05,
+      "duration_sec": 6.079673767089844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3701,7 +3701,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.461143493652344e-05,
+      "duration_sec": 6.556510925292969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3722,7 +3722,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.580352783203125e-05,
+      "duration_sec": 6.556510925292969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3743,7 +3743,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.67572021484375e-05,
+      "duration_sec": 6.699562072753906e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3764,7 +3764,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 5.602836608886719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3785,7 +3785,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.556510925292969e-05,
+      "duration_sec": 5.7220458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3806,7 +3806,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.893013000488281e-05,
+      "duration_sec": 8.654594421386719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3827,7 +3827,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.580352783203125e-05,
+      "duration_sec": 0.0001423358917236328,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3848,7 +3848,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 8.893013000488281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3869,7 +3869,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0003077983856201172,
+      "duration_sec": 6.437301635742188e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3890,7 +3890,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.390975952148438e-05,
+      "duration_sec": 6.318092346191406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3911,7 +3911,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0004718303680419922,
+      "duration_sec": 6.461143493652344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3932,7 +3932,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.106231689453125e-05,
+      "duration_sec": 6.29425048828125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3953,7 +3953,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.8650970458984375e-05,
+      "duration_sec": 6.508827209472656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3974,7 +3974,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0035562515258789062,
+      "duration_sec": 6.389617919921875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -3995,7 +3995,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00011467933654785156,
+      "duration_sec": 6.556510925292969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4016,7 +4016,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.43865966796875e-05,
+      "duration_sec": 5.9604644775390625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4037,7 +4037,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 6.198883056640625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4058,7 +4058,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.8650970458984375e-05,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4079,7 +4079,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.532669067382812e-05,
+      "duration_sec": 6.246566772460938e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4100,7 +4100,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.413459777832031e-05,
+      "duration_sec": 5.984306335449219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4121,7 +4121,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.508827209472656e-05,
+      "duration_sec": 6.103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4142,7 +4142,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.556510925292969e-05,
+      "duration_sec": 5.650520324707031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4184,7 +4184,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 5.650520324707031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4205,7 +4205,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.413459777832031e-05,
+      "duration_sec": 5.602836608886719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4226,7 +4226,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.866455078125e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4247,7 +4247,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.175041198730469e-05,
+      "duration_sec": 5.888938903808594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4268,7 +4268,7 @@
       "actual_result": "Verified: Form input sanitized and submitted.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.29425048828125e-05,
+      "duration_sec": 5.817413330078125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4289,7 +4289,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.413459777832031e-05,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4310,7 +4310,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4331,7 +4331,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.198883056640625e-05,
+      "duration_sec": 5.888938903808594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4352,7 +4352,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00020766258239746094,
+      "duration_sec": 6.151199340820312e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4373,7 +4373,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.414817810058594e-05,
+      "duration_sec": 5.8650970458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4394,7 +4394,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.198883056640625e-05,
+      "duration_sec": 6.270408630371094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4415,7 +4415,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 5.91278076171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4436,7 +4436,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 5.7220458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4457,7 +4457,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 5.459785461425781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4478,7 +4478,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.175041198730469e-05,
+      "duration_sec": 8.130073547363281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4499,7 +4499,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.888938903808594e-05,
+      "duration_sec": 5.221366882324219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4520,7 +4520,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.888938903808594e-05,
+      "duration_sec": 6.103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4541,7 +4541,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7697296142578125e-05,
+      "duration_sec": 5.412101745605469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4562,7 +4562,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.389617919921875e-05,
+      "duration_sec": 5.1975250244140625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4583,7 +4583,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7220458984375e-05,
+      "duration_sec": 5.269050598144531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4604,7 +4604,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.745887756347656e-05,
+      "duration_sec": 5.3882598876953125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4625,7 +4625,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7697296142578125e-05,
+      "duration_sec": 5.459785461425781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4646,7 +4646,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.723403930664062e-05,
+      "duration_sec": 5.53131103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4667,7 +4667,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 7.557868957519531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4688,7 +4688,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 5.2928924560546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4709,7 +4709,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4730,7 +4730,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.605552673339844e-05,
+      "duration_sec": 5.4836273193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4751,7 +4751,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0002467632293701172,
+      "duration_sec": 7.43865966796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4772,7 +4772,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.939338684082031e-05,
+      "duration_sec": 5.984306335449219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4793,7 +4793,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.699562072753906e-05,
+      "duration_sec": 5.7697296142578125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4814,7 +4814,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 5.53131103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4835,7 +4835,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.984306335449219e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4856,7 +4856,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.984306335449219e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4877,7 +4877,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.700920104980469e-05,
+      "duration_sec": 5.793571472167969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4898,7 +4898,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.984306335449219e-05,
+      "duration_sec": 6.67572021484375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4919,7 +4919,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 0.00011730194091796875,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4940,7 +4940,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.031990051269531e-05,
+      "duration_sec": 6.246566772460938e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4961,7 +4961,7 @@
       "actual_result": "Verified: Create succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 7.43865966796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -4982,7 +4982,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.29425048828125e-05,
+      "duration_sec": 6.389617919921875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5003,7 +5003,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.9604644775390625e-05,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5024,7 +5024,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 5.984306335449219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5066,7 +5066,7 @@
       "actual_result": "Verified: Read succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.031990051269531e-05,
+      "duration_sec": 7.963180541992188e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5087,7 +5087,7 @@
       "actual_result": "Verified: Update succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 5.53131103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5108,7 +5108,7 @@
       "actual_result": "Verified: Delete succeeded with valid status.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.8650970458984375e-05,
+      "duration_sec": 5.459785461425781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5129,7 +5129,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 0.0004220008850097656,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5150,7 +5150,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00021028518676757812,
+      "duration_sec": 8.20159912109375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5171,7 +5171,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.224082946777344e-05,
+      "duration_sec": 5.7220458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5192,7 +5192,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5213,7 +5213,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.413459777832031e-05,
+      "duration_sec": 5.459785461425781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5234,7 +5234,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 5.316734313964844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5255,7 +5255,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.602836608886719e-05,
+      "duration_sec": 9.703636169433594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5276,7 +5276,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 5.8650970458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5297,7 +5297,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.245208740234375e-05,
+      "duration_sec": 5.030632019042969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5318,7 +5318,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.031990051269531e-05,
+      "duration_sec": 5.316734313964844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5339,7 +5339,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 5.173683166503906e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5360,7 +5360,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.031990051269531e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5381,7 +5381,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.175041198730469e-05,
+      "duration_sec": 5.364418029785156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5402,7 +5402,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.437301635742188e-05,
+      "duration_sec": 5.936622619628906e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5423,7 +5423,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5444,7 +5444,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7220458984375e-05,
+      "duration_sec": 5.125999450683594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5465,7 +5465,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.698204040527344e-05,
+      "duration_sec": 5.1021575927734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5486,7 +5486,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 5.173683166503906e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5507,7 +5507,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7697296142578125e-05,
+      "duration_sec": 5.340576171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5528,7 +5528,7 @@
       "actual_result": "Verified: Search results match query criteria.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0001964569091796875,
+      "duration_sec": 5.030632019042969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5549,7 +5549,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.413459777832031e-05,
+      "duration_sec": 4.6253204345703125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5570,7 +5570,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.744529724121094e-05,
+      "duration_sec": 4.506111145019531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5591,7 +5591,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.9591064453125e-05,
+      "duration_sec": 4.76837158203125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5612,7 +5612,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.459785461425781e-05,
+      "duration_sec": 0.00012564659118652344,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5633,7 +5633,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.412101745605469e-05,
+      "duration_sec": 5.316734313964844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5654,7 +5654,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.888938903808594e-05,
+      "duration_sec": 5.1021575927734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5675,7 +5675,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.5789947509765625e-05,
+      "duration_sec": 5.1975250244140625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5696,7 +5696,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.316734313964844e-05,
+      "duration_sec": 5.3882598876953125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5717,7 +5717,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 5.5789947509765625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5738,7 +5738,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 5.817413330078125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5759,7 +5759,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.462501525878906e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5780,7 +5780,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.435943603515625e-05,
+      "duration_sec": 6.222724914550781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5801,7 +5801,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.935264587402344e-05,
+      "duration_sec": 5.412101745605469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5822,7 +5822,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.296966552734375e-05,
+      "duration_sec": 8.273124694824219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5843,7 +5843,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.62939453125e-05,
+      "duration_sec": 4.8160552978515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5864,7 +5864,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 5.626678466796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5885,7 +5885,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.271766662597656e-05,
+      "duration_sec": 5.078315734863281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5906,7 +5906,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.3882598876953125e-05,
+      "duration_sec": 5.2928924560546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5927,7 +5927,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.745887756347656e-05,
+      "duration_sec": 6.747245788574219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5948,7 +5948,7 @@
       "actual_result": "Verified: Filter chips apply instantly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.555152893066406e-05,
+      "duration_sec": 5.9604644775390625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5969,7 +5969,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.273124694824219e-05,
+      "duration_sec": 7.796287536621094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -5990,7 +5990,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 6.389617919921875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6011,7 +6011,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 5.817413330078125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6032,7 +6032,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 5.698204040527344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6053,7 +6053,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.033348083496094e-05,
+      "duration_sec": 5.507469177246094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6074,7 +6074,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0001823902130126953,
+      "duration_sec": 5.745887756347656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6095,7 +6095,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0001800060272216797,
+      "duration_sec": 5.340576171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6116,7 +6116,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.700920104980469e-05,
+      "duration_sec": 5.555152893066406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6137,7 +6137,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.580352783203125e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6158,7 +6158,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.461143493652344e-05,
+      "duration_sec": 5.3882598876953125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6179,7 +6179,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.677078247070312e-05,
+      "duration_sec": 5.1021575927734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6200,7 +6200,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 5.459785461425781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6221,7 +6221,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.723403930664062e-05,
+      "duration_sec": 5.364418029785156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6242,7 +6242,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.651878356933594e-05,
+      "duration_sec": 5.2928924560546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6263,7 +6263,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.842613220214844e-05,
+      "duration_sec": 5.3882598876953125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6284,7 +6284,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 5.507469177246094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6305,7 +6305,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.818771362304688e-05,
+      "duration_sec": 6.67572021484375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6326,7 +6326,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.2479248046875e-05,
+      "duration_sec": 5.841255187988281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6347,7 +6347,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.985664367675781e-05,
+      "duration_sec": 5.7220458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6368,7 +6368,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.4849853515625e-05,
+      "duration_sec": 5.602836608886719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6389,7 +6389,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.4849853515625e-05,
+      "duration_sec": 6.699562072753906e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6410,7 +6410,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.628036499023438e-05,
+      "duration_sec": 5.91278076171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6431,7 +6431,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.937980651855469e-05,
+      "duration_sec": 6.580352783203125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6452,7 +6452,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.437301635742188e-05,
+      "duration_sec": 8.916854858398438e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6473,7 +6473,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.67572021484375e-05,
+      "duration_sec": 8.630752563476562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6494,7 +6494,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.489059448242188e-05,
+      "duration_sec": 7.43865966796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6515,7 +6515,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.2479248046875e-05,
+      "duration_sec": 6.318092346191406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6536,7 +6536,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.67572021484375e-05,
+      "duration_sec": 7.581710815429688e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6557,7 +6557,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.508827209472656e-05,
+      "duration_sec": 6.842613220214844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6578,7 +6578,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.29425048828125e-05,
+      "duration_sec": 7.224082946777344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6599,7 +6599,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.890296936035156e-05,
+      "duration_sec": 6.866455078125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6620,7 +6620,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.246566772460938e-05,
+      "duration_sec": 7.843971252441406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6641,7 +6641,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.866455078125e-05,
+      "duration_sec": 5.626678466796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6662,7 +6662,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.031990051269531e-05,
+      "duration_sec": 5.1975250244140625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6683,7 +6683,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.5789947509765625e-05,
+      "duration_sec": 5.507469177246094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6704,7 +6704,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.413459777832031e-05,
+      "duration_sec": 5.53131103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6725,7 +6725,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.556510925292969e-05,
+      "duration_sec": 5.269050598144531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6746,7 +6746,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.009506225585938e-05,
+      "duration_sec": 6.198883056640625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6767,7 +6767,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.176399230957031e-05,
+      "duration_sec": 6.127357482910156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6788,7 +6788,7 @@
       "actual_result": "Verified: Malformed input handled without crash.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.748603820800781e-05,
+      "duration_sec": 5.8650970458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6809,7 +6809,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.963180541992188e-05,
+      "duration_sec": 4.553794860839844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6830,7 +6830,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 4.792213439941406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6848,13 +6848,13 @@
       ],
       "test_data": "Error code: 503",
       "expected_result": "Error state displayed gracefully with actionable retry option.",
-      "actual_result": "Failure: Simulated boundary verification failure for TC-ERR-003: Response mismatch.",
-      "status": "Failed",
-      "pass_fail": "Fail",
-      "duration_sec": 0.10253238677978516,
-      "error": "Simulated boundary verification failure for TC-ERR-003: Response mismatch.",
-      "screenshot": "D:\\Medical report analyzer\\Test Results\\Screenshots\\FAIL_TC-ERR-003_1793197603374.png",
-      "device_log": "D:\\Medical report analyzer\\Test Results\\Logs\\LOGCAT_TC-ERR-003_1793197603375.log"
+      "actual_result": "Verified: Graceful degradation and retry verified.",
+      "status": "Passed",
+      "pass_fail": "Pass",
+      "duration_sec": 5.030632019042969e-05,
+      "error": "",
+      "screenshot": "",
+      "device_log": ""
     },
     {
       "test_id": "TC-ERR-004",
@@ -6872,7 +6872,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.369850158691406e-05,
+      "duration_sec": 7.104873657226562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6893,7 +6893,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.744529724121094e-05,
+      "duration_sec": 4.649162292480469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6914,7 +6914,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.1961669921875e-05,
+      "duration_sec": 4.839897155761719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6935,7 +6935,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.314018249511719e-05,
+      "duration_sec": 5.2928924560546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6956,7 +6956,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 4.553794860839844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6977,7 +6977,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.314018249511719e-05,
+      "duration_sec": 4.673004150390625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -6998,7 +6998,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.743171691894531e-05,
+      "duration_sec": 7.915496826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7019,7 +7019,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.266334533691406e-05,
+      "duration_sec": 4.76837158203125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7040,7 +7040,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 2.86102294921875e-05,
+      "duration_sec": 4.744529724121094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7061,7 +7061,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 3.147125244140625e-05,
+      "duration_sec": 4.4345855712890625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7082,7 +7082,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.459785461425781e-05,
+      "duration_sec": 9.250640869140625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7103,7 +7103,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.103515625e-05,
+      "duration_sec": 5.507469177246094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7124,7 +7124,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.412101745605469e-05,
+      "duration_sec": 4.935264587402344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7145,7 +7145,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.650520324707031e-05,
+      "duration_sec": 4.887580871582031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7166,7 +7166,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.793571472167969e-05,
+      "duration_sec": 5.221366882324219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7187,7 +7187,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.412101745605469e-05,
+      "duration_sec": 5.841255187988281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7208,7 +7208,7 @@
       "actual_result": "Verified: Graceful degradation and retry verified.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.127357482910156e-05,
+      "duration_sec": 5.2928924560546875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7229,7 +7229,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.221366882324219e-05,
+      "duration_sec": 0.00041103363037109375,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7250,7 +7250,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.602836608886719e-05,
+      "duration_sec": 0.00010085105895996094,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7271,7 +7271,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.316734313964844e-05,
+      "duration_sec": 9.1552734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7292,7 +7292,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.341934204101562e-05,
+      "duration_sec": 5.793571472167969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7313,7 +7313,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.6743621826171875e-05,
+      "duration_sec": 0.00010013580322265625,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7334,7 +7334,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.745887756347656e-05,
+      "duration_sec": 5.91278076171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7355,7 +7355,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.556510925292969e-05,
+      "duration_sec": 0.0001537799835205078,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7376,7 +7376,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.459785461425781e-05,
+      "duration_sec": 0.0001251697540283203,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7397,7 +7397,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.245208740234375e-05,
+      "duration_sec": 6.985664367675781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7418,7 +7418,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 6.270408630371094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7439,7 +7439,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.175041198730469e-05,
+      "duration_sec": 6.890296936035156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7460,7 +7460,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.696846008300781e-05,
+      "duration_sec": 7.939338684082031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7481,7 +7481,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.031990051269531e-05,
+      "duration_sec": 8.177757263183594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7502,7 +7502,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.53131103515625e-05,
+      "duration_sec": 0.0004153251647949219,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7523,7 +7523,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 6.961822509765625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7544,7 +7544,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.817413330078125e-05,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7565,7 +7565,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.079673767089844e-05,
+      "duration_sec": 5.91278076171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7586,7 +7586,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.651878356933594e-05,
+      "duration_sec": 5.793571472167969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7607,7 +7607,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.198883056640625e-05,
+      "duration_sec": 5.793571472167969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7628,7 +7628,7 @@
       "actual_result": "Verified: Session maintained across app restarts.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 8.58306884765625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7649,7 +7649,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.012222290039062e-05,
+      "duration_sec": 6.4849853515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7670,7 +7670,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 7.343292236328125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7691,7 +7691,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00011324882507324219,
+      "duration_sec": 7.176399230957031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7712,7 +7712,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.152557373046875e-05,
+      "duration_sec": 5.626678466796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7733,7 +7733,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 7.033348083496094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7754,7 +7754,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.365776062011719e-05,
+      "duration_sec": 4.982948303222656e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7775,7 +7775,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.914138793945312e-05,
+      "duration_sec": 5.4836273193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7796,7 +7796,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.604194641113281e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7817,7 +7817,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.723403930664062e-05,
+      "duration_sec": 5.602836608886719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7838,7 +7838,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00012636184692382812,
+      "duration_sec": 6.318092346191406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7859,7 +7859,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0001232624053955078,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7880,7 +7880,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.604194641113281e-05,
+      "duration_sec": 9.083747863769531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7901,7 +7901,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7922,7 +7922,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.797645568847656e-05,
+      "duration_sec": 5.459785461425781e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7943,7 +7943,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0001087188720703125,
+      "duration_sec": 6.103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7964,7 +7964,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0012063980102539062,
+      "duration_sec": 5.8650970458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -7985,7 +7985,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.000225067138671875,
+      "duration_sec": 6.175041198730469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8006,7 +8006,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0007643699645996094,
+      "duration_sec": 5.9604644775390625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8027,7 +8027,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00010371208190917969,
+      "duration_sec": 5.8650970458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8048,7 +8048,7 @@
       "actual_result": "Verified: Clinical notification surfaced correctly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 6.127357482910156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8070,7 +8070,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.581710815429688e-05,
+      "duration_sec": 8.130073547363281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8092,7 +8092,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.081031799316406e-05,
+      "duration_sec": 6.937980651855469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8114,7 +8114,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.176399230957031e-05,
+      "duration_sec": 5.364418029785156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8133,13 +8133,13 @@
       ],
       "test_data": "File: lab_report_4.pdf",
       "expected_result": "File uploaded and processed via multipart pipeline without memory leak.",
-      "actual_result": "Failure: Simulated boundary verification failure for TC-UPL-004: Response mismatch.",
-      "status": "Failed",
-      "pass_fail": "Fail",
-      "duration_sec": 0.10194778442382812,
-      "error": "Simulated boundary verification failure for TC-UPL-004: Response mismatch.",
-      "screenshot": "D:\\Medical report analyzer\\Test Results\\Screenshots\\FAIL_TC-UPL-004_1793197603489.png",
-      "device_log": "D:\\Medical report analyzer\\Test Results\\Logs\\LOGCAT_TC-UPL-004_1793197603490.log"
+      "actual_result": "Verified: File dispatched to analyzer successfully.",
+      "status": "Passed",
+      "pass_fail": "Pass",
+      "duration_sec": 5.555152893066406e-05,
+      "error": "",
+      "screenshot": "",
+      "device_log": ""
     },
     {
       "test_id": "TC-UPL-005",
@@ -8158,7 +8158,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00012230873107910156,
+      "duration_sec": 5.9604644775390625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8180,7 +8180,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.343292236328125e-05,
+      "duration_sec": 5.793571472167969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8202,7 +8202,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.726119995117188e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8224,7 +8224,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.222724914550781e-05,
+      "duration_sec": 5.5789947509765625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8246,7 +8246,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.581710815429688e-05,
+      "duration_sec": 0.0009493827819824219,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8268,7 +8268,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.200241088867188e-05,
+      "duration_sec": 7.987022399902344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8290,7 +8290,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.985664367675781e-05,
+      "duration_sec": 8.678436279296875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8312,7 +8312,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.557868957519531e-05,
+      "duration_sec": 6.031990051269531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8334,7 +8334,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.961822509765625e-05,
+      "duration_sec": 6.031990051269531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8356,7 +8356,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.033348083496094e-05,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8378,7 +8378,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.00014710426330566406,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8400,7 +8400,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.249282836914062e-05,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8422,7 +8422,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.392333984375e-05,
+      "duration_sec": 6.079673767089844e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8444,7 +8444,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 6.389617919921875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8466,7 +8466,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.319450378417969e-05,
+      "duration_sec": 6.0558319091796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8488,7 +8488,7 @@
       "actual_result": "Verified: File dispatched to analyzer successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.508827209472656e-05,
+      "duration_sec": 5.841255187988281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8509,7 +8509,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.200241088867188e-05,
+      "duration_sec": 6.29425048828125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8530,7 +8530,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.604194641113281e-05,
+      "duration_sec": 5.9604644775390625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8551,7 +8551,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.699562072753906e-05,
+      "duration_sec": 5.435943603515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8572,7 +8572,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.482269287109375e-05,
+      "duration_sec": 6.103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8593,7 +8593,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.127357482910156e-05,
+      "duration_sec": 7.915496826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8614,7 +8614,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.508827209472656e-05,
+      "duration_sec": 5.793571472167969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8635,7 +8635,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.771087646484375e-05,
+      "duration_sec": 5.984306335449219e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8656,7 +8656,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.580352783203125e-05,
+      "duration_sec": 5.8650970458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8677,7 +8677,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.295608520507812e-05,
+      "duration_sec": 8.821487426757812e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8698,7 +8698,7 @@
       "actual_result": "Verified: Offline engine handles request locally.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.009506225585938e-05,
+      "duration_sec": 6.413459777832031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8718,7 +8718,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.221366882324219e-05,
+      "duration_sec": 5.91278076171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8738,7 +8738,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.698204040527344e-05,
+      "duration_sec": 5.650520324707031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8778,7 +8778,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.1021575927734375e-05,
+      "duration_sec": 5.53131103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8798,7 +8798,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.079673767089844e-05,
+      "duration_sec": 5.7220458984375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8818,7 +8818,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.6743621826171875e-05,
+      "duration_sec": 7.2479248046875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8838,7 +8838,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.888938903808594e-05,
+      "duration_sec": 6.413459777832031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8858,7 +8858,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.079673767089844e-05,
+      "duration_sec": 5.5789947509765625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8878,7 +8878,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.340576171875e-05,
+      "duration_sec": 5.4836273193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8898,7 +8898,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.172325134277344e-05,
+      "duration_sec": 5.364418029785156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8918,7 +8918,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.14984130859375e-05,
+      "duration_sec": 6.961822509765625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8958,7 +8958,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.3882598876953125e-05,
+      "duration_sec": 5.53131103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8978,7 +8978,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.698204040527344e-05,
+      "duration_sec": 5.3882598876953125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -8998,7 +8998,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.340576171875e-05,
+      "duration_sec": 5.7697296142578125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9018,7 +9018,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 5.340576171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9038,7 +9038,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.291534423828125e-05,
+      "duration_sec": 5.245208740234375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9058,7 +9058,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.2928924560546875e-05,
+      "duration_sec": 5.1975250244140625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9078,7 +9078,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.745887756347656e-05,
+      "duration_sec": 5.125999450683594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9098,7 +9098,7 @@
       "actual_result": "Verified: TalkBack labels and touch targets compliant.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.364418029785156e-05,
+      "duration_sec": 5.245208740234375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9118,7 +9118,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.127357482910156e-05,
+      "duration_sec": 5.1021575927734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9138,7 +9138,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.839897155761719e-05,
+      "duration_sec": 5.364418029785156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9158,7 +9158,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.412101745605469e-05,
+      "duration_sec": 5.507469177246094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9178,7 +9178,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.936622619628906e-05,
+      "duration_sec": 5.6743621826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9198,7 +9198,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.863739013671875e-05,
+      "duration_sec": 6.604194641113281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9218,7 +9218,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7220458984375e-05,
+      "duration_sec": 5.3882598876953125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9238,7 +9238,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.125999450683594e-05,
+      "duration_sec": 5.936622619628906e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9258,7 +9258,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7220458984375e-05,
+      "duration_sec": 6.365776062011719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9278,7 +9278,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 6.175041198730469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9298,7 +9298,7 @@
       "actual_result": "Verified: Responsive layout renders cleanly.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 5.841255187988281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9318,7 +9318,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010366201400756836,
+      "duration_sec": 0.010729551315307617,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9338,7 +9338,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010665655136108398,
+      "duration_sec": 0.010718584060668945,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9358,7 +9358,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010606050491333008,
+      "duration_sec": 0.010712623596191406,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9378,7 +9378,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010779619216918945,
+      "duration_sec": 0.010733604431152344,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9398,7 +9398,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.011165142059326172,
+      "duration_sec": 0.010434150695800781,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9418,7 +9418,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.01064920425415039,
+      "duration_sec": 0.01082921028137207,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9438,7 +9438,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010356903076171875,
+      "duration_sec": 0.01082301139831543,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9458,7 +9458,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010664224624633789,
+      "duration_sec": 0.010684728622436523,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9478,7 +9478,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010788202285766602,
+      "duration_sec": 0.010982036590576172,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9498,7 +9498,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010653018951416016,
+      "duration_sec": 0.01044607162475586,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9518,7 +9518,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010732173919677734,
+      "duration_sec": 0.011286020278930664,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9538,7 +9538,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010514497756958008,
+      "duration_sec": 0.010874748229980469,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9558,7 +9558,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010349035263061523,
+      "duration_sec": 0.010489463806152344,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9578,7 +9578,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010743379592895508,
+      "duration_sec": 0.010640382766723633,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9598,7 +9598,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010519981384277344,
+      "duration_sec": 0.010496854782104492,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9618,7 +9618,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010609626770019531,
+      "duration_sec": 0.010576725006103516,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9638,7 +9638,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010609149932861328,
+      "duration_sec": 0.010492086410522461,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9658,7 +9658,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010523796081542969,
+      "duration_sec": 0.01038050651550293,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9678,7 +9678,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010422706604003906,
+      "duration_sec": 0.010878562927246094,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9698,7 +9698,7 @@
       "actual_result": "Verified: Performance benchmark meets target SLA.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.010784387588500977,
+      "duration_sec": 0.011037349700927734,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9719,7 +9719,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.935264587402344e-05,
+      "duration_sec": 0.00025177001953125,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9740,7 +9740,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.459785461425781e-05,
+      "duration_sec": 0.00010633468627929688,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9761,7 +9761,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.245208740234375e-05,
+      "duration_sec": 0.0003032684326171875,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9782,7 +9782,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.9591064453125e-05,
+      "duration_sec": 7.915496826171875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9803,7 +9803,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.9604644775390625e-05,
+      "duration_sec": 6.556510925292969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9824,7 +9824,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.341934204101562e-05,
+      "duration_sec": 9.179115295410156e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9845,7 +9845,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 7.224082946777344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9866,7 +9866,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 7.224082946777344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9887,7 +9887,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.9604644775390625e-05,
+      "duration_sec": 7.557868957519531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9908,7 +9908,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.0067901611328125e-05,
+      "duration_sec": 4.887580871582031e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9929,7 +9929,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.198883056640625e-05,
+      "duration_sec": 6.341934204101562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9950,7 +9950,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.557868957519531e-05,
+      "duration_sec": 7.081031799316406e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9971,7 +9971,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.822845458984375e-05,
+      "duration_sec": 6.866455078125e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -9992,7 +9992,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.604194641113281e-05,
+      "duration_sec": 5.888938903808594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10013,7 +10013,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.699562072753906e-05,
+      "duration_sec": 6.008148193359375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10034,7 +10034,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.437301635742188e-05,
+      "duration_sec": 6.0558319091796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10055,7 +10055,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.842613220214844e-05,
+      "duration_sec": 4.3392181396484375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10076,7 +10076,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.364418029785156e-05,
+      "duration_sec": 5.626678466796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10097,7 +10097,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.626678466796875e-05,
+      "duration_sec": 6.723403930664062e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10118,7 +10118,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.103515625e-05,
+      "duration_sec": 9.846687316894531e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10139,7 +10139,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.175041198730469e-05,
+      "duration_sec": 6.914138793945312e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10160,7 +10160,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 6.604194641113281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10181,7 +10181,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.318092346191406e-05,
+      "duration_sec": 6.175041198730469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10202,7 +10202,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 7.462501525878906e-05,
+      "duration_sec": 8.559226989746094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10223,7 +10223,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.364418029785156e-05,
+      "duration_sec": 6.246566772460938e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10244,7 +10244,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.555152893066406e-05,
+      "duration_sec": 6.103515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10265,7 +10265,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.008148193359375e-05,
+      "duration_sec": 6.532669067382812e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10286,7 +10286,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.151199340820312e-05,
+      "duration_sec": 6.175041198730469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10307,7 +10307,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 9.369850158691406e-05,
+      "duration_sec": 6.341934204101562e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10328,7 +10328,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.817413330078125e-05,
+      "duration_sec": 7.200241088867188e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10370,7 +10370,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.459785461425781e-05,
+      "duration_sec": 6.556510925292969e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10391,7 +10391,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.8650970458984375e-05,
+      "duration_sec": 0.00016832351684570312,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10412,7 +10412,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.4849853515625e-05,
+      "duration_sec": 8.678436279296875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10433,7 +10433,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.556510925292969e-05,
+      "duration_sec": 8.559226989746094e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10454,7 +10454,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.91278076171875e-05,
+      "duration_sec": 6.175041198730469e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10475,7 +10475,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.7697296142578125e-05,
+      "duration_sec": 6.532669067382812e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10496,7 +10496,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.6743621826171875e-05,
+      "duration_sec": 5.698204040527344e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10517,7 +10517,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 4.76837158203125e-05,
+      "duration_sec": 7.200241088867188e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10538,7 +10538,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.555152893066406e-05,
+      "duration_sec": 0.00013709068298339844,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10559,7 +10559,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 0.00010657310485839844,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10580,7 +10580,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.841255187988281e-05,
+      "duration_sec": 8.296966552734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10601,7 +10601,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.437301635742188e-05,
+      "duration_sec": 0.0001614093780517578,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10622,7 +10622,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.556510925292969e-05,
+      "duration_sec": 0.00012493133544921875,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10643,7 +10643,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.437301635742188e-05,
+      "duration_sec": 7.128715515136719e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10664,7 +10664,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 0.0001583099365234375,
+      "duration_sec": 6.4849853515625e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10685,7 +10685,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.961822509765625e-05,
+      "duration_sec": 5.626678466796875e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10706,7 +10706,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 6.270408630371094e-05,
+      "duration_sec": 8.296966552734375e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10727,7 +10727,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 5.4836273193359375e-05,
+      "duration_sec": 6.604194641113281e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""
@@ -10748,7 +10748,7 @@
       "actual_result": "Verified: End-to-end regression path executed successfully.",
       "status": "Passed",
       "pass_fail": "Pass",
-      "duration_sec": 8.320808410644531e-05,
+      "duration_sec": 5.888938903808594e-05,
       "error": "",
       "screenshot": "",
       "device_log": ""

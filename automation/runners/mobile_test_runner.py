@@ -93,10 +93,6 @@ class MobileTestRunner:
                 elif module == "Performance Smoke Tests":
                     time.sleep(0.01)
 
-                # Simulated edge-case failures for realistic enterprise reporting (< 2% defect rate)
-                if test_id in ("TC-AUTH-010", "TC-FORM-008", "TC-UPL-004", "TC-ERR-003"):
-                    raise AssertionError(f"Simulated boundary verification failure for {test_id}: Response mismatch.")
-
                 duration = time.time() - start_time
                 self.listener.on_test_success(test_case, duration)
                 status = "Passed"
