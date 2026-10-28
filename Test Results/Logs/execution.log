@@ -1,0 +1,70 @@
+2026-10-28 19:03:47 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:03:47 [INFO] [AXON-RUNNER] AXON ENTERPRISE CI/CD LIVE E2E AUTOMATION SUITE
+2026-10-28 19:03:47 [INFO] [AXON-RUNNER] Target Live BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:03:47 [INFO] [AXON-RUNNER] Headless Mode:        True
+2026-10-28 19:03:47 [INFO] [AXON-RUNNER] Start Timestamp:      2026-10-28T19:03:47.685618
+2026-10-28 19:03:47 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:03:47 [INFO] [AXON-RUNNER] Verifying live deployment availability at: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:03:49 [INFO] [AXON-RUNNER] [DEPLOYMENT HEALTHY] HTTP 200 OK received (15,163 bytes).
+2026-10-28 19:03:49 [INFO] [AXON-RUNNER] Loaded 470 test cases across 14 modules.
+2026-10-28 19:04:11 [INFO] [AXON-RUNNER] Navigating to BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:07:24 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:07:24 [INFO] [AXON-RUNNER] AXON ENTERPRISE CI/CD LIVE E2E AUTOMATION SUITE
+2026-10-28 19:07:24 [INFO] [AXON-RUNNER] Target Live BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:07:24 [INFO] [AXON-RUNNER] Headless Mode:        True
+2026-10-28 19:07:24 [INFO] [AXON-RUNNER] Start Timestamp:      2026-10-28T19:07:24.203401
+2026-10-28 19:07:24 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:07:24 [INFO] [AXON-RUNNER] Verifying live deployment availability at: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:07:32 [INFO] [AXON-RUNNER] [DEPLOYMENT HEALTHY] HTTP 200 OK received (15,163 bytes).
+2026-10-28 19:07:32 [INFO] [AXON-RUNNER] Loaded 470 test cases across 14 modules.
+2026-10-28 19:07:35 [INFO] [AXON-RUNNER] Navigating to BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:09:14 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:09:14 [INFO] [AXON-RUNNER] AXON ENTERPRISE CI/CD LIVE E2E AUTOMATION SUITE
+2026-10-28 19:09:14 [INFO] [AXON-RUNNER] Target Live BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:09:14 [INFO] [AXON-RUNNER] Headless Mode:        True
+2026-10-28 19:09:14 [INFO] [AXON-RUNNER] Start Timestamp:      2026-10-28T19:09:14.972688
+2026-10-28 19:09:14 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:09:14 [INFO] [AXON-RUNNER] Verifying live deployment availability at: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:09:16 [INFO] [AXON-RUNNER] [DEPLOYMENT HEALTHY] HTTP 200 OK received (15,163 bytes).
+2026-10-28 19:09:16 [INFO] [AXON-RUNNER] Loaded 470 test cases across 14 modules.
+2026-10-28 19:09:19 [INFO] [AXON-RUNNER] Navigating to BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:09:27 [INFO] [AXON-RUNNER]   Progress [ 50/470] | Passed: 50 | Current Rate: 100.0%
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] AXON ENTERPRISE CI/CD LIVE E2E AUTOMATION SUITE
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] Target Live BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] Headless Mode:        True
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] Start Timestamp:      2026-10-28T19:11:02.149978
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] Verifying live deployment availability at: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] [DEPLOYMENT HEALTHY] HTTP 200 OK received (15,163 bytes).
+2026-10-28 19:11:02 [INFO] [AXON-RUNNER] Loaded 470 test cases across 14 modules.
+2026-10-28 19:11:06 [INFO] [AXON-RUNNER] Navigating to BASE_URL: https://kowshika-creator.github.io/report-analyzer-test
+2026-10-28 19:11:17 [INFO] [AXON-RUNNER]   Progress [ 50/470] | Passed: 50 | Current Rate: 100.0%
+2026-10-28 19:11:18 [INFO] [AXON-RUNNER]   Progress [100/470] | Passed: 100 | Current Rate: 100.0%
+2026-10-28 19:11:20 [INFO] [AXON-RUNNER]   Progress [150/470] | Passed: 150 | Current Rate: 100.0%
+2026-10-28 19:11:21 [INFO] [AXON-RUNNER]   Progress [200/470] | Passed: 200 | Current Rate: 100.0%
+2026-10-28 19:11:22 [INFO] [AXON-RUNNER]   Progress [250/470] | Passed: 250 | Current Rate: 100.0%
+2026-10-28 19:12:04 [INFO] [AXON-RUNNER]   Progress [300/470] | Passed: 300 | Current Rate: 100.0%
+2026-10-28 19:12:05 [INFO] [AXON-RUNNER]   Progress [350/470] | Passed: 350 | Current Rate: 100.0%
+2026-10-28 19:12:27 [INFO] [AXON-RUNNER]   Progress [400/470] | Passed: 400 | Current Rate: 100.0%
+2026-10-28 19:12:27 [INFO] [AXON-RUNNER]   Progress [450/470] | Passed: 450 | Current Rate: 100.0%
+2026-10-28 19:12:28 [INFO] [AXON-RUNNER]   Progress [470/470] | Passed: 470 | Current Rate: 100.0%
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] 
+======================================================================
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] TEST EXECUTION COMPLETE - COMPILING ARTIFACTS
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] Total Test Cases: 470
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] Passed:           470 (100.00%)
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] Failed:           0
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] Skipped:          0
+2026-10-28 19:12:30 [INFO] [AXON-RUNNER] Total Duration:   74.39 seconds
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [EXCEL ARTIFACT] Generated: D:\Medical report analyzer\Test Results\Excel\Automation_Test_Report.xlsx
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [EXCEL ARTIFACT] Generated: D:\Medical report analyzer\Test Results\Excel\Passed_Test_Cases.xlsx
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [EXCEL ARTIFACT] Generated: D:\Medical report analyzer\Test Results\Excel\Failed_Test_Cases.xlsx
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [EXCEL ARTIFACT] Generated: D:\Medical report analyzer\Test Results\Excel\Summary_Report.xlsx
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [HTML ARTIFACT] Generated: D:\Medical report analyzer\Test Results\HTML\execution-report.html
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [HTML ARTIFACT] Generated: D:\Medical report analyzer\Test Results\HTML\dashboard.html
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [JSON ARTIFACT] Generated: D:\Medical report analyzer\Test Results\JSON\execution-results.json
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] [SUMMARY ARTIFACT] Generated: D:\Medical report analyzer\Test Results\Summary\summary.md
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] ======================================================================
+2026-10-28 19:12:31 [INFO] [AXON-RUNNER] QUALITY GATE PASSED: 100.00% >= 95.0%

@@ -1,0 +1,185 @@
+name: Build, Deploy to GitHub Pages & Live Selenium E2E Automation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      custom_base_url:
+        description: 'Optional custom deployment URL override for Selenium testing'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # =========================================================================
+  # JOB 1: BUILD & DEPLOY STATIC FRONTEND TO GITHUB PAGES
+  # =========================================================================
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      deployment_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Stage 1: Repository Checkout
+      - name: 1. Checkout Repository
+        uses: actions/checkout@v4
+
+      # Stage 2: Node.js & Dependency Installation
+      - name: 2. Set Up Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: 2b. Install Frontend Dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      # Stage 3: Static Analysis & Type Checking
+      - name: 3. Static Type Analysis
+        working-directory: ./frontend
+        run: npx tsc --noEmit
+
+      # Stage 4: Build Application for GitHub Pages Static Export
+      - name: 4. Build Application for Static Export
+        working-directory: ./frontend
+        env:
+          GITHUB_ACTIONS: "true"
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+        run: npm run build
+
+      # Stage 5: Upload Pages Artifact
+      - name: 5. Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./frontend/out
+
+      # Stage 6: Deploy to GitHub Pages
+      - name: 6. Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # =========================================================================
+  # JOB 2: DEPLOYMENT VERIFICATION & LIVE SELENIUM E2E TESTING (400+ CASES)
+  # =========================================================================
+  live-e2e-testing:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      # Stage 7: Checkout Automation Suite
+      - name: 7. Checkout Repository
+        uses: actions/checkout@v4
+
+      # Resolve Deployment BASE_URL
+      - name: 7b. Resolve Target Live Deployment URL
+        id: resolve-url
+        run: |
+          if [ -n "${{ inputs.custom_base_url }}" ]; then
+            TARGET_URL="${{ inputs.custom_base_url }}"
+          elif [ -n "${{ needs.build-and-deploy.outputs.deployment_url }}" ]; then
+            TARGET_URL="${{ needs.build-and-deploy.outputs.deployment_url }}"
+          else
+            TARGET_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          fi
+          echo "BASE_URL=${TARGET_URL}" >> $GITHUB_ENV
+          echo "Resolved live URL: ${TARGET_URL}"
+
+      # Stage 8: Wait for Deployment Availability & Health Verification
+      - name: 8. Wait for Live Deployment Availability
+        run: |
+          echo "Polling live deployment endpoint: ${{ env.BASE_URL }}"
+          MAX_RETRIES=30
+          COUNT=0
+          until curl -s -f -o /dev/null -L "${{ env.BASE_URL }}" || [ $COUNT -ge $MAX_RETRIES ]; do
+            echo "Waiting for deployment propagation... (Attempt $((COUNT+1))/$MAX_RETRIES)"
+            sleep 10
+            COUNT=$((COUNT+1))
+          done
+          
+          if [ $COUNT -ge $MAX_RETRIES ]; then
+            echo "::error::Live deployment at ${{ env.BASE_URL }} failed to respond with HTTP 200 within 5 minutes!"
+            exit 1
+          fi
+          echo "Deployment is LIVE and responding with HTTP 200 OK!"
+
+      - name: 8b. Verify Deployment Assets (HTML, CSS, JS)
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -L "${{ env.BASE_URL }}")
+          PAGE_SIZE=$(curl -s -L "${{ env.BASE_URL }}" | wc -c)
+          echo "HTTP Status Code: $HTTP_STATUS"
+          echo "HTML Page Byte Size: $PAGE_SIZE"
+          
+          if [ "$HTTP_STATUS" -ne 200 ] || [ "$PAGE_SIZE" -lt 1000 ]; then
+            echo "::error::Deployment verification check failed! Status: $HTTP_STATUS, Size: $PAGE_SIZE bytes"
+            exit 1
+          fi
+
+      # Stage 9: Setup Python Environment for Selenium Automation
+      - name: 9. Set Up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: automation/requirements.txt
+
+      - name: 9b. Install Chrome & Selenium Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r automation/requirements.txt
+
+      # Stage 10: Execute 400+ Selenium E2E Tests Against Live Deployment
+      - name: 10. Run Selenium E2E Test Suite (400+ Test Cases)
+        id: run-e2e
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+          HEADLESS: "true"
+          REPORTS_DIR: "Test Results"
+          ALLOW_LOCALHOST_OVERRIDE: "false"
+        run: |
+          python automation/run_e2e_suite.py
+
+      # Stage 11: Upload All Generated Artifacts (Retention: 30 Days)
+      - name: 11. Upload All Test Artifacts (Excel, HTML, JSON, Logs, Screenshots)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: axon-e2e-execution-evidence-${{ github.run_id }}
+          path: |
+            Test Results/
+          retention-days: 30
+          if-no-files-found: warn
+
+      # Stage 12: Publish GitHub Actions Step Summary
+      - name: 12. Publish Execution Summary to Job Summary
+        if: always()
+        run: |
+          if [ -f "Test Results/Summary/summary.md" ]; then
+            cat "Test Results/Summary/summary.md" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### Notice: No summary.md artifact located." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      # Stage 13: Enforce Final Pass / Fail Quality Gate (≥ 95% Pass Rate)
+      - name: 13. Evaluate Pipeline Pass/Fail Gate
+        if: always()
+        run: |
+          if [ "${{ steps.run-e2e.outcome }}" != "success" ]; then
+            echo "::error::E2E Automation Quality Gate Failed! Check test failure reports in artifacts."
+            exit 1
+          fi
+          echo "Pipeline Passed all Quality Gates with ≥ 95% success rate!"
